@@ -1,0 +1,116 @@
+.table {
+  table {
+    font-family: 'BDO Grotesk', sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      th {
+        font-size: rem(12px);
+        line-height: rem(16.8px);
+        letter-spacing: -2%;
+        padding-bottom: rem(33px);
+        text-align: left;
+        border-bottom: 1px solid $c-blue-a5;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $c-blue-a5;
+
+        &:hover {
+          a {
+            text-decoration: underline;
+          }
+        }
+
+        td {
+          a {
+            display: block;
+            padding-top: rem(30px);
+            padding-bottom: rem(35px);
+            font-size: 16px;
+            line-height: rem(22.4px);
+            letter-spacing: -2%;
+
+            &.highlighted {
+              font-size: rem(24px);
+              line-height: rem(33.6px);
+              letter-spacing: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper {
+  padding-bottom: rem(120px);
+
+  @include isTablet {
+    padding-bottom: rem(100px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(70px);
+  }
+
+  h2 {
+    font-size: rem(40px);
+    letter-spacing: -1.2px;
+    padding-bottom: rem(60px);
+
+    @include isTablet {
+      font-size: rem(32px);
+      line-height: rem(44.8px);
+      letter-spacing: 0;
+    }
+
+    @include isMobile {
+      padding-bottom: rem(40px);
+      font-size: rem(32px);
+      line-height: rem(44.8px);
+      letter-spacing: 0;
+    }
+  }
+
+  @include isTablet {
+    padding-bottom: rem(100px);
+  }
+}
+
+.mobileList {
+  border-top: 1px solid $c-blue-a5;
+}
+
+.block {
+  display: block;
+  padding-top: rem(16px);
+  padding-bottom: rem(16px);
+  border-bottom: 1px solid $c-blue-a5;
+
+  h5 {
+    font-size: rem(24px);
+    line-height: normal;
+    padding-bottom: rem(16px);
+  }
+
+  .content {
+    display: flex;
+    gap: rem(24px);
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: rem(4px);
+
+      span {
+        display: block;
+        line-height: rem(22.4px);
+        letter-spacing: -2%;
+      }
+    }
+  }
+}

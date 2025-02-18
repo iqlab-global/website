@@ -1,0 +1,68 @@
+.wrapper {
+  .list {
+    display: flex;
+    gap: rem(20px);
+    padding-bottom: rem(50px);
+
+    @include isTablet {
+      flex-wrap: wrap;
+    }
+
+    @include isMobile {
+      flex-direction: column;
+      padding-bottom: rem(24px);
+    }
+  }
+
+  .block {
+    border: 1px solid $c-blue-a5;
+    padding-left: rem(30px);
+    padding-right: rem(30px);
+    padding-bottom: rem(40px);
+    width: 323px;
+    height: 323px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include isTablet {
+      width: 48.5%;
+      height: 462px;
+    }
+
+    @include isMobile {
+      width: 100%;
+      height: unset;
+      padding: rem(20px);
+    }
+
+    h6 {
+      padding-top: rem(32px);
+      padding-bottom: rem(12px);
+      font-size: rem(20px);
+
+      @include isMobile {
+        padding-top: rem(20px);
+        font-size: rem(14px);
+        line-height: rem(19.6px);
+      }
+    }
+
+    p {
+      @include isMobile {
+        font-size: rem(12px);
+        line-height: rem(16.8px);
+      }
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+
+      @include isMobile {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}

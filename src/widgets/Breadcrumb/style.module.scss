@@ -1,0 +1,41 @@
+.section {
+  font-family: var(--font-disket-mono);
+  font-weight: 700;
+  font-size: rem(12px);
+  line-height: rem(13.52px);
+  color: $c-blue-a5;
+  letter-spacing: -2%;
+  padding-top: rem(32px);
+  padding-bottom: rem(32px);
+
+  @include isMobile {
+    padding-top: rem(24px);
+    padding-bottom: rem(24px);
+  }
+
+  a {
+    color: $c-gray-b4;
+    display: inline-block;
+    position: relative;
+    padding-left: rem(20px);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      display: block;
+      background-color: $c-blue-a5;
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+  }
+
+  span {
+    color: $c-gray-b4;
+  }
+}

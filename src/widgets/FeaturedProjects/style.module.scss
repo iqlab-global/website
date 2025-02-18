@@ -1,0 +1,141 @@
+.section {
+  padding-top: rem(60px);
+  padding-bottom: rem(75px);
+  background-color: $c-blue-a5;
+  color: $c-white;
+
+  @include isTablet {
+    padding-bottom: rem(38px);
+  }
+
+  @include isMobile {
+    padding-top: rem(45px);
+    padding-bottom: rem(55px);
+  }
+}
+
+.header {
+  padding-bottom: rem(106px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include isTablet {
+    padding-bottom: rem(38px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(60px);
+  }
+
+  h2 {
+    font-size: rem(40px);
+    line-height: rem(56px);
+    letter-spacing: -3%;
+
+    @include isMobile {
+      font-weight: 400;
+      font-size: rem(28px);
+      line-height: rem(39.2px);
+      letter-spacing: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  a {
+    @include isMobile {
+      display: none;
+    }
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: rem(77px);
+
+  @include isSmallDesktop {
+    gap: rem(30px);
+  }
+
+  @include isTablet {
+    gap: rem(20px);
+  }
+
+  @include isMobile {
+    grid-template-columns: 1fr;
+    gap: rem(32px);
+  }
+
+  .secondaryList {
+    display: flex;
+    gap: rem(77px);
+
+    @include isSmallDesktop {
+      gap: rem(30px);
+    }
+
+    @include isTablet {
+      gap: rem(20px);
+    }
+
+    @include isMobile {
+      flex-direction: column;
+      gap: rem(32px);
+    }
+  }
+}
+
+.block {
+  &.mainBlock {
+    img {
+      height: 552px;
+      width: 100%;
+
+      @include isMobile {
+        height: 280px;
+      }
+    }
+  }
+
+  img {
+    display: block;
+    height: 323px;
+    width: 100%;
+    object-fit: cover;
+    padding-bottom: rem(28px);
+
+    @include isTablet {
+      padding-bottom: rem(18px);
+    }
+
+    @include isMobile {
+      padding-bottom: rem(24px);
+      height: 280px;
+    }
+  }
+
+  h6 {
+    font-weight: 400;
+    font-size: rem(24px);
+    line-height: rem(33.6px);
+    letter-spacing: 0;
+  }
+
+  .tags {
+    padding-top: rem(12px);
+    padding-bottom: rem(24px);
+    display: flex;
+    gap: 4px;
+
+    span {
+      padding: 10px;
+      border: 1px solid $c-white;
+      font-weight: 400;
+      font-size: rem(12px);
+      line-height: rem(16.8px);
+      letter-spacing: -2%;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.section {
+  padding-top: rem(33px);
+  padding-bottom: rem(100px);
+
+  @include isTablet {
+    padding-top: rem(18px);
+  }
+
+  @include isMobile {
+    padding-top: 0;
+    padding-bottom: rem(60px);
+  }
+
+  h1 {
+    font-size: rem(100px);
+    line-height: rem(116px);
+    letter-spacing: -2%;
+    padding-bottom: rem(85px);
+
+    @include isTablet {
+      padding-bottom: rem(50px);
+    }
+
+    @include isMobile {
+      padding-bottom: rem(35px);
+      font-size: rem(40px);
+      line-height: rem(46px);
+      letter-spacing: -1.2px;
+    }
+  }
+}
+
+.wrapper {
+}
+
+.content {
+  display: flex;
+  gap: rem(50px);
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include isTablet {
+    flex-direction: column;
+    gap: rem(130px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    gap: rem(40px);
+  }
+
+  img {
+    width: 780px;
+    display: block;
+
+    @include isSmallDesktop {
+      width: 600px;
+    }
+
+    @include isTablet {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+}
+
+.info {
+  @include isTablet {
+    display: flex;
+    gap: 100px;
+  }
+
+  h4 {
+    font-size: rem(40px);
+    line-height: rem(56px);
+    letter-spacing: -3%;
+    padding-bottom: rem(28px);
+
+    @include isTablet {
+      font-size: rem(32px);
+      line-height: rem(44.8px);
+      letter-spacing: 0;
+      padding-bottom: 0;
+    }
+
+    @include isMobile {
+      font-size: rem(32px);
+      line-height: rem(44.8px);
+      letter-spacing: 0;
+      padding-bottom: rem(24px);
+    }
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: rem(30px);
+    letter-spacing: 0;
+    color: $c-gray-30;
+
+    @include isTablet {
+      width: 540px;
+      flex-shrink: 0;
+    }
+  }
+}

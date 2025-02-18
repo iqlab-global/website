@@ -1,0 +1,49 @@
+.section {
+  padding-top: rem(28px);
+  border-top: 1px solid $c-blue-a5;
+  display: flex;
+  justify-content: space-between;
+  gap: rem(20px);
+  padding-bottom: rem(90px);
+
+  @include isTablet {
+    flex-direction: column;
+    gap: rem(24px);
+    padding-bottom: rem(45px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    padding-top: rem(16px);
+    gap: rem(24px);
+    padding-bottom: rem(32px);
+  }
+
+  h4 {
+    font-size: rem(32px);
+    line-height: rem(44.8px);
+    letter-spacing: 0;
+
+    @include isMobile {
+      font-size: rem(28px);
+      line-height: rem(39.2px);
+      letter-spacing: 0;
+    }
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: rem(30px);
+    letter-spacing: 0;
+    color: $c-gray-30;
+    width: 552px;
+
+    @include isTablet {
+      width: 100%;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import 'base/reset';
+@import 'layout/grid';
+
+html,
+body {
+  color: $c-blue-a5;
+  background-color: $c-white-ff;
+  font-family: var(--font-bdo), sans-serif;
+  line-height: normal;
+  font-weight: 400;
+  scroll-behavior: smooth;
+}

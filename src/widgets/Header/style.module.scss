@@ -1,0 +1,80 @@
+.header {
+  width: 100%;
+  position: absolute;
+  top: rem(31px);
+  color: $c-white;
+  z-index: 1;
+
+  &.whiteBg {
+    background-color: $c-white;
+    position: static;
+    color: $c-gray-30;
+    border-bottom: 1px solid $c-blue-ff;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem(52px);
+
+      @include isSmallDesktop {
+        gap: rem(30px);
+      }
+
+      @include isTablet {
+        gap: rem(30px);
+      }
+
+      li {
+        a {
+          display: block;
+
+          @include isTablet {
+            font-size: rem(14px);
+          }
+
+          &.active {
+            color: $c-blue-a5;
+          }
+        }
+      }
+    }
+  }
+
+  .contactUs {
+    @include isTablet {
+      font-size: rem(12px);
+      padding: rem(12px) rem(16px);
+    }
+  }
+}
+
+.hamburgerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileHeader {
+  padding: rem(24px);
+}
+
+.mobileNav {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: #0071f9; // TODO: Change color to background image.
+  top: 0;
+  left: 0;
+  display: none;
+}

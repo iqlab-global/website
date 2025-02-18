@@ -1,0 +1,48 @@
+.section {
+  padding-bottom: rem(130px);
+
+  @include isTablet {
+    padding-bottom: rem(70px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(70px);
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1px;
+  margin: auto;
+
+  @include isMobile {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+.block {
+  height: 338px;
+  background-color: $c-blue-a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include isTablet {
+    height: 236px;
+
+    img {
+      width: 105px;
+    }
+  }
+
+  @include isMobile {
+    height: 140px;
+
+    img {
+      width: 60px;
+    }
+  }
+}

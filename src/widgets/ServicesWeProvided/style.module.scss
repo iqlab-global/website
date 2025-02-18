@@ -1,0 +1,176 @@
+.section {
+  padding-bottom: rem(180px);
+
+  @include isTablet {
+    padding-bottom: rem(100px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(30px);
+  }
+}
+
+.wrapper {
+  padding-top: rem(250px);
+  position: relative;
+
+  @include isMobile {
+    padding-top: rem(50px);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: rem(70px);
+
+  @include isTablet {
+    padding-bottom: rem(53px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(25px);
+  }
+
+  h2 {
+    font-size: rem(86px);
+    line-height: rem(90px);
+    letter-spacing: -3%;
+
+    @include isTablet {
+      font-size: rem(64px);
+      line-height: rem(70.4px);
+      letter-spacing: -3%;
+    }
+
+    @include isMobile {
+      font-size: rem(32px);
+      line-height: rem(35.2px);
+      letter-spacing: -0.96px;
+    }
+  }
+
+  a {
+    @include isMobile {
+      display: none;
+    }
+  }
+}
+
+.pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @include isMobile {
+    display: none;
+  }
+}
+
+.content {
+  display: flex;
+  gap: rem(130px);
+
+  @include isSmallDesktop {
+    gap: rem(40px);
+  }
+
+  @include isTablet {
+    gap: rem(19px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+  }
+
+  .image {
+    position: relative;
+    width: 552px;
+    flex-shrink: 0;
+
+    @include isSmallDesktop {
+      width: 435px;
+    }
+
+    @include isTablet {
+      width: 350px;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+
+    img {
+      position: relative;
+      width: 100%;
+      height: 552px;
+      display: block;
+      object-fit: cover;
+      z-index: 10;
+
+      @include isTablet {
+        height: 382px;
+      }
+
+      @include isMobile {
+        height: 280px;
+      }
+    }
+
+    svg {
+      position: absolute;
+      left: -80px;
+      bottom: -105px;
+
+      @include isMobile {
+        left: -167px;
+      }
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: rem(50px);
+    column-gap: rem(100px);
+
+    @include isSmallDesktop {
+      column-gap: rem(30px);
+      row-gap: rem(45px);
+    }
+
+    @include isTablet {
+      column-gap: rem(15px);
+      row-gap: rem(45px);
+    }
+
+    @include isMobile {
+      gap: rem(32px);
+      flex-direction: column;
+    }
+
+    .block {
+      width: 238px;
+
+      @include isMobile {
+        width: 100%;
+      }
+
+      h6 {
+        font-size: rem(20px);
+        font-weight: 400;
+        padding-top: rem(40px);
+        padding-bottom: rem(16px);
+
+        @include isMobile {
+          padding-top: rem(16px);
+        }
+      }
+
+      p {
+        line-height: rem(22.4px);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.section {
+  padding-bottom: rem(75px);
+
+  @include isMobile {
+    padding-bottom: rem(37px);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 304px;
+    object-fit: cover;
+
+    @include isTablet {
+      height: 206px;
+    }
+
+    @include isMobile {
+      height: 64px;
+    }
+  }
+}
