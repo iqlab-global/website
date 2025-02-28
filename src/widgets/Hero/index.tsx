@@ -26,8 +26,8 @@ export const Hero = ({
             <h1>{title}</h1>
             <p>{paragraph}</p>
             <div className={s.footer}>
-              <Button>{ctaButtonText}</Button>
-              <a href={ctaButtonUrl} className={s.ourServices}>
+              <Button href={ctaButtonUrl}>{ctaButtonText}</Button>
+              <a href={servicesButtonUrl} className={s.ourServices}>
                 {servicesButtonText} ↗
               </a>
             </div>

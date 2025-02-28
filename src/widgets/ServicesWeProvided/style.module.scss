@@ -153,6 +153,10 @@
     .block {
       width: 238px;
 
+      img {
+        width: 83px;
+      }
+
       @include isMobile {
         width: 100%;
       }

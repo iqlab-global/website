@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import '@/assets/styles/global.scss';
 import { clsx } from 'clsx';
-import { client } from '@/sanity/lib/client';
 
 const disketMono = localFont({
   src: [
@@ -52,9 +51,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const query = '*[_type == "homePageSingletron"][0]{heroSection, whychooseus}';
-  const { heroSection, whychooseus } = await client.fetch(query);
-
   return (
     <html lang="en">
       <head>

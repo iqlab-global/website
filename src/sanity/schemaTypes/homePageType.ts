@@ -6,14 +6,31 @@ export const homePageSingleton = defineType({
   title: 'Home Page',
   type: 'document',
   icon: HomeIcon,
+  groups: [
+    {
+      name: 'heroGroup',
+      title: 'Hero Section',
+    },
+    {
+      name: 'whyChooseUsGroup',
+      title: 'Why Choose Us Section',
+    },
+    {
+      name: 'servicesGroup',
+      title: 'Services We Provided',
+    },
+  ],
   fields: [
     defineField({
       name: 'name',
       type: 'string',
+      hidden: true,
+      initialValue: 'Home Page',
     }),
     defineField({
       name: 'heroSection',
       type: 'object',
+      group: 'heroGroup',
       fields: [
         defineField({
           name: 'title',
@@ -42,12 +59,39 @@ export const homePageSingleton = defineType({
       ],
     }),
     defineField({
-      name: 'whychooseus',
+      name: 'whyChooseUs',
       title: 'Why Choose Us Section',
       type: 'array',
+      group: 'whyChooseUsGroup',
       of: [
         defineField({
           name: 'whychooseusItem',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'icon',
+              type: 'image',
+            }),
+            defineField({
+              name: 'title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'description',
+              type: 'text',
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'servicesWeProvided',
+      title: 'Services We Provided Section',
+      type: 'array',
+      group: 'servicesGroup',
+      of: [
+        defineField({
+          name: 'servicesItem',
           type: 'object',
           fields: [
             defineField({

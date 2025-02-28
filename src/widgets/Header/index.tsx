@@ -43,15 +43,15 @@ export const Header = ({ whiteBg = false }: HeaderProps) => {
                     <li>
                       <NavLink href="/showcase">Showcase</NavLink>
                     </li>
-                    <li>
-                      <a href="#">Careers</a>
-                    </li>
-                    <li>
-                      <a href="#">Open Source</a>
-                    </li>
-                    <li>
-                      <a href="#">Blogs</a>
-                    </li>
+                    {/*<li>*/}
+                    {/*  <a href="#">Careers</a>*/}
+                    {/*</li>*/}
+                    {/*<li>*/}
+                    {/*  <a href="#">Open Source</a>*/}
+                    {/*</li>*/}
+                    {/*<li>*/}
+                    {/*  <a href="#">Blogs</a>*/}
+                    {/*</li>*/}
                   </ul>
                 </nav>
                 <Button className={s.contactUs}>Contact Us</Button>

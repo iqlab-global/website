@@ -1,5 +1,5 @@
-@import 'base/reset';
-@import 'layout/grid';
+@use 'base/reset' as *;
+@use 'layout/grid' as *;
 
 html,
 body {

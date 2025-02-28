@@ -6,7 +6,15 @@ import ServicesImg from '@/assets/images/services.jpeg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
 import { CodeIcon } from '@/assets/icons/CodeIcon';
 
-export const ServicesWeProvided = () => {
+interface ServicesWeProvidedProps {
+  data: {
+    title: string;
+    icon: string;
+    description: string;
+  }[];
+}
+
+export const ServicesWeProvided = ({ data }: ServicesWeProvidedProps) => {
   return (
     <section className={s.section}>
       <Container>
@@ -17,7 +25,9 @@ export const ServicesWeProvided = () => {
               Services <br />
               We Provided
             </h2>
-            <Button outline>/ Everything we do</Button>
+            <Button href="/services" outline>
+              / Everything we do
+            </Button>
           </div>
           <div className={s.content}>
             <div className={s.image}>
@@ -25,26 +35,13 @@ export const ServicesWeProvided = () => {
               <DotsPattern />
             </div>
             <div className={s.list}>
-              <div className={s.block}>
-                <CodeIcon />
-                <h6>Custom Software Development</h6>
-                <p>Tailored solutions to address your business needs.</p>
-              </div>
-              <div className={s.block}>
-                <CodeIcon />
-                <h6>Custom Software Development</h6>
-                <p>Tailored solutions to address your business needs.</p>
-              </div>
-              <div className={s.block}>
-                <CodeIcon />
-                <h6>Custom Software Development</h6>
-                <p>Tailored solutions to address your business needs.</p>
-              </div>
-              <div className={s.block}>
-                <CodeIcon />
-                <h6>Custom Software Development</h6>
-                <p>Tailored solutions to address your business needs.</p>
-              </div>
+              {data.map(({ icon, title, description }) => (
+                <div className={s.block}>
+                  <img src={icon} alt={title} />
+                  <h6>{title}</h6>
+                  <p>{description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
