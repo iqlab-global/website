@@ -37,7 +37,6 @@ export const MeetTheTeam = () => {
           <p>Data Scientist</p>
         </div>
       </div>
-      {/*TODO: Add bottom padding for all sizes*/}
     </section>
   );
 };

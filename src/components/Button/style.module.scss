@@ -8,6 +8,10 @@
   font-weight: 700;
   letter-spacing: 1.26px;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &.buttonOutline {
     font-size: rem(16px);
     color: $c-blue-a5;

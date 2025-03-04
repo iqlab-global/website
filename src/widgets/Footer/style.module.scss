@@ -1,0 +1,139 @@
+.footer {
+  padding: rem(40px) 0 rem(10px) 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/images/gradient.png');
+  width: 100%;
+  color: $c-white;
+
+  @include smallDesktopAndAbove() {
+    padding: rem(80px) 0 rem(10px) 0;
+  }
+
+  .wrapper {
+    h2 {
+      font-size: rem(34px);
+
+      @include tabletAndAbove() {
+        font-size: rem(40px);
+      }
+
+      @include smallDesktopAndAbove() {
+        font-size: rem(54px);
+      }
+    }
+    .main {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: rem(30px);
+
+      @include smallDesktopAndAbove() {
+        margin-bottom: rem(60px);
+      }
+
+      .callToAction {
+        width: 100%;
+
+        @include smallDesktopAndAbove() {
+          width: 50%;
+        }
+
+        .buttons {
+          display: flex;
+          gap: rem(30px);
+          align-items: center;
+          margin-top: rem(30px);
+
+          .servicesLink {
+            padding-bottom: 4px;
+            border-bottom: 1px solid $c-white;
+          }
+        }
+
+        .features {
+          display: flex;
+          gap: rem(20px);
+          margin-top: rem(30px);
+
+          @include smallDesktopAndAbove() {
+            margin-top: rem(60px);
+          }
+
+          .feature {
+            display: flex;
+            align-items: center;
+            gap: rem(6px);
+            font-size: rem(14px);
+          }
+        }
+      }
+
+      .navigations {
+        width: 30%;
+        display: none;
+
+        @include smallDesktopAndAbove() {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .internal {
+          display: grid;
+          padding: 0 !important;
+          gap: rem(40px);
+          grid-template-columns: repeat(2, 1fr);
+
+          li {
+            font-weight: 300;
+            &:not(:last-child) {
+              margin-bottom: rem(20px);
+            }
+          }
+        }
+
+        .socials {
+          display: flex;
+          flex-direction: column;
+          gap: rem(10px);
+          margin-left: rem(10px);
+
+          .socialBtn {
+            width: rem(52px);
+            height: rem(52px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba($c-blue-a5, 0.3);
+
+            img {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .dotted {
+      padding: rem(40px) 0 rem(20px) 0;
+      width: 100%;
+      display: flex;
+      font-family: var(--font-disket-mono);
+      font-size: rem(14px);
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: rem(20px);
+
+      p {
+        font-weight: 700;
+      }
+
+      @include smallDesktopAndAbove() {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: rem(80px) 0 rem(40px) 0;
+      }
+    }
+  }
+}

@@ -27,3 +27,21 @@ $desktopPx: 1391px;
     @content;
   }
 }
+
+@mixin tabletAndAbove($offset: 0px) {
+  @media only screen and (min-width: rem($tabletPx + $offset)) {
+    @content;
+  }
+}
+
+@mixin smallDesktopAndAbove($offset: 0px) {
+  @media only screen and (min-width: rem($smallDesktopPx + $offset)) {
+    @content;
+  }
+}
+
+@mixin desktopAndAbove($offset: 0px) {
+  @media only screen and (min-width: rem($desktopPx + $offset)) {
+    @content;
+  }
+}

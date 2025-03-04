@@ -1,0 +1,220 @@
+.section {
+  padding-top: rem(30px) !important;
+}
+
+.wrapper {
+  h1 {
+    font-size: rem(40px);
+    margin-bottom: rem(18px);
+
+    @include tabletAndAbove() {
+      font-size: rem(60px);
+      margin-bottom: rem(22px);
+    }
+
+    @include smallDesktopAndAbove() {
+      font-size: rem(80px);
+      margin-bottom: rem(26px);
+    }
+
+    @include desktopAndAbove() {
+      font-size: rem(100px);
+      margin-bottom: rem(30px);
+    }
+  }
+
+  .patternAndInputs,
+  .headingAndTexts {
+    width: 100%;
+    display: flex;
+    gap: 7%;
+  }
+
+  .headingAndTexts {
+    flex-direction: column;
+
+    @include tabletAndAbove() {
+      flex-direction: row;
+    }
+
+    h2 {
+      font-size: rem(28px);
+
+      @include tabletAndAbove() {
+        width: 40%;
+      }
+
+      @include smallDesktopAndAbove() {
+        font-size: rem(34px);
+        margin-bottom: rem(54px);
+      }
+
+      @include desktopAndAbove() {
+        font-size: rem(40px);
+      }
+    }
+
+    .texts {
+      width: 100%;
+
+      @include tabletAndAbove() {
+        width: 60%;
+      }
+
+      p {
+        color: $c-black-30;
+        @include smallDesktopAndAbove() {
+          width: 70%;
+        }
+
+        &:first-child {
+          margin-bottom: rem(16px);
+
+          @include tabletAndAbove() {
+            margin-bottom: rem(30px);
+          }
+        }
+      }
+    }
+  }
+
+  .patternAndInputs {
+    margin-bottom: rem(60px);
+
+    .pattern {
+      display: none;
+      height: fit-content;
+      @include smallDesktopAndAbove() {
+        display: block;
+        width: 40%;
+        margin-top: rem(12px);
+      }
+    }
+
+    .inputs {
+      width: 100%;
+      margin-top: rem(40px);
+
+      @include tabletAndAbove() {
+        padding: 0 6%;
+      }
+
+      @include smallDesktopAndAbove() {
+        width: 60%;
+        margin-top: rem(-10px);
+        padding: 0;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: 100%;
+
+        @include tabletAndAbove() {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        column-gap: rem(24px);
+        row-gap: rem(24px);
+
+        .message {
+          height: rem(240px);
+
+          @include tabletAndAbove() {
+            grid-column: span 2 / span 2;
+            grid-column-start: 1;
+            grid-row-start: 3;
+          }
+        }
+
+        .submitBtn {
+          width: fit-content;
+          font-size: rem(14px);
+          margin-top: rem(30px);
+        }
+      }
+    }
+  }
+
+  .companyContacts {
+    padding: rem(30px) 0;
+    border-top: 1px solid $c-blue-a5;
+
+    @include tabletAndAbove() {
+      padding: rem(30px) 0 rem(60px) 0;
+    }
+
+    h2 {
+      padding-bottom: rem(20px);
+    }
+
+    .contactsWrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      @include tabletAndAbove() {
+        flex-direction: row;
+      }
+
+      .description {
+        color: $c-black-30;
+        width: 100%;
+        margin-bottom: rem(14px);
+
+        @include tabletAndAbove() {
+          width: 30%;
+          margin-bottom: 0;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .infoBox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: rem(14px) 0;
+
+        .wrapper {
+          height: 100%;
+        }
+
+        @include tabletAndAbove() {
+          width: 30%;
+          align-items: center;
+          padding: 0;
+          border-top: none;
+        }
+
+        .heading {
+          font-size: rem(14px);
+          color: $c-black-30;
+          margin-bottom: rem(14px);
+        }
+
+        .address {
+          font-size: rem(16px);
+          color: $c-blue-a5;
+          margin-bottom: 10px;
+        }
+      }
+
+      .centeredBox {
+        border-top: 1px solid $c-blue-a5;
+        border-bottom: 1px solid $c-blue-a5;
+
+        @include tabletAndAbove() {
+          border-top: none;
+          border-bottom: none;
+          border-left: 1px solid $c-blue-a5;
+          border-right: 1px solid $c-blue-a5;
+        }
+      }
+    }
+  }
+}
+
+.captchaSection {
+  margin-top: rem(10px);
+}

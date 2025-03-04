@@ -4,7 +4,20 @@ import { Container } from '@/components/Container';
 import ServicesImg from '@/assets/images/services.jpeg';
 import { clsx } from 'clsx';
 
-export const FeaturedProjects = () => {
+interface FeaturedProject {}
+
+interface FeaturedProjectsProps {
+  data: {
+    _id: string;
+    title: string;
+    slug: string;
+    image: string;
+    shortDescription: string;
+    tags: { title: string }[];
+  }[];
+}
+
+export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
   // TODO: Dots background
   // TODO: Mobile '/ ALL PROJECTS' button
   // TODO: Short description of project block might need some kind of shortening function for dots (...) at the end
@@ -21,42 +34,28 @@ export const FeaturedProjects = () => {
           </div>
           <div className={s.list}>
             <div className={clsx(s.block, s.mainBlock)}>
-              <img src={ServicesImg.src} alt="Services" />
-              <h6>On Performance Optimizations for Displaying Large Structures</h6>
+              <img src={data[0].image} alt={data[0].title} />
+              <h6>{data[0].title}</h6>
               <div className={s.tags}>
-                <span>Digital transformation</span>
-                <span>MySQL</span>
+                {data[0].tags.map(({ title }: { title: string }) => (
+                  <span>{title}</span>
+                ))}
               </div>
-              <p>
-                In modern applications, particularly within medium to large companies, efficiently handling
-                vast amounts of da...
-              </p>
+              <p>{data[0].shortDescription}</p>
             </div>
             <div className={s.secondaryList}>
-              <div className={s.block}>
-                <img src={ServicesImg.src} alt="Services" />
-                <h6>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h6>
-                <div className={s.tags}>
-                  <span>Digital transformation</span>
-                  <span>MySQL</span>
+              {data.slice(-2).map(({ title, image, shortDescription, tags }: any) => (
+                <div className={s.block}>
+                  <img src={image} alt={title} />
+                  <h6>{title}</h6>
+                  <div className={s.tags}>
+                    {tags.map(({ title }: { title: string }) => (
+                      <span>{title}</span>
+                    ))}
+                  </div>
+                  <p>{shortDescription}</p>
                 </div>
-                <p>
-                  In modern applications, particularly within medium to large companies, efficiently handling
-                  vast amounts of da...
-                </p>
-              </div>
-              <div className={s.block}>
-                <img src={ServicesImg.src} alt="Services" />
-                <h6>On Performance Optimizations for Displaying Large Structures</h6>
-                <div className={s.tags}>
-                  <span>Digital transformation</span>
-                  <span>MySQL</span>
-                </div>
-                <p>
-                  In modern applications, particularly within medium to large companies, efficiently handling
-                  vast amounts of da...
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>

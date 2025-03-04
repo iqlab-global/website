@@ -1,4 +1,5 @@
 import { Header } from '@/widgets/Header';
+import Footer from '@/widgets/Footer';
 
 interface PageProps {
   whiteHeader?: boolean;
@@ -9,6 +10,7 @@ export const Page = ({ whiteHeader = false, children }: PageProps) => {
     <>
       <Header whiteBg={whiteHeader} />
       {children}
+      <Footer />
     </>
   );
 };

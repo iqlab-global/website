@@ -8,25 +8,31 @@ interface ButtonProps {
   className?: string;
   transparentBg?: boolean;
   children?: React.ReactNode;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button = ({
   className,
   href,
   children,
-  transparentBg = false,
-  outline = false,
+  disabled,
+  transparentBg,
+  outline,
+  type,
 }: ButtonProps) => {
-  return (
-    <Link
-      href={href ? href : '/'}
-      className={clsx(
-        s.button,
-        { [s.buttonOutline]: outline },
-        { [s.transparentBg]: transparentBg },
-        className
-      )}
-    >
+  const buttonClass = clsx(
+    s.button,
+    { [s.buttonOutline]: outline, [s.transparentBg]: transparentBg },
+    className
+  );
+
+  return type ? (
+    <button className={buttonClass} disabled={disabled} type={type}>
+      {children}
+    </button>
+  ) : (
+    <Link href={href || '/'} className={buttonClass}>
       {children}
     </Link>
   );

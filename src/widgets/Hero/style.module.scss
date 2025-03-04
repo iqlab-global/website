@@ -1,10 +1,12 @@
 .hero {
   height: 100vh;
+  min-height: 700px;
   color: $c-white;
   background-size: cover;
 
   .wrapper {
     height: 100vh;
+    min-height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

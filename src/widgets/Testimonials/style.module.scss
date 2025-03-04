@@ -1,0 +1,83 @@
+.section {
+  padding: rem(100px) 0;
+
+  @include isTablet {
+    padding-bottom: rem(38px);
+  }
+
+  @include isMobile {
+    padding-top: rem(45px);
+    padding-bottom: rem(55px);
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  gap: rem(40px);
+  flex-direction: column;
+
+  @include isTablet() {
+    flex-direction: row;
+  }
+
+  @include isSmallDesktop {
+    flex-direction: row;
+  }
+
+  @include isDesktop() {
+    flex-direction: row;
+  }
+
+  .headingAndPattern {
+    width: 30%;
+
+    @include isMobile() {
+      width: 100%;
+    }
+    h2 {
+      margin-bottom: rem(50px);
+      font-size: rem(28px);
+      @include isMobile() {
+        margin-bottom: rem(20px);
+      }
+      @include isTablet() {
+        font-size: rem(30px);
+      }
+
+      @include isSmallDesktop() {
+        font-size: rem(34px);
+      }
+
+      @include isDesktop() {
+        font-size: rem(40px);
+      }
+    }
+
+    .pattern {
+      display: block;
+
+      @include isMobile() {
+        display: none;
+      }
+    }
+  }
+
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40px);
+    width: 70%;
+
+    padding: 0 10%;
+
+    @include isMobile() {
+      padding: 0;
+      width: 100%;
+    }
+
+    @include isTablet() {
+      padding: 0 2%;
+    }
+  }
+}

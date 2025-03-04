@@ -49,6 +49,7 @@
     }
 
     p {
+      min-height: 92px;
       @include isMobile {
         font-size: rem(12px);
         line-height: rem(16.8px);

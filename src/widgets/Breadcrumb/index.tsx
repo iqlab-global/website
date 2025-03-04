@@ -1,17 +1,22 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
+import Link from 'next/link';
 
-export const Breadcrumb = () => {
+interface BreadcrumbProps {
+  currentPage: string;
+}
+
+export const Breadcrumb = ({ currentPage }: BreadcrumbProps) => {
   return (
     <section className={s.section}>
       <Container>
         <div className={s.wrapper}>
-          <a href="/">
+          <Link href="/">
             <span />
             Home
-          </a>
+          </Link>
           <span> / </span>
-          About
+          {currentPage}
         </div>
       </Container>
     </section>

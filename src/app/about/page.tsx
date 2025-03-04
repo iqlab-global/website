@@ -11,7 +11,7 @@ import { MeetTheTeam } from '@/widgets/MeetTheTeam';
 export default function About() {
   return (
     <Page whiteHeader>
-      <Breadcrumb />
+      <Breadcrumb currentPage="About Us" />
       <AboutCta />
       <Container>
         <div className={s.wrapper}>

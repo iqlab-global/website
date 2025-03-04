@@ -6,6 +6,15 @@
   flex-wrap: wrap;
   column-gap: rem(20px);
   row-gap: rem(55px);
+  margin-bottom: rem(60px);
+
+  @include tabletAndAbove() {
+    margin-bottom: rem(140px);
+  }
+
+  @include smallDesktopAndAbove() {
+    margin-bottom: rem(200px);
+  }
 }
 
 .block {

@@ -36,7 +36,7 @@ export const ServicesWeProvided = ({ data }: ServicesWeProvidedProps) => {
             </div>
             <div className={s.list}>
               {data.map(({ icon, title, description }) => (
-                <div className={s.block}>
+                <div className={s.block} key={title}>
                   <img src={icon} alt={title} />
                   <h6>{title}</h6>
                   <p>{description}</p>

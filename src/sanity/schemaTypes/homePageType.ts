@@ -19,6 +19,10 @@ export const homePageSingleton = defineType({
       name: 'servicesGroup',
       title: 'Services We Provided',
     },
+    {
+      name: 'testimonialsGroup',
+      title: 'Testimonials Section',
+    },
   ],
   fields: [
     defineField({
@@ -100,6 +104,28 @@ export const homePageSingleton = defineType({
             }),
             defineField({
               name: 'title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'description',
+              type: 'text',
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'testimonialsSection',
+      title: 'Client Testimonials',
+      type: 'array',
+      group: 'testimonialsGroup',
+      of: [
+        defineField({
+          name: 'testimonialItem',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'companyName',
               type: 'string',
             }),
             defineField({

@@ -4,16 +4,30 @@ import { ServicesIntro } from '@/widgets/ServicesIntro';
 import { ServicesAreas } from '@/widgets/ServicesAreas';
 import { ServicesSlogan } from '@/widgets/ServicesSlogan';
 import { TechCapability } from '@/widgets/TechCapability';
+import { client } from '@/sanity/lib/client';
+import IndustriesServed from '@/widgets/IndustriesServed';
 
-export default function Service() {
+const query = `{
+  "servicesPage": *[_type == "servicesPageSingleton"][0] {},
+  "techCapabilities": *[_type == "techCapability"] {
+    _id,
+    "icon": icon.asset->url,
+    alt
+  }
+}
+`;
+
+export default async function Service() {
+  const { techCapabilities } = await client.fetch(query);
+
   return (
     <Page whiteHeader>
-      <Breadcrumb />
+      <Breadcrumb currentPage="Services" />
       <ServicesIntro />
       <ServicesAreas />
       <ServicesSlogan />
-      {/*TODO: Industries served section.*/}
-      <TechCapability />
+      <IndustriesServed />
+      <TechCapability data={techCapabilities} />
     </Page>
   );
 }

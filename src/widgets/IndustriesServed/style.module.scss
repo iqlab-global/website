@@ -1,0 +1,100 @@
+.section {
+  padding: 0 0 rem(100px) 0;
+
+  @include isMobile() {
+    padding: 0 0 rem(40px) 0;
+  }
+
+  @include isTablet() {
+    padding: 0 0 rem(40px) 0;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include isSmallDesktop() {
+    flex-direction: row;
+  }
+  @include isDesktop() {
+    flex-direction: row;
+  }
+
+  .patternWrapper {
+    width: 100%;
+    order: 2;
+    position: relative;
+
+    @include isSmallDesktop() {
+      width: 30%;
+      order: unset;
+    }
+
+    @include isDesktop() {
+      width: 30%;
+      order: unset;
+    }
+
+    .patternImg {
+      position: absolute;
+      bottom: -87px;
+      right: -198px;
+      width: auto;
+
+      @include isMobile() {
+        position: unset;
+        width: 60%;
+        margin-top: rem(20px);
+      }
+
+      @include isTablet() {
+        position: unset;
+        width: 60%;
+        margin-top: rem(20px);
+      }
+    }
+  }
+
+  .mainContent {
+    width: 100%;
+
+    @include isSmallDesktop() {
+      width: 70%;
+    }
+
+    @include isDesktop() {
+      width: 70%;
+    }
+  }
+
+  .headingWrapper {
+    padding: rem(30px) 0 rem(90px);
+    border-top: 1px solid $c-blue-a5;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: rem(30px);
+
+    @include isMobile {
+      padding-bottom: 30px;
+    }
+
+    p {
+      max-width: rem(480px);
+      color: $c-black-30;
+    }
+  }
+
+  .serviceCards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20px);
+
+    @include isMobile() {
+      grid-template-columns: 1fr;
+    }
+  }
+}

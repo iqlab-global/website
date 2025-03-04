@@ -1,0 +1,30 @@
+.inputWrapper {
+  position: relative;
+  height: rem(52px);
+
+  label {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    font-weight: 700;
+    padding: 0 rem(10px);
+    font-size: rem(12px);
+    background-color: $c-white-ff;
+    font-family: var(--font-disket-mono);
+  }
+  input,
+  textarea {
+    border: 2px solid $c-blue-a5;
+    padding-left: rem(20px);
+    width: 100%;
+    background-color: $c-white-ff;
+    height: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    padding-top: rem(20px);
+  }
+}
