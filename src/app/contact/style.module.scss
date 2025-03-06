@@ -108,12 +108,12 @@
       form {
         display: grid;
         grid-template-columns: 100%;
+        column-gap: rem(24px);
+        row-gap: rem(24px);
 
         @include tabletAndAbove() {
           grid-template-columns: repeat(2, 1fr);
         }
-        column-gap: rem(24px);
-        row-gap: rem(24px);
 
         .message {
           height: rem(240px);

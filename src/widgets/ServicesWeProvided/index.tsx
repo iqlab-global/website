@@ -4,7 +4,6 @@ import { Container } from '@/components/Container';
 import PatternImg from '@/assets/images/pattern.svg';
 import ServicesImg from '@/assets/images/services.jpeg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
-import { CodeIcon } from '@/assets/icons/CodeIcon';
 
 interface ServicesWeProvidedProps {
   data: {

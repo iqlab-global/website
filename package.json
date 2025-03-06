@@ -1,6 +1,6 @@
 {
-  "name": "sanity-example",
-  "version": "0.1.0",
+  "name": "iqlab-website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -19,9 +19,7 @@
     "react-dom": "^19.0.0",
     "react-google-recaptcha": "^3.1.0",
     "sanity": "^3.72.1",
-    "sass": "^1.83.4",
-    "scss": "^0.2.4",
-    "styled-components": "^6.1.14"
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

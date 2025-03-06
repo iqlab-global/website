@@ -1,5 +1,4 @@
 import s from './style.module.scss';
-import BrainIcon from '@/assets/images/icons/brain.svg';
 import { Button } from '@/components/Button';
 import { Section } from '@/components/Section';
 
@@ -17,7 +16,6 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
       <div className={s.wrapper}>
         <div className={s.list}>
           {/*TODO: Mobile slider for blocks*/}
-          {/*@ts-ignore*/}
           {data.map(({ icon, description, title }) => (
             <div key={title} className={s.block}>
               <img src={icon} alt={title} />

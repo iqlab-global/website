@@ -22,7 +22,7 @@ export default function Testimonials({ data }: TestimonialsProps) {
           </div>
           <div className={s.testimonials}>
             {data.map(({ description, companyName }, index: number) => (
-              <TestimonialCard order={index} personName={companyName} text={description} />
+              <TestimonialCard key={companyName} order={index} personName={companyName} text={description} />
             ))}
           </div>
         </div>

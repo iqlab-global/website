@@ -1,5 +1,4 @@
 import s from './style.module.scss';
-import { Container } from '@/components/Container';
 import Image from '@/assets/images/services.jpeg';
 
 export const MeetTheTeam = () => {

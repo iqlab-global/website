@@ -9,6 +9,7 @@ import { useWindowSize } from '@/hooks/useWindowSize';
 import { HamburgerIcon } from '@/assets/icons/HamburgerIcon';
 import { clsx } from 'clsx';
 import { NavLink } from '@/components/NavLink';
+import Link from 'next/link';
 
 interface HeaderProps {
   whiteBg?: boolean;
@@ -23,9 +24,9 @@ export const Header = ({ whiteBg = false }: HeaderProps) => {
       <header className={clsx(s.header, { [s.whiteBg]: whiteBg })}>
         <Container>
           <div className={s.flex}>
-            <a href="/" className={s.logo}>
+            <Link href="/" className={s.logo}>
               <img src={whiteBg ? LogoBlue.src : Logo.src} alt="logo" />
-            </a>
+            </Link>
             {!isMobile && (
               <>
                 <nav className={s.nav}>
@@ -68,9 +69,9 @@ export const Header = ({ whiteBg = false }: HeaderProps) => {
       {/*TODO: Mobile nav complete*/}
       <div className={s.mobileNav}>
         <div className={s.mobileHeader}>
-          <a href="/">
+          <Link href="/">
             <img src={LogoSmall.src} alt="logo" />
-          </a>
+          </Link>
         </div>
         <nav></nav>
       </div>

@@ -1,7 +1,6 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import HeroBg from '@/assets/images/hero.png';
-import ProjectsBg from '@/assets/images/projects.png';
 import { Button } from '@/components/Button';
 
 interface HeroProps {

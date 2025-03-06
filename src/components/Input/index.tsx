@@ -1,5 +1,6 @@
 import s from './style.module.scss';
 import { clsx } from 'clsx';
+import { SyntheticEvent } from 'react';
 
 interface InputProps {
   id: string;
@@ -11,7 +12,7 @@ interface InputProps {
   isTextarea?: boolean;
   required?: boolean;
   value?: string;
-  onChange?: (e: any) => void;
+  onChange?: (e: SyntheticEvent) => void;
 }
 
 export default function Input({

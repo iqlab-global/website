@@ -14,8 +14,8 @@ export const TechCapability = async ({ data }: TechCapabilityProps) => {
       {/*TODO: Section component should have a description text option. Refer to Services page in design.*/}
 
       <div className={s.wrapper}>
-        {data.map(({ icon, alt }: any) => (
-          <div className={s.block}>
+        {data.map(({ icon, alt }) => (
+          <div key={alt} className={s.block}>
             <img src={icon} alt={alt} />
           </div>
         ))}

@@ -1,10 +1,7 @@
 import s from './style.module.scss';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
-import ServicesImg from '@/assets/images/services.jpeg';
 import { clsx } from 'clsx';
-
-interface FeaturedProject {}
 
 interface FeaturedProjectsProps {
   data: {
@@ -38,19 +35,19 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
               <h6>{data[0].title}</h6>
               <div className={s.tags}>
                 {data[0].tags.map(({ title }: { title: string }) => (
-                  <span>{title}</span>
+                  <span key={title}>{title}</span>
                 ))}
               </div>
               <p>{data[0].shortDescription}</p>
             </div>
             <div className={s.secondaryList}>
-              {data.slice(-2).map(({ title, image, shortDescription, tags }: any) => (
-                <div className={s.block}>
+              {data.slice(-2).map(({ title, image, shortDescription, tags }) => (
+                <div className={s.block} key={title}>
                   <img src={image} alt={title} />
                   <h6>{title}</h6>
                   <div className={s.tags}>
                     {tags.map(({ title }: { title: string }) => (
-                      <span>{title}</span>
+                      <span key={title}>{title}</span>
                     ))}
                   </div>
                   <p>{shortDescription}</p>
