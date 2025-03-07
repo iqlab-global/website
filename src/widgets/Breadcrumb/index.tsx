@@ -3,15 +3,15 @@ import { Container } from '@/components/Container';
 import Link from 'next/link';
 
 interface BreadcrumbProps {
-  currentPage: string;
+  currentPage?: string;
 }
 
-export const Breadcrumb = ({ currentPage }: BreadcrumbProps) => {
+export const Breadcrumb = ({ currentPage = '' }: BreadcrumbProps) => {
   return (
     <section className={s.section}>
       <Container>
         <div className={s.wrapper}>
-          <Link href="/">
+          <Link href='/'>
             <span />
             Home
           </Link>

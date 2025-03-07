@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3010",
+    "lint": "next lint",
+    "types": "tsc --noEmit"
   },
   "dependencies": {
     "@sanity/icons": "^3.5.7",
