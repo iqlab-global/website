@@ -63,19 +63,24 @@ const query = `{
 `;
 
 export default async function Home() {
-  const {
-    homePage: { heroSection, whyChooseUs, servicesWeProvided, testimonialsSection },
-    techCapabilities,
-    featuredProjects,
-  } = await client.fetch(query, {});
+  const { homePage, techCapabilities, featuredProjects } = await client.fetch(
+    query,
+    {}
+  );
+  const { heroSection, whyChooseUs, servicesWeProvided, testimonialsSection } =
+    homePage ?? {};
 
   return (
     <Page>
       {heroSection && <Hero data={heroSection} />}
       {whyChooseUs && <WhyChooseUs data={whyChooseUs} />}
       {servicesWeProvided && <ServicesWeProvided data={servicesWeProvided} />}
-      {techCapabilities.length !== 0 && <TechCapability data={techCapabilities} />}
-      {featuredProjects.length !== 0 && <FeaturedProjects data={featuredProjects} />}
+      {techCapabilities.length !== 0 && (
+        <TechCapability data={techCapabilities} />
+      )}
+      {featuredProjects.length !== 0 && (
+        <FeaturedProjects data={featuredProjects} />
+      )}
       {testimonialsSection && <Testimonials data={testimonialsSection} />}
       {/*TODO: Insights & Inspiration section*/}
     </Page>
