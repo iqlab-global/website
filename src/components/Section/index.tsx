@@ -10,7 +10,12 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-export const Section = ({ className, container = true, title, children }: SectionProps) => {
+export const Section = ({
+  className,
+  container = true,
+  title,
+  children,
+}: SectionProps) => {
   const ContentWrapper = container ? Container : Fragment;
 
   return (

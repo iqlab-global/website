@@ -15,7 +15,10 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('homePageSingleton')
         .title('Home Page')
         .child(
-          S.editor().id('homePageSingleton').schemaType('homePageSingleton').documentId('homePageSingleton')
+          S.editor()
+            .id('homePageSingleton')
+            .schemaType('homePageSingleton')
+            .documentId('homePageSingleton')
         ),
       S.documentTypeListItem('aboutPageSingleton')
         .title('About Page')

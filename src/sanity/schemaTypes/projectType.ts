@@ -8,40 +8,32 @@ export const projectType = defineType({
   icon: BookIcon,
   groups: [
     {
-      name: 'blockInfoGroup',
-      title: 'Block Information (block view)',
+      name: 'primaryGroup',
+      title: 'Primary Content',
     },
     {
-      name: 'mainInfoGroup',
-      title: 'Main Information',
+      name: 'secondContentGroup',
+      title: 'Secondary Content',
     },
     {
-      name: 'projectInfoGroup',
-      title: 'Project Information',
-    },
-    {
-      name: 'keyAdvantagesGroup',
-      title: 'Key Advantages Section',
-    },
-    {
-      name: 'secondKeyAdvantagesGroup',
-      title: 'Second Key Advantages Section',
-    },
-    {
-      name: 'nextProjectsGroup',
-      title: 'Next Projects Section',
+      name: 'thirdContentGroup',
+      title: 'Tertiary Content',
     },
   ],
   fields: [
     defineField({
-      name: 'blockInfoSection',
-      title: 'Block Information (block view)',
+      name: 'primarySection',
+      title: 'Primary Content',
       type: 'object',
-      group: 'blockInfoGroup',
+      group: 'primaryGroup',
       fields: [
         defineField({
           name: 'title',
           type: 'string',
+        }),
+        defineField({
+          name: 'subTitle',
+          type: 'text',
         }),
         defineField({
           name: 'slug',
@@ -51,83 +43,51 @@ export const projectType = defineType({
           },
         }),
         defineField({
-          name: 'image',
+          name: 'previewImage',
           type: 'image',
         }),
         defineField({
-          name: 'shortDescription',
-          type: 'text',
+          name: 'industries',
+          type: 'string',
         }),
         defineField({
-          title: 'Is Featured (Will be shown in home page)',
+          name: 'serviceType',
+          type: 'string',
+        }),
+        defineField({
+          name: 'techStack',
+          type: 'string',
+        }),
+        defineField({
+          title: 'Featured on Home',
           name: 'isFeatured',
           type: 'boolean',
         }),
         defineField({
-          name: 'tags',
-          title: 'Tags',
+          name: 'body',
           type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'title',
-                  type: 'string',
-                  title: 'Title',
-                }),
-              ],
-            },
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'mainInfoSection',
-      title: 'Main Information',
-      type: 'object',
-      group: 'mainInfoGroup',
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
+          of: [{ type: 'block' }],
         }),
         defineField({
-          name: 'description',
-          type: 'text',
+          name: 'mainImage',
+          type: 'image',
         }),
       ],
     }),
     defineField({
-      name: 'projectInfoSection',
-      title: 'Project Information Blocks (below title)',
-      group: 'projectInfoGroup',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'label',
-              type: 'string',
-            }),
-            defineField({
-              name: 'description',
-              type: 'string',
-            }),
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: 'keyAdvantagesSection',
-      title: 'Key Advantages Section',
-      group: 'keyAdvantagesGroup',
+      name: 'secondSection',
+      title: 'Second Section',
+      group: 'secondContentGroup',
       type: 'object',
       fields: [
         defineField({
           name: 'title',
           type: 'string',
+        }),
+        defineField({
+          name: 'body',
+          type: 'array',
+          of: [{ type: 'block' }],
         }),
         defineField({
           name: 'image1',
@@ -137,32 +97,12 @@ export const projectType = defineType({
           name: 'image2',
           type: 'image',
         }),
-        defineField({
-          name: 'infoList',
-          title: 'Info List',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'boldText',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'description',
-                  type: 'string',
-                }),
-              ],
-            },
-          ],
-        }),
       ],
     }),
     defineField({
-      name: 'secondKeyAdvantagesSection',
-      title: 'Second Key Advantages Section',
-      group: 'secondKeyAdvantagesGroup',
+      name: 'thirdSection',
+      title: 'Third Section',
+      group: 'thirdContentGroup',
       type: 'object',
       fields: [
         defineField({
@@ -170,28 +110,9 @@ export const projectType = defineType({
           type: 'string',
         }),
         defineField({
-          name: 'description',
-          type: 'text',
-        }),
-        defineField({
-          name: 'infoList',
-          title: 'Info List',
+          name: 'body',
           type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'boldText',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'description',
-                  type: 'string',
-                }),
-              ],
-            },
-          ],
+          of: [{ type: 'block' }],
         }),
         defineField({
           name: 'image',
@@ -199,38 +120,10 @@ export const projectType = defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'nextProjectsSection',
-      title: 'Next Projects Section',
-      group: 'nextProjectsGroup',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'description',
-          type: 'text',
-        }),
-        defineField({
-          name: 'projects',
-          type: 'array',
-          of: [{ type: 'reference', to: { type: 'project' } }],
-        }),
-      ],
-    }),
   ],
   preview: {
     select: {
-      title: 'title',
-      media: 'image',
-    },
-    prepare({ title, media }) {
-      return {
-        title,
-        media,
-      };
+      title: 'primarySection.title',
     },
   },
 });

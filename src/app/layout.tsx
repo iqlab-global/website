@@ -29,6 +29,7 @@ const disketMono = localFont({
   variable: '--font-disket-mono',
   display: 'swap',
 });
+
 const bdo = localFont({
   src: [
     {
@@ -52,9 +53,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
       </head>
 
       <body className={clsx(disketMono.variable, bdo.variable)}>

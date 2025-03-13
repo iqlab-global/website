@@ -20,8 +20,10 @@ export const NavLink: React.FC<NavLinkProps> = ({
   ...rest
 }) => {
   const pathname = usePathname();
-  const isActive = pathname.endsWith(href) || (href.includes(pathname) && pathname !== '/');
-  const newClassName = `${isActive ? activeClassName : nonActiveClassName} ${className}`.trim();
+  const isActive =
+    pathname.endsWith(href) || (href.includes(pathname) && pathname !== '/');
+  const newClassName =
+    `${isActive ? activeClassName : nonActiveClassName} ${className}`.trim();
 
   return (
     <Link href={href} className={newClassName} {...rest}>

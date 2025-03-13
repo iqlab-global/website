@@ -27,7 +27,7 @@
   .headingAndTexts {
     width: 100%;
     display: flex;
-    gap: 7%;
+    gap: 10%;
   }
 
   .headingAndTexts {
@@ -217,4 +217,17 @@
 
 .captchaSection {
   margin-top: rem(10px);
+
+  small {
+    display: block;
+    padding-bottom: 12px;
+  }
+
+  .success {
+    color: green;
+  }
+
+  .error {
+    color: red;
+  }
 }

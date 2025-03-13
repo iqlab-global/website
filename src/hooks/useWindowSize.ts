@@ -12,7 +12,6 @@ export const useWindowSize = () => {
 
   useEffect(() => {
     function handleResize() {
-      console.log(window.innerWidth);
       if (window.innerWidth <= 900) {
         setSizes({
           isMobile: true,

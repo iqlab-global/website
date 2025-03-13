@@ -6,32 +6,32 @@ export const MeetTheTeam = () => {
     <section className={s.section}>
       <div className={s.wrapper}>
         <div className={s.block}>
-          <img src={Image.src} alt="Team member" />
+          <img src={Image.src} alt='Team member' />
           <h6>Hernan Migel</h6>
           <p>Data Scientist</p>
         </div>
         <div className={s.block}>
-          <img src={Image.src} alt="Team member" />
+          <img src={Image.src} alt='Team member' />
           <h6>Hernan Migel</h6>
           <p>Data Scientist</p>
         </div>
         <div className={s.block}>
-          <img src={Image.src} alt="Team member" />
+          <img src={Image.src} alt='Team member' />
           <h6>Hernan Migel</h6>
           <p>Data Scientist</p>
         </div>
         <div className={s.block}>
-          <img src={Image.src} alt="Team member" />
+          <img src={Image.src} alt='Team member' />
           <h6>Hernan Migel</h6>
           <p>Data Scientist</p>
         </div>
         <div className={s.block}>
-          <img src={Image.src} alt="Team member" />
+          <img src={Image.src} alt='Team member' />
           <h6>Hernan Migel</h6>
           <p>Data Scientist</p>
         </div>
         <div className={s.block}>
-          <img src={Image.src} alt="Team member" />
+          <img src={Image.src} alt='Team member' />
           <h6>Hernan Migel</h6>
           <p>Data Scientist</p>
         </div>

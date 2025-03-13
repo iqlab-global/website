@@ -15,6 +15,10 @@ export const techCapabilityType = defineType({
       name: 'alt',
       type: 'string',
     }),
+    defineField({
+      name: 'url',
+      type: 'url',
+    }),
   ],
   preview: {
     select: {

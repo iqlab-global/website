@@ -10,8 +10,11 @@ export const ShowcaseList = () => {
       <Container>
         <div className={s.list}>
           <div className={s.block}>
-            <img src={ShowcaseImg.src} alt="Showcase" />
-            <h5>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h5>
+            <img src={ShowcaseImg.src} alt='Showcase' />
+            <h5>
+              API v2 with JSON:API: Streamlined Data Exchange for Graph-Based
+              Applications
+            </h5>
             <div className={s.tags}>
               <span>API</span>
               <span>JSON</span>
@@ -20,8 +23,11 @@ export const ShowcaseList = () => {
             <p>API v2 serves as a robust implementation of the JSON:API...</p>
           </div>
           <div className={s.block}>
-            <img src={ShowcaseImg.src} alt="Showcase" />
-            <h5>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h5>
+            <img src={ShowcaseImg.src} alt='Showcase' />
+            <h5>
+              API v2 with JSON:API: Streamlined Data Exchange for Graph-Based
+              Applications
+            </h5>
             <div className={s.tags}>
               <span>API</span>
               <span>JSON</span>
@@ -30,8 +36,11 @@ export const ShowcaseList = () => {
             <p>API v2 serves as a robust implementation of the JSON:API...</p>
           </div>
           <div className={s.block}>
-            <img src={ShowcaseImg.src} alt="Showcase" />
-            <h5>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h5>
+            <img src={ShowcaseImg.src} alt='Showcase' />
+            <h5>
+              API v2 with JSON:API: Streamlined Data Exchange for Graph-Based
+              Applications
+            </h5>
             <div className={s.tags}>
               <span>API</span>
               <span>JSON</span>
@@ -40,8 +49,11 @@ export const ShowcaseList = () => {
             <p>API v2 serves as a robust implementation of the JSON:API...</p>
           </div>
           <div className={s.block}>
-            <img src={ShowcaseImg.src} alt="Showcase" />
-            <h5>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h5>
+            <img src={ShowcaseImg.src} alt='Showcase' />
+            <h5>
+              API v2 with JSON:API: Streamlined Data Exchange for Graph-Based
+              Applications
+            </h5>
             <div className={s.tags}>
               <span>API</span>
               <span>JSON</span>
@@ -50,8 +62,11 @@ export const ShowcaseList = () => {
             <p>API v2 serves as a robust implementation of the JSON:API...</p>
           </div>
           <div className={s.block}>
-            <img src={ShowcaseImg.src} alt="Showcase" />
-            <h5>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h5>
+            <img src={ShowcaseImg.src} alt='Showcase' />
+            <h5>
+              API v2 with JSON:API: Streamlined Data Exchange for Graph-Based
+              Applications
+            </h5>
             <div className={s.tags}>
               <span>API</span>
               <span>JSON</span>
@@ -60,8 +75,11 @@ export const ShowcaseList = () => {
             <p>API v2 serves as a robust implementation of the JSON:API...</p>
           </div>
           <div className={s.block}>
-            <img src={ShowcaseImg.src} alt="Showcase" />
-            <h5>API v2 with JSON:API: Streamlined Data Exchange for Graph-Based Applications</h5>
+            <img src={ShowcaseImg.src} alt='Showcase' />
+            <h5>
+              API v2 with JSON:API: Streamlined Data Exchange for Graph-Based
+              Applications
+            </h5>
             <div className={s.tags}>
               <span>API</span>
               <span>JSON</span>

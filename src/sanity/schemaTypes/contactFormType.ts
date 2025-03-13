@@ -18,7 +18,6 @@ export const contactFormType = defineType({
     defineField({
       name: 'email',
       type: 'email',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'company',

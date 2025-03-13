@@ -22,7 +22,7 @@ export default async function Service() {
 
   return (
     <Page whiteHeader>
-      <Breadcrumb currentPage="Services" />
+      <Breadcrumb currentPage='Services' />
       <ServicesIntro />
       <ServicesAreas />
       <ServicesSlogan />

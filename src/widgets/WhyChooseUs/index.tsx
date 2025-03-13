@@ -12,7 +12,7 @@ interface WhyChooseUsProps {
 
 export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
   return (
-    <Section title="Why Choose Us">
+    <Section title='Why Choose Us'>
       <div className={s.wrapper}>
         <div className={s.list}>
           {/*TODO: Mobile slider for blocks*/}
@@ -24,7 +24,9 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
             </div>
           ))}
         </div>
-        <Button outline={true}>/ learn more</Button>
+        <Button outline href='/about'>
+          / learn more
+        </Button>
       </div>
     </Section>
   );

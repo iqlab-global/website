@@ -10,7 +10,7 @@ interface TechCapabilityProps {
 
 export const TechCapability = async ({ data }: TechCapabilityProps) => {
   return (
-    <Section className={s.section} title="Tech Capability">
+    <Section className={s.section} title='Tech Capability'>
       {/*TODO: Section component should have a description text option. Refer to Services page in design.*/}
 
       <div className={s.wrapper}>

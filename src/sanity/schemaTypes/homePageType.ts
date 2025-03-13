@@ -17,7 +17,11 @@ export const homePageSingleton = defineType({
     },
     {
       name: 'servicesGroup',
-      title: 'Services We Provided',
+      title: 'Services Section',
+    },
+    {
+      name: 'projectsGroup',
+      title: 'Featured Projects Section',
     },
     {
       name: 'testimonialsGroup',
@@ -60,6 +64,11 @@ export const homePageSingleton = defineType({
           name: 'servicesButtonUrl',
           type: 'string',
         }),
+        defineField({
+          name: 'recentProject',
+          type: 'reference',
+          to: { type: 'project' },
+        }),
       ],
     }),
     defineField({
@@ -89,28 +98,14 @@ export const homePageSingleton = defineType({
       ],
     }),
     defineField({
-      name: 'servicesWeProvided',
-      title: 'Services We Provided Section',
-      type: 'array',
+      name: 'servicesSection',
+      type: 'object',
       group: 'servicesGroup',
-      of: [
+      fields: [
         defineField({
-          name: 'servicesItem',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'icon',
-              type: 'image',
-            }),
-            defineField({
-              name: 'title',
-              type: 'string',
-            }),
-            defineField({
-              name: 'description',
-              type: 'text',
-            }),
-          ],
+          name: 'services',
+          type: 'array',
+          of: [{ type: 'reference', to: { type: 'service' } }],
         }),
       ],
     }),

@@ -5,36 +5,40 @@ import PatternImg from '@/assets/images/pattern.svg';
 import ServicesImg from '@/assets/images/services.jpeg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
 
-interface ServicesWeProvidedProps {
-  data: {
+type Service = {
+  introSection: {
     title: string;
     icon: string;
     description: string;
-  }[];
+  };
+};
+
+interface ServicesWeProvideProps {
+  data: Service[];
 }
 
-export const ServicesWeProvided = ({ data }: ServicesWeProvidedProps) => {
+export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
   return (
     <section className={s.section}>
       <Container>
         <div className={s.wrapper}>
-          <img className={s.pattern} src={PatternImg.src} alt="Pattern" />
+          <img className={s.pattern} src={PatternImg.src} alt='Pattern' />
           <div className={s.header}>
             <h2>
               Services <br />
-              We Provided
+              We Provide
             </h2>
-            <Button href="/services" outline>
+            <Button href='/services' outline>
               / Everything we do
             </Button>
           </div>
           <div className={s.content}>
             <div className={s.image}>
-              <img src={ServicesImg.src} alt="Services" />
+              <img src={ServicesImg.src} alt='Services' />
               <DotsPattern />
             </div>
             <div className={s.list}>
-              {data.map(({ icon, title, description }) => (
+              {data.map(({ introSection: { icon, title, description } }) => (
                 <div className={s.block} key={title}>
                   <img src={icon} alt={title} />
                   <h6>{title}</h6>

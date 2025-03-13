@@ -24,25 +24,25 @@ export const Header = ({ whiteBg = false }: HeaderProps) => {
       <header className={clsx(s.header, { [s.whiteBg]: whiteBg })}>
         <Container>
           <div className={s.flex}>
-            <Link href="/" className={s.logo}>
-              <img src={whiteBg ? LogoBlue.src : Logo.src} alt="logo" />
+            <Link href='/' className={s.logo}>
+              <img src={whiteBg ? LogoBlue.src : Logo.src} alt='IQ Lab' />
             </Link>
             {!isMobile && (
               <>
                 <nav className={s.nav}>
                   <ul>
                     <li>
-                      <NavLink href="/about" activeClassName={s.active}>
+                      <NavLink href='/about' activeClassName={s.active}>
                         About Us
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink href="/services" activeClassName={s.active}>
+                      <NavLink href='/services' activeClassName={s.active}>
                         Services
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink href="/showcase">Showcase</NavLink>
+                      <NavLink href='/showcase'>Showcase</NavLink>
                     </li>
                     {/*<li>*/}
                     {/*  <a href="#">Careers</a>*/}
@@ -55,7 +55,9 @@ export const Header = ({ whiteBg = false }: HeaderProps) => {
                     {/*</li>*/}
                   </ul>
                 </nav>
-                <Button className={s.contactUs}>Contact Us</Button>
+                <Button className={s.contactUs} href='/contact'>
+                  Contact Us
+                </Button>
               </>
             )}
             {isMobile && (
@@ -69,8 +71,8 @@ export const Header = ({ whiteBg = false }: HeaderProps) => {
       {/*TODO: Mobile nav complete*/}
       <div className={s.mobileNav}>
         <div className={s.mobileHeader}>
-          <Link href="/">
-            <img src={LogoSmall.src} alt="logo" />
+          <Link href='/'>
+            <img src={LogoSmall.src} alt='logo' />
           </Link>
         </div>
         <nav></nav>

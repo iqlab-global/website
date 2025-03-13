@@ -18,11 +18,16 @@ export default function Testimonials({ data }: TestimonialsProps) {
         <div className={s.wrapper}>
           <div className={s.headingAndPattern}>
             <h2>Client Testimonials</h2>
-            <AppImage className={s.pattern} src={Pattern} alt="Pattern Image" />
+            <AppImage className={s.pattern} src={Pattern} alt='Pattern Image' />
           </div>
           <div className={s.testimonials}>
             {data.map(({ description, companyName }, index: number) => (
-              <TestimonialCard key={companyName} order={index} personName={companyName} text={description} />
+              <TestimonialCard
+                key={companyName}
+                order={index + 1}
+                personName={companyName}
+                text={description}
+              />
             ))}
           </div>
         </div>

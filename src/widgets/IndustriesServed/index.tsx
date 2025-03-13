@@ -11,36 +11,37 @@ export default function IndustriesServed() {
       <Container>
         <div className={s.wrapper}>
           <div className={s.patternWrapper}>
-            <AppImage className={s.patternImg} src={Pattern} alt="Pattern" />
+            <AppImage className={s.patternImg} src={Pattern} alt='Pattern' />
           </div>
           <div className={s.mainContent}>
             <div className={s.headingWrapper}>
               <h2>Industries Served</h2>
               <p>
-                We bring our expertise to industries like healthcare, finance, sports, and government sectors,
-                providing robust, scalable solutions
+                We bring our expertise to industries like healthcare, finance,
+                sports, and government sectors, providing robust, scalable
+                solutions
               </p>
             </div>
             <div className={s.serviceCards}>
               <Card
                 img={ServiceImg}
-                title="Healthcare"
-                description="Reshape the patient experiences and future of healthcare"
+                title='Healthcare'
+                description='Reshape the patient experiences and future of healthcare'
               />
               <Card
                 img={ServiceImg}
-                title="Healthcare"
-                description="Reshape the patient experiences and future of healthcare"
+                title='Healthcare'
+                description='Reshape the patient experiences and future of healthcare'
               />
               <Card
                 img={ServiceImg}
-                title="Healthcare"
-                description="Reshape the patient experiences and future of healthcare"
+                title='Healthcare'
+                description='Reshape the patient experiences and future of healthcare'
               />
               <Card
                 img={ServiceImg}
-                title="Healthcare"
-                description="Reshape the patient experiences and future of healthcare"
+                title='Healthcare'
+                description='Reshape the patient experiences and future of healthcare'
               />
             </div>
           </div>

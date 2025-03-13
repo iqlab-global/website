@@ -6,5 +6,7 @@
 }
 
 @function rem($pxValue) {
-  @return #{calc(math.div(stripUnit($pxValue), stripUnit($t-base-font-size)))}rem;
+  @return #{calc(
+      math.div(stripUnit($pxValue), stripUnit($t-base-font-size))
+    )}rem;
 }

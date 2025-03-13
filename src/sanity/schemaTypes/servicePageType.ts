@@ -60,28 +60,9 @@ export const servicePageSingleton = defineType({
           type: 'string',
         }),
         defineField({
-          name: 'areas',
+          name: 'services',
           type: 'array',
-          of: [
-            defineField({
-              name: 'area',
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'title',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'description',
-                  type: 'text',
-                }),
-                defineField({
-                  name: 'icon',
-                  type: 'image',
-                }),
-              ],
-            }),
-          ],
+          of: [{ type: 'reference', to: { type: 'service' } }],
         }),
       ],
     }),
@@ -92,6 +73,10 @@ export const servicePageSingleton = defineType({
       fields: [
         defineField({
           name: 'title',
+          type: 'string',
+        }),
+        defineField({
+          name: 'description',
           type: 'string',
         }),
         defineField({

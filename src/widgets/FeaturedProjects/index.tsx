@@ -3,18 +3,34 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { clsx } from 'clsx';
 
-interface FeaturedProjectsProps {
-  data: {
-    _id: string;
+type Project = {
+  _id: string;
+  primarySection: {
     title: string;
+    subTitle: string;
     slug: string;
-    image: string;
-    shortDescription: string;
-    tags: { title: string }[];
-  }[];
+    industries: string;
+    serviceType: string;
+    techStack: string;
+    previewImage: string;
+  };
+};
+
+interface FeaturedProjectsProps {
+  data: Project[];
 }
 
 export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
+  const {
+    primarySection: {
+      title,
+      subTitle,
+      previewImage,
+      industries,
+      serviceType,
+      techStack,
+    },
+  } = data[0];
   // TODO: Dots background
   // TODO: Mobile '/ ALL PROJECTS' button
   // TODO: Short description of project block might need some kind of shortening function for dots (...) at the end
@@ -25,34 +41,48 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
         <div className={s.wrapper}>
           <div className={s.header}>
             <h2>Featured Projects</h2>
-            <Button transparentBg outline>
+            <Button href='/showcase' transparentBg outline>
               / All Projects
             </Button>
           </div>
           <div className={s.list}>
             <div className={clsx(s.block, s.mainBlock)}>
-              <img src={data[0].image} alt={data[0].title} />
-              <h6>{data[0].title}</h6>
+              <img src={previewImage} alt={title} />
+              <h6>{title}</h6>
+              <div className={s.industry}>{industries}</div>
               <div className={s.tags}>
-                {data[0].tags.map(({ title }: { title: string }) => (
-                  <span key={title}>{title}</span>
-                ))}
+                <span>{serviceType}</span>
+                <span>{techStack}</span>
               </div>
-              <p>{data[0].shortDescription}</p>
+              <p>{subTitle}</p>
             </div>
             <div className={s.secondaryList}>
-              {data.slice(-2).map(({ title, image, shortDescription, tags }) => (
-                <div className={s.block} key={title}>
-                  <img src={image} alt={title} />
-                  <h6>{title}</h6>
-                  <div className={s.tags}>
-                    {tags.map(({ title }: { title: string }) => (
-                      <span key={title}>{title}</span>
-                    ))}
-                  </div>
-                  <p>{shortDescription}</p>
-                </div>
-              ))}
+              {data
+                .slice(1)
+                .map(
+                  ({
+                    _id,
+                    primarySection: {
+                      title,
+                      subTitle,
+                      previewImage,
+                      industries,
+                      serviceType,
+                      techStack,
+                    },
+                  }) => (
+                    <div className={s.block} key={_id}>
+                      <img src={previewImage} alt={title} />
+                      <h6>{title}</h6>
+                      <div className={s.industry}>{industries}</div>
+                      <div className={s.tags}>
+                        <span>{serviceType}</span>
+                        <span>{techStack}</span>
+                      </div>
+                      <p>{subTitle}</p>
+                    </div>
+                  )
+                )}
             </div>
           </div>
         </div>

@@ -50,8 +50,12 @@ export const serviceType = defineType({
           type: 'text',
         }),
         defineField({
-          name: 'image',
-          type: 'string',
+          name: 'mainImage',
+          type: 'image',
+        }),
+        defineField({
+          name: 'icon',
+          type: 'image',
         }),
       ],
     }),

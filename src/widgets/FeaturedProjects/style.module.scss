@@ -88,6 +88,9 @@
 }
 
 .block {
+  position: relative;
+  flex: 1;
+
   &.mainBlock {
     img {
       height: 552px;
@@ -121,6 +124,17 @@
     font-size: rem(24px);
     line-height: rem(33.6px);
     letter-spacing: 0;
+  }
+
+  .industry {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    color: white;
+    background: $c-blue-a5;
+    font-family: var(--font-disket-mono);
+    font-size: rem(12px);
+    padding: 10px 14px;
   }
 
   .tags {

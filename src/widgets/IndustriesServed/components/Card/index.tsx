@@ -11,7 +11,7 @@ interface CardProps {
 export const Card = ({ title, description, img }: CardProps) => {
   return (
     <div className={s.serviceCardWrapper}>
-      <AppImage className={s.industryServedCard} src={img} alt="Healthcare" />
+      <AppImage className={s.industryServedCard} src={img} alt='Healthcare' />
       <div className={s.textWrapper}>
         <h3>{title}</h3>
         <p>{description}</p>

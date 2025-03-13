@@ -115,4 +115,39 @@
       object-fit: cover;
     }
   }
+
+  .project {
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: 80px;
+    width: 400px;
+    height: 150px;
+    background: rgba($c-blue-a5, 0.85);
+    color: white;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .projectText {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      text-decoration: underline;
+      text-decoration-thickness: 5%;
+      text-underline-offset: 25%;
+
+      svg {
+        position: absolute;
+        top: -3px;
+        right: -30px;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  }
 }

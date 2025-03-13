@@ -25,59 +25,59 @@ export const Positions = () => {
                 <tbody>
                   <tr>
                     <td>
-                      <a href="#" className={s.highlighted}>
+                      <a href='#' className={s.highlighted}>
                         Full-Stack Developer
                       </a>
                     </td>
                     <td>
-                      <a href="#">Remote/On-site</a>
+                      <a href='#'>Remote/On-site</a>
                     </td>
                     <td>
-                      <a href="#">Full-time</a>
+                      <a href='#'>Full-time</a>
                     </td>
                     <td>
-                      <a href="#">Mid-Senior Level</a>
+                      <a href='#'>Mid-Senior Level</a>
                     </td>
                     <td>
-                      <a href="#">November 30, 2024</a>
+                      <a href='#'>November 30, 2024</a>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <a href="#" className={s.highlighted}>
+                      <a href='#' className={s.highlighted}>
                         Full-Stack Developer
                       </a>
                     </td>
                     <td>
-                      <a href="#">Remote/On-site</a>
+                      <a href='#'>Remote/On-site</a>
                     </td>
                     <td>
-                      <a href="#">Full-time</a>
+                      <a href='#'>Full-time</a>
                     </td>
                     <td>
-                      <a href="#">Mid-Senior Level</a>
+                      <a href='#'>Mid-Senior Level</a>
                     </td>
                     <td>
-                      <a href="#">November 30, 2024</a>
+                      <a href='#'>November 30, 2024</a>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <a href="#" className={s.highlighted}>
+                      <a href='#' className={s.highlighted}>
                         Full-Stack Developer
                       </a>
                     </td>
                     <td>
-                      <a href="#">Remote/On-site</a>
+                      <a href='#'>Remote/On-site</a>
                     </td>
                     <td>
-                      <a href="#">Full-time</a>
+                      <a href='#'>Full-time</a>
                     </td>
                     <td>
-                      <a href="#">Mid-Senior Level</a>
+                      <a href='#'>Mid-Senior Level</a>
                     </td>
                     <td>
-                      <a href="#">November 30, 2024</a>
+                      <a href='#'>November 30, 2024</a>
                     </td>
                   </tr>
                 </tbody>
@@ -85,7 +85,7 @@ export const Positions = () => {
             )}
             {isMobile && (
               <div className={s.mobileList}>
-                <a href="#" className={s.block}>
+                <a href='#' className={s.block}>
                   <h5>Full-Stack Developer</h5>
                   <div className={s.content}>
                     <div>
@@ -98,7 +98,7 @@ export const Positions = () => {
                     </div>
                   </div>
                 </a>
-                <a href="#" className={s.block}>
+                <a href='#' className={s.block}>
                   <h5>Full-Stack Developer</h5>
                   <div className={s.content}>
                     <div>
@@ -111,7 +111,7 @@ export const Positions = () => {
                     </div>
                   </div>
                 </a>
-                <a href="#" className={s.block}>
+                <a href='#' className={s.block}>
                   <h5>Full-Stack Developer</h5>
                   <div className={s.content}>
                     <div>
@@ -124,7 +124,7 @@ export const Positions = () => {
                     </div>
                   </div>
                 </a>
-                <a href="#" className={s.block}>
+                <a href='#' className={s.block}>
                   <h5>Full-Stack Developer</h5>
                   <div className={s.content}>
                     <div>

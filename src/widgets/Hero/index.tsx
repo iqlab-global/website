@@ -2,6 +2,7 @@ import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import HeroBg from '@/assets/images/hero.png';
 import { Button } from '@/components/Button';
+import { DiscoverArrow } from '@/assets/icons/DiscoverArrow';
 
 interface HeroProps {
   data: {
@@ -11,14 +12,33 @@ interface HeroProps {
     ctaButtonUrl: string;
     servicesButtonText: string;
     servicesButtonUrl: string;
+    recentProject: {
+      primarySection: {
+        slug: { current: string };
+        image: string;
+      };
+    };
   };
 }
 
 export const Hero = ({
-  data: { title, paragraph, ctaButtonText, ctaButtonUrl, servicesButtonUrl, servicesButtonText },
+  data: {
+    title,
+    paragraph,
+    ctaButtonText,
+    ctaButtonUrl,
+    servicesButtonUrl,
+    servicesButtonText,
+    recentProject,
+  },
 }: HeroProps) => {
+  const { primarySection: project } = recentProject ?? {};
+
   return (
-    <section className={s.hero} style={{ backgroundImage: `url(${HeroBg.src})` }}>
+    <section
+      className={s.hero}
+      style={{ backgroundImage: `url(${HeroBg.src})` }}
+    >
       <Container>
         <div className={s.wrapper}>
           <div className={s.content}>
@@ -30,8 +50,18 @@ export const Hero = ({
                 {servicesButtonText} ↗
               </a>
             </div>
-            {/*TODO: Discour our projects block here*/}
           </div>
+          {project && (
+            <a className={s.project} href={`/showcase/${project.slug.current}`}>
+              <div className={s.projectText}>
+                Discover our
+                <br />
+                recent project
+                <DiscoverArrow />
+              </div>
+              <img src={project.image} alt='Recent Project' />
+            </a>
+          )}
         </div>
       </Container>
     </section>

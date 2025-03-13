@@ -6,14 +6,15 @@ interface TestimonialCardProps {
   personName: string;
 }
 
-export const TestimonialCard = ({ order, text, personName }: TestimonialCardProps) => {
+export const TestimonialCard = ({
+  order,
+  text,
+  personName,
+}: TestimonialCardProps) => {
   return (
     <div className={s.testimonial}>
       <div className={s.order}>
-        <p>
-          {order.toString().length === 1 ? 0 : ''}
-          {order}/
-        </p>
+        <p>{String(order).padStart(2, '0')}/</p>
         <span />
       </div>
       <p className={s.text}>{`"${text}"`}</p>

@@ -11,7 +11,7 @@ import { MeetTheTeam } from '@/widgets/MeetTheTeam';
 export default function About() {
   return (
     <Page whiteHeader>
-      <Breadcrumb currentPage="About Us" />
+      <Breadcrumb currentPage='About Us' />
       <AboutCta />
       <Container>
         <div className={s.wrapper}>
@@ -20,7 +20,7 @@ export default function About() {
             <InfoBlock />
             <div className={s.image}>
               {/*TODO: Add dots figure here*/}
-              <img src={AboutImage.src} alt="About" />
+              <img src={AboutImage.src} alt='About' />
             </div>
             <InfoBlock />
             <ValueBlocks />
