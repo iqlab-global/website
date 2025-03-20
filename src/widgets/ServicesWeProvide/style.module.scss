@@ -36,12 +36,12 @@
   h2 {
     font-size: rem(86px);
     line-height: rem(90px);
-    letter-spacing: -3%;
+    letter-spacing: -0.03em;
 
     @include isTablet {
       font-size: rem(64px);
       line-height: rem(70.4px);
-      letter-spacing: -3%;
+      letter-spacing: -0.03em;
     }
 
     @include isMobile {

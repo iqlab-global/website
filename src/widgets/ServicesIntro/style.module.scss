@@ -1,11 +1,8 @@
-.section {
-}
-
 .wrapper {
   h1 {
     font-size: rem(100px);
     line-height: rem(116px);
-    letter-spacing: -2%;
+    letter-spacing: -0.02;
     padding-top: rem(26px);
     padding-bottom: rem(77px);
 
@@ -18,7 +15,7 @@
       padding-bottom: rem(30px);
       font-size: rem(40px);
       line-height: rem(56px);
-      letter-spacing: -3%;
+      letter-spacing: -0.03;
     }
   }
 }
@@ -42,8 +39,8 @@
   h3 {
     font-size: rem(40px);
     line-height: rem(56px);
-    letter-spacing: -3%;
-    width: 493px;
+    letter-spacing: -0.03%;
+    width: 500px;
 
     @include isTablet {
       font-size: rem(32px);

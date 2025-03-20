@@ -4,14 +4,7 @@ import { Container } from '@/components/Container';
 import PatternImg from '@/assets/images/pattern.svg';
 import ServicesImg from '@/assets/images/services.jpeg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
-
-type Service = {
-  introSection: {
-    title: string;
-    icon: string;
-    description: string;
-  };
-};
+import { Service } from '@/lib/types';
 
 interface ServicesWeProvideProps {
   data: Service[];
@@ -38,13 +31,19 @@ export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
               <DotsPattern />
             </div>
             <div className={s.list}>
-              {data.map(({ introSection: { icon, title, description } }) => (
-                <div className={s.block} key={title}>
-                  <img src={icon} alt={title} />
-                  <h6>{title}</h6>
-                  <p>{description}</p>
-                </div>
-              ))}
+              {data.map(
+                ({ _id, introSection: { icon, slug, title, description } }) => (
+                  <a
+                    href={`/services/${slug.current}`}
+                    className={s.block}
+                    key={_id}
+                  >
+                    <img src={icon} alt={title} />
+                    <h6>{title}</h6>
+                    <p>{description}</p>
+                  </a>
+                )
+              )}
             </div>
           </div>
         </div>

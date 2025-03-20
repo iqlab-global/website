@@ -9,21 +9,34 @@
     padding-top: rem(35px);
   }
 
-  h2 {
-    padding-bottom: rem(60px);
-    line-height: rem(56px);
-    font-size: rem(40px);
-    letter-spacing: -1.2px;
+  .headers {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    @include isTablet {
-      padding-bottom: rem(50px);
+    h2 {
+      padding-bottom: rem(60px);
+      line-height: rem(56px);
+      font-size: rem(40px);
+      letter-spacing: -1.2px;
+      flex: 1;
+
+      @include isTablet {
+        padding-bottom: rem(50px);
+      }
+
+      @include isMobile {
+        font-size: rem(28px);
+        line-height: rem(39.2px);
+        letter-spacing: 0;
+        padding-bottom: rem(24px);
+      }
     }
 
-    @include isMobile {
-      font-size: rem(28px);
-      line-height: rem(39.2px);
-      letter-spacing: 0;
-      padding-bottom: rem(24px);
+    h4 {
+      flex: 0 0 30%;
+      color: black;
+      padding-bottom: rem(60px);
     }
   }
 }

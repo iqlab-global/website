@@ -8,7 +8,7 @@
       th {
         font-size: rem(12px);
         line-height: rem(16.8px);
-        letter-spacing: -2%;
+        letter-spacing: -0.02em;
         padding-bottom: rem(33px);
         text-align: left;
         border-bottom: 1px solid $c-blue-a5;
@@ -32,7 +32,7 @@
             padding-bottom: rem(35px);
             font-size: 16px;
             line-height: rem(22.4px);
-            letter-spacing: -2%;
+            letter-spacing: -0.02em;
 
             &.highlighted {
               font-size: rem(24px);
@@ -109,7 +109,7 @@
       span {
         display: block;
         line-height: rem(22.4px);
-        letter-spacing: -2%;
+        letter-spacing: -0.02em;
       }
     }
   }

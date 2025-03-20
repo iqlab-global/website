@@ -31,7 +31,7 @@
   h2 {
     font-size: rem(40px);
     line-height: rem(56px);
-    letter-spacing: -3%;
+    letter-spacing: -0.03em;
 
     @include isMobile {
       font-weight: 400;
@@ -149,7 +149,7 @@
       font-weight: 400;
       font-size: rem(12px);
       line-height: rem(16.8px);
-      letter-spacing: -2%;
+      letter-spacing: -0.02em;
     }
   }
 }

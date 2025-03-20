@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 
 interface SectionProps {
   title?: string;
+  subTitle?: string;
   className?: string;
   container?: boolean;
   children: React.ReactNode;
@@ -14,6 +15,7 @@ export const Section = ({
   className,
   container = true,
   title,
+  subTitle,
   children,
 }: SectionProps) => {
   const ContentWrapper = container ? Container : Fragment;
@@ -21,7 +23,10 @@ export const Section = ({
   return (
     <section className={clsx(s.section, className)}>
       <ContentWrapper>
-        {title && <h2>{title}</h2>}
+        <div className={s.headers}>
+          {title && <h2>{title}</h2>}
+          {subTitle && <h4>{subTitle}</h4>}
+        </div>
         {children}
       </ContentWrapper>
     </section>

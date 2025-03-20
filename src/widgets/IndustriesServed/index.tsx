@@ -1,11 +1,26 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
-import ServiceImg from '@/assets/images/service-1.png';
 import { Card } from './components/Card';
 import AppImage from '@/components/AppImage';
 import Pattern from '@/assets/images/textures/pattern-2.svg';
 
-export default function IndustriesServed() {
+type Industry = {
+  title: string;
+  description: string;
+  image: string;
+};
+
+type Props = {
+  title?: string;
+  description?: string;
+  industries?: Industry[];
+};
+
+export default function IndustriesServed({
+  title,
+  description,
+  industries = [],
+}: Props) {
   return (
     <section className={s.section}>
       <Container>
@@ -15,34 +30,18 @@ export default function IndustriesServed() {
           </div>
           <div className={s.mainContent}>
             <div className={s.headingWrapper}>
-              <h2>Industries Served</h2>
-              <p>
-                We bring our expertise to industries like healthcare, finance,
-                sports, and government sectors, providing robust, scalable
-                solutions
-              </p>
+              <h2>{title}</h2>
+              <p>{description}</p>
             </div>
             <div className={s.serviceCards}>
-              <Card
-                img={ServiceImg}
-                title='Healthcare'
-                description='Reshape the patient experiences and future of healthcare'
-              />
-              <Card
-                img={ServiceImg}
-                title='Healthcare'
-                description='Reshape the patient experiences and future of healthcare'
-              />
-              <Card
-                img={ServiceImg}
-                title='Healthcare'
-                description='Reshape the patient experiences and future of healthcare'
-              />
-              <Card
-                img={ServiceImg}
-                title='Healthcare'
-                description='Reshape the patient experiences and future of healthcare'
-              />
+              {industries.map(({ title, description, image }) => (
+                <Card
+                  key={title}
+                  title={title}
+                  img={image}
+                  description={description}
+                />
+              ))}
             </div>
           </div>
         </div>

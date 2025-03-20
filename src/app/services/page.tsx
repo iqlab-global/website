@@ -8,7 +8,35 @@ import { client } from '@/sanity/lib/client';
 import IndustriesServed from '@/widgets/IndustriesServed';
 
 const query = `{
-  "servicesPage": *[_type == "servicesPageSingleton"][0] {},
+  "servicesPage": *[_type == "servicePageSingleton"][0] {
+    introSection {
+      title,
+      subtitle,
+      description,
+      "image": image.asset->url,
+    },
+    areasSection {
+      title,
+      services[]->{
+        _id,
+        introSection {
+          title,
+          slug,
+          description,
+          "icon": icon.asset->url
+        }
+      }
+    },
+    industriesServedSection {
+      title,
+      description,
+      industries[] {
+        title,
+        description,
+        "image": image.asset->url
+      }
+    }
+  },
   "techCapabilities": *[_type == "techCapability"] {
     _id,
     "icon": icon.asset->url,
@@ -18,15 +46,20 @@ const query = `{
 `;
 
 export default async function Services() {
-  const { techCapabilities } = await client.fetch(query);
+  const { servicesPage, techCapabilities } = await client.fetch(query);
+  const {
+    introSection = {},
+    areasSection = {},
+    industriesServedSection = {},
+  } = servicesPage ?? {};
 
   return (
     <Page whiteHeader>
       <Breadcrumb currentPage='Services' />
-      <ServicesIntro />
-      <ServicesAreas />
+      <ServicesIntro {...introSection} />
+      <ServicesAreas {...areasSection} />
       <ServicesSlogan />
-      <IndustriesServed />
+      <IndustriesServed {...industriesServedSection} />
       <TechCapability data={techCapabilities} />
     </Page>
   );

@@ -1,5 +1,6 @@
 .serviceCardWrapper {
   position: relative;
+
   &::after {
     content: '';
     display: block;
@@ -16,6 +17,7 @@
     );
     z-index: 1;
   }
+
   &::before {
     content: '';
     width: 8px;
@@ -52,11 +54,7 @@
     }
   }
 }
-.industryServedCard {
-  height: 100%;
-
-  img {
-    height: 100% !important;
-    object-fit: cover !important;
-  }
+.industryImage {
+  width: 100%;
+  object-fit: cover;
 }

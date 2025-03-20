@@ -46,7 +46,10 @@ export const servicePageSingleton = defineType({
         }),
         defineField({
           name: 'image',
-          type: 'string',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
       ],
     }),
@@ -98,6 +101,9 @@ export const servicePageSingleton = defineType({
                 defineField({
                   name: 'image',
                   type: 'image',
+                  options: {
+                    hotspot: true,
+                  },
                 }),
               ],
             }),

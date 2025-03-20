@@ -14,7 +14,7 @@
   h1 {
     font-size: rem(100px);
     line-height: rem(116px);
-    letter-spacing: -2%;
+    letter-spacing: -0.02em;
     width: 800px;
     padding-top: rem(52px);
     padding-bottom: rem(60px);
@@ -25,7 +25,7 @@
       padding-bottom: rem(20px);
       font-size: rem(40px);
       line-height: rem(56px);
-      letter-spacing: -3%;
+      letter-spacing: -0.03em;
     }
   }
 }
@@ -50,7 +50,7 @@
   h2 {
     font-size: rem(40px);
     line-height: rem(56px);
-    letter-spacing: -3%;
+    letter-spacing: -0.03em;
     width: 488px;
     flex-shrink: 0;
 

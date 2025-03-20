@@ -40,7 +40,7 @@
       @include isMobile {
         font-size: rem(28px);
         line-height: rem(31.92px);
-        letter-spacing: -2%;
+        letter-spacing: -0.02em;
         padding-bottom: rem(20px);
       }
     }

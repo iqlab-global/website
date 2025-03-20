@@ -1,5 +1,5 @@
 import s from './style.module.scss';
-import SloganImg from '@/assets/images/slogan.jpeg';
+import SloganImg from '@/assets/images/services_slogan.jpg';
 
 export const ServicesSlogan = () => {
   return (
