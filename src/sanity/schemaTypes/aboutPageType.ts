@@ -30,10 +30,6 @@ export const aboutPageSingleton = defineType({
           name: 'description',
           type: 'text',
         }),
-        defineField({
-          name: 'image',
-          type: 'string',
-        }),
       ],
     }),
     defineField({
@@ -44,10 +40,6 @@ export const aboutPageSingleton = defineType({
         defineField({
           name: 'description',
           type: 'text',
-        }),
-        defineField({
-          name: 'image',
-          type: 'string',
         }),
         defineField({
           name: 'blocks',
@@ -91,6 +83,9 @@ export const aboutPageSingleton = defineType({
                 defineField({
                   name: 'image',
                   type: 'image',
+                  options: {
+                    hotspot: true,
+                  },
                 }),
                 defineField({
                   name: 'name',

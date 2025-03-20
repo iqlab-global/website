@@ -17,7 +17,7 @@ const query = `{
 }
 `;
 
-export default async function Service() {
+export default async function Services() {
   const { techCapabilities } = await client.fetch(query);
 
   return (

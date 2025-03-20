@@ -45,6 +45,9 @@ export const projectType = defineType({
         defineField({
           name: 'previewImage',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
         defineField({
           name: 'industries',
@@ -65,12 +68,14 @@ export const projectType = defineType({
         }),
         defineField({
           name: 'body',
-          type: 'array',
-          of: [{ type: 'block' }],
+          type: 'blockContent',
         }),
         defineField({
           name: 'mainImage',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
       ],
     }),
@@ -86,16 +91,21 @@ export const projectType = defineType({
         }),
         defineField({
           name: 'body',
-          type: 'array',
-          of: [{ type: 'block' }],
+          type: 'blockContent',
         }),
         defineField({
           name: 'image1',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
         defineField({
           name: 'image2',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
       ],
     }),
@@ -111,12 +121,14 @@ export const projectType = defineType({
         }),
         defineField({
           name: 'body',
-          type: 'array',
-          of: [{ type: 'block' }],
+          type: 'blockContent',
         }),
         defineField({
           name: 'image',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
       ],
     }),

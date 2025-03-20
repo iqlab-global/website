@@ -52,6 +52,9 @@ export const serviceType = defineType({
         defineField({
           name: 'mainImage',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
         defineField({
           name: 'icon',
@@ -67,22 +70,13 @@ export const serviceType = defineType({
         defineField({
           name: 'image',
           type: 'image',
+          options: {
+            hotspot: true,
+          },
         }),
         defineField({
-          name: 'block1Title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'block1Description',
-          type: 'text',
-        }),
-        defineField({
-          name: 'block2Title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'block2Description',
-          type: 'text',
+          name: 'body',
+          type: 'blockContent',
         }),
         defineField({
           name: 'areas',
