@@ -1,31 +1,29 @@
+import { BlockContent } from '@/components/Block';
 import { Container } from '@/components/Container';
+import Pattern from '@/assets/images/textures/pattern-2.svg';
 import s from './style.module.scss';
+import AppImage from '@/components/AppImage';
 
-export const ShowcaseIntro = () => {
+type Props = {
+  title?: string;
+  subtitle?: string;
+  body?: string[];
+};
+
+export const ShowcaseIntro = ({ title, subtitle, body }: Props) => {
   return (
     <section className={s.section}>
       <Container>
         <div className={s.wrapper}>
-          <h1>Our Work Speaks for Itself</h1>
+          <h1>{title}</h1>
           <div className={s.info}>
-            <h2>Showcasing Innovation, Craft, and Results-Driven Solutions</h2>
-            {/*TODO: Add dots figure here*/}
+            <div className={s.subtitleWrapper}>
+              <h2>{subtitle}</h2>
+              <AppImage className={s.patternImg1} src={Pattern} alt='Pattern' />
+            </div>
             <div className={s.desc}>
-              <p>
-                At our boutique studio, we bring ideas to life through
-                precision, passion, and technical expertise. Each project in our
-                portfolio reflects our commitment to understanding client needs
-                and delivering solutions that go beyond expectations. From
-                sleek, responsive designs to complex, tailored applications, we
-                take pride in crafting software that is not only functional but
-                also transformative.
-              </p>
-              <p>
-                Our work stands as a testament to our dedication to pushing
-                boundaries and achieving excellence. Explore our portfolio to
-                discover how we’ve empowered clients across industries to reach
-                new heights in a digital-first world.
-              </p>
+              <BlockContent content={body} />
+              <AppImage className={s.patternImg2} src={Pattern} alt='Pattern' />
             </div>
           </div>
         </div>

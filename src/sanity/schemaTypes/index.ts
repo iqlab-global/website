@@ -9,6 +9,7 @@ import { techCapabilityType } from './techCapabilityType';
 import { projectType } from './projectType';
 import { aboutPageSingleton } from '@/sanity/schemaTypes/aboutPageType';
 import { servicePageSingleton } from '@/sanity/schemaTypes/servicePageType';
+import { showcasePageSingleton } from '@/sanity/schemaTypes/showcasePageType';
 import { serviceType } from '@/sanity/schemaTypes/serviceType';
 import { contactFormType } from '@/sanity/schemaTypes/contactFormType';
 
@@ -23,6 +24,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     projectType,
     aboutPageSingleton,
     servicePageSingleton,
+    showcasePageSingleton,
     serviceType,
     contactFormType,
   ],

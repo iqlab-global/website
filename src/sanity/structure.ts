@@ -36,6 +36,14 @@ export const structure: StructureResolver = (S) =>
             .schemaType('servicePageSingleton')
             .documentId('servicePageSingleton')
         ),
+      S.documentTypeListItem('showcasePageSingleton')
+        .title('Showcase Page')
+        .child(
+          S.editor()
+            .id('showcasePageSingleton')
+            .schemaType('showcasePageSingleton')
+            .documentId('showcasePageSingleton')
+        ),
       S.divider(),
       S.documentTypeListItem('techCapability').title('Tech Capability Widget'),
     ]);

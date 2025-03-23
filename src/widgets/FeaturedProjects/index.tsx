@@ -1,20 +1,8 @@
 import s from './style.module.scss';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
+import { Project } from '@/lib/types';
 import { clsx } from 'clsx';
-
-type Project = {
-  _id: string;
-  primarySection: {
-    title: string;
-    subTitle: string;
-    slug: string;
-    industries: string;
-    serviceType: string;
-    techStack: string;
-    previewImage: string;
-  };
-};
 
 interface FeaturedProjectsProps {
   data: Project[];
@@ -47,7 +35,9 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
           </div>
           <div className={s.list}>
             <div className={clsx(s.block, s.mainBlock)}>
-              <img src={previewImage} alt={title} />
+              <div className={s.imageWrapper}>
+                <img src={previewImage} alt={title} />
+              </div>
               <h6>{title}</h6>
               <div className={s.industry}>{industries}</div>
               <div className={s.tags}>
@@ -64,6 +54,7 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
                     _id,
                     primarySection: {
                       title,
+                      slug,
                       subTitle,
                       previewImage,
                       industries,
@@ -71,8 +62,14 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
                       techStack,
                     },
                   }) => (
-                    <div className={s.block} key={_id}>
-                      <img src={previewImage} alt={title} />
+                    <a
+                      className={s.block}
+                      key={_id}
+                      href={`/projects/${slug.current}`}
+                    >
+                      <div className={s.imageWrapper}>
+                        <img src={previewImage} alt={title} />
+                      </div>
                       <h6>{title}</h6>
                       <div className={s.industry}>{industries}</div>
                       <div className={s.tags}>
@@ -80,7 +77,7 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
                         <span>{techStack}</span>
                       </div>
                       <p>{subTitle}</p>
-                    </div>
+                    </a>
                   )
                 )}
             </div>

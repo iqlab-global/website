@@ -1,14 +1,26 @@
+.stickyCover {
+  position: relative;
+  background-color: $c-white-ff;
+  height: 111px;
+  z-index: 1001;
+}
+
 .header {
   width: 100%;
   position: absolute;
   color: $c-white;
-  z-index: 1;
+  z-index: 1000;
 
   &.whiteBg {
     background-color: $c-white;
-    position: static;
+    position: sticky;
+    top: 0;
     color: $c-gray-30;
     border-bottom: 1px solid $c-blue-ff;
+  }
+
+  &.isHome {
+    margin-top: -111px;
   }
 
   .flex {

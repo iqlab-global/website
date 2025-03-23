@@ -42,8 +42,7 @@ const query = `{
     "icon": icon.asset->url,
     alt
   }
-}
-`;
+}`;
 
 export default async function Services() {
   const { servicesPage, techCapabilities } = await client.fetch(query);

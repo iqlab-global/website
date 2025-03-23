@@ -6,7 +6,7 @@
   }
 
   @include isMobile {
-    padding-bottom: rem(285px);
+    padding-bottom: rem(42px);
   }
 }
 
@@ -15,7 +15,7 @@
     font-size: rem(100px);
     line-height: rem(116px);
     letter-spacing: -0.02em;
-    width: 800px;
+    width: 770px;
     padding-top: rem(52px);
     padding-bottom: rem(60px);
 
@@ -32,7 +32,7 @@
 
 .info {
   display: flex;
-  gap: rem(200px);
+  gap: rem(150px);
 
   @include isSmallDesktop {
     gap: rem(60px);
@@ -47,32 +47,66 @@
     gap: rem(14px);
   }
 
-  h2 {
-    font-size: rem(40px);
-    line-height: rem(56px);
-    letter-spacing: -0.03em;
-    width: 488px;
+  .subtitleWrapper {
+    width: 530px;
     flex-shrink: 0;
 
+    h2 {
+      font-size: rem(40px);
+      line-height: rem(56px);
+      letter-spacing: -0.03em;
+    }
+
     @include isSmallDesktop {
-      width: 301px;
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
+      width: 400px;
+
+      h2 {
+        font-size: rem(32px);
+        line-height: rem(44.8px);
+        letter-spacing: 0;
+      }
     }
 
     @include isTablet {
       width: 301px;
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
+
+      h2 {
+        font-size: rem(32px);
+        line-height: rem(44.8px);
+        letter-spacing: 0;
+      }
     }
 
     @include isMobile {
       width: 100%;
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
+
+      h2 {
+        font-size: rem(32px);
+        line-height: rem(44.8px);
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  .patternImg1 {
+    margin-top: rem(80px);
+
+    @include isMobile() {
+      display: none;
+    }
+
+    @include isTablet() {
+      position: unset;
+      margin-top: rem(50px);
+    }
+  }
+
+  .patternImg2 {
+    margin-top: rem(20px);
+    display: none;
+
+    @include isMobile() {
+      display: inline;
     }
   }
 

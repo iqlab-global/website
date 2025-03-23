@@ -84,7 +84,7 @@ export default function ContactUs() {
   };
 
   return (
-    <Page whiteHeader={true}>
+    <Page whiteHeader>
       <Breadcrumb currentPage='Contact Us' />
       <Section className={s.section}>
         <Container>

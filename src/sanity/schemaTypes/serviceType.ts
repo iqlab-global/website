@@ -1,11 +1,11 @@
-import { InfoFilledIcon } from '@sanity/icons';
+import { TiersIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 
 export const serviceType = defineType({
   name: 'service',
   title: 'Services',
   type: 'document',
-  icon: InfoFilledIcon,
+  icon: TiersIcon,
   groups: [
     {
       name: 'introGroup',

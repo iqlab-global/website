@@ -1,11 +1,11 @@
-import { ListIcon } from '@sanity/icons';
+import { EnvelopeIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 
 export const contactFormType = defineType({
   name: 'contactForm',
   title: 'Contact Form',
   type: 'document',
-  icon: ListIcon,
+  icon: EnvelopeIcon,
   fields: [
     defineField({
       name: 'firstName',

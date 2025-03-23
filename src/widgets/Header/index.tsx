@@ -13,19 +13,30 @@ import Link from 'next/link';
 
 interface HeaderProps {
   whiteBg?: boolean;
+  isHome?: boolean;
 }
 
-export const Header = ({ whiteBg = false }: HeaderProps) => {
+export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
   const { isMobile } = useWindowSize();
 
   // TODO: Hamburger iconu whiteBg olanda itir.
   return (
     <>
-      <header className={clsx(s.header, { [s.whiteBg]: whiteBg })}>
+      {isHome && <div className={s.stickyCover}></div>}
+      <header
+        className={clsx(s.header, {
+          [s.whiteBg]: whiteBg,
+          [s.isHome]: isHome,
+        })}
+      >
         <Container>
           <div className={s.flex}>
             <Link href='/' className={s.logo}>
-              <img src={whiteBg ? LogoBlue.src : Logo.src} alt='IQ Lab' />
+              <img
+                style={{ display: 'block' }}
+                src={whiteBg ? LogoBlue.src : Logo.src}
+                alt='IQ Lab'
+              />
             </Link>
             {!isMobile && (
               <>

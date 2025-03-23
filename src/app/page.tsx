@@ -62,8 +62,7 @@ const query = `{
       "previewImage": previewImage.asset->url
     }
   }
-}
-`;
+}`;
 
 export default async function Home() {
   const { homePage, techCapabilities, featuredProjects } = await client.fetch(

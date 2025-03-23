@@ -1,11 +1,11 @@
-import { InfoFilledIcon } from '@sanity/icons';
+import { DocumentTextIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 
 export const aboutPageSingleton = defineType({
   name: 'aboutPageSingleton',
   title: 'About Page',
   type: 'document',
-  icon: InfoFilledIcon,
+  icon: DocumentTextIcon,
   groups: [
     {
       name: 'companyHistoryGroup',

@@ -89,34 +89,53 @@
 
 .block {
   position: relative;
+  display: block;
   flex: 1;
 
-  &.mainBlock {
+  &:hover {
+    .industry {
+      opacity: 1;
+    }
+
     img {
-      height: 552px;
+      transform: scale(1.2);
+    }
+  }
+
+  &.mainBlock {
+    .imageWrapper {
       width: 100%;
 
       @include isMobile {
+        aspect-ratio: auto;
         height: 280px;
       }
     }
   }
 
-  img {
+  .imageWrapper {
     display: block;
-    height: 323px;
     width: 100%;
-    object-fit: cover;
-    padding-bottom: rem(28px);
+    aspect-ratio: 1;
+    margin-bottom: rem(28px);
+    overflow: hidden;
 
     @include isTablet {
-      padding-bottom: rem(18px);
+      margin-bottom: rem(18px);
     }
 
     @include isMobile {
-      padding-bottom: rem(24px);
+      margin-bottom: rem(24px);
+      aspect-ratio: auto;
       height: 280px;
     }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
   }
 
   h6 {
@@ -135,6 +154,8 @@
     font-family: var(--font-disket-mono);
     font-size: rem(12px);
     padding: 10px 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
   }
 
   .tags {
@@ -144,7 +165,7 @@
     gap: 4px;
 
     span {
-      padding: 10px;
+      padding: 6px 10px;
       border: 1px solid $c-white;
       font-weight: 400;
       font-size: rem(12px);
