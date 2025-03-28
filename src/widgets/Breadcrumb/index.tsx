@@ -2,21 +2,32 @@ import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import Link from 'next/link';
 
-interface BreadcrumbProps {
-  currentPage?: string;
-}
+type Page = {
+  label: string;
+  href?: string;
+};
 
-export const Breadcrumb = ({ currentPage = '' }: BreadcrumbProps) => {
+type BreadcrumbProps = {
+  pages?: Page[];
+};
+
+export const Breadcrumb = ({ pages = [] }: BreadcrumbProps) => {
   return (
     <section className={s.section}>
       <Container>
         <div className={s.wrapper}>
-          <Link href='/'>
+          <Link className='home' href='/'>
             <span />
             Home
           </Link>
+          {pages.slice(0, -1).map(({ label, href }) => (
+            <span key={href}>
+              <span> / </span>
+              <Link href={href ?? ''}>{label}</Link>
+            </span>
+          ))}
           <span> / </span>
-          {currentPage}
+          {pages.at(-1)?.label}
         </div>
       </Container>
     </section>

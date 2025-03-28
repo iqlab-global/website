@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { CareersSingleIntro } from '@/widgets/CareersSingleIntro';
 
 type CareersSingleProps = {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug: string }>;
 };
 
 export default async function CareersSingle({ params }: CareersSingleProps) {

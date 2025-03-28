@@ -33,7 +33,7 @@ export default async function Showcase() {
 
   return (
     <Page whiteHeader>
-      <Breadcrumb currentPage='Showcase' />
+      <Breadcrumb pages={[{ label: 'Showcase', href: '/showcase' }]} />
       <ShowcaseIntro {...introSection} />
       <ShowcaseList projects={projects} />
     </Page>

@@ -17,13 +17,16 @@
     color: $c-gray-b4;
     display: inline-block;
     position: relative;
-    padding-left: rem(20px);
 
     &:hover {
       text-decoration: underline;
     }
 
-    &:before {
+    &:first-child {
+      padding-left: rem(20px);
+    }
+
+    &:first-child:before {
       content: '';
       width: 8px;
       height: 8px;

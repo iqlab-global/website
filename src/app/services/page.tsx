@@ -54,7 +54,7 @@ export default async function Services() {
 
   return (
     <Page whiteHeader>
-      <Breadcrumb currentPage='Services' />
+      <Breadcrumb pages={[{ label: 'Services', href: '/services' }]} />
       <ServicesIntro {...introSection} />
       <ServicesAreas {...areasSection} />
       <ServicesSlogan />
