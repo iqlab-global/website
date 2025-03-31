@@ -8,6 +8,18 @@
   padding-top: rem(32px);
   padding-bottom: rem(32px);
 
+  &.blueBg {
+    color: #b9e7ff;
+
+    a {
+      color: white;
+
+      &:first-child:before {
+        background-color: #b9e7ff;
+      }
+    }
+  }
+
   @include isMobile {
     padding-top: rem(24px);
     padding-bottom: rem(24px);

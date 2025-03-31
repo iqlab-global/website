@@ -51,126 +51,18 @@
 }
 
 .list {
-  display: grid;
-  grid-template-columns: 1.5fr 2fr;
-  gap: rem(77px);
-
-  @include isSmallDesktop {
-    gap: rem(30px);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: rem(70px);
+  row-gap: rem(120px);
+  margin-bottom: rem(120px);
 
   @include isTablet {
-    gap: rem(20px);
+    row-gap: rem(60px);
+    column-gap: rem(40px);
   }
 
   @include isMobile {
-    grid-template-columns: 1fr;
-    gap: rem(32px);
-  }
-
-  .secondaryList {
-    display: flex;
-    gap: rem(77px);
-
-    @include isSmallDesktop {
-      gap: rem(30px);
-    }
-
-    @include isTablet {
-      gap: rem(20px);
-    }
-
-    @include isMobile {
-      flex-direction: column;
-      gap: rem(32px);
-    }
-  }
-}
-
-.block {
-  position: relative;
-  display: block;
-  flex: 1;
-
-  &:hover {
-    .industry {
-      opacity: 1;
-    }
-
-    img {
-      transform: scale(1.2);
-    }
-  }
-
-  &.mainBlock {
-    .imageWrapper {
-      width: 100%;
-
-      @include isMobile {
-        aspect-ratio: auto;
-        height: 280px;
-      }
-    }
-  }
-
-  .imageWrapper {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1;
-    margin-bottom: rem(28px);
-    overflow: hidden;
-
-    @include isTablet {
-      margin-bottom: rem(18px);
-    }
-
-    @include isMobile {
-      margin-bottom: rem(24px);
-      aspect-ratio: auto;
-      height: 280px;
-    }
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  h6 {
-    font-weight: 400;
-    font-size: rem(24px);
-    line-height: rem(33.6px);
-    letter-spacing: 0;
-  }
-
-  .industry {
-    position: absolute;
-    left: 16px;
-    top: 16px;
-    color: white;
-    background: $c-blue-a5;
-    font-family: var(--font-disket-mono);
-    font-size: rem(12px);
-    padding: 10px 14px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .tags {
-    padding-top: rem(12px);
-    padding-bottom: rem(24px);
-    display: flex;
-    gap: 4px;
-
-    span {
-      padding: 6px 10px;
-      border: 1px solid $c-white;
-      font-weight: 400;
-      font-size: rem(12px);
-      line-height: rem(16.8px);
-      letter-spacing: -0.02em;
-    }
+    row-gap: rem(60px);
   }
 }

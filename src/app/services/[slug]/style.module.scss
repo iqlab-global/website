@@ -1,7 +1,6 @@
-.noise {
-  background-color: blue;
-  background-image: url('your-image.jpg');
-  background-size: cover;
-  background-position: center;
+.blueBackground {
+  background-color: $c-blue-a5;
+  background-image: url('../../../assets/images/textures/noise.png');
   background-blend-mode: overlay;
+  background-repeat: repeat;
 }

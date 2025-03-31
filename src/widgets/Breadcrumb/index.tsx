@@ -1,5 +1,6 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
+import clsx from 'clsx';
 import Link from 'next/link';
 
 type Page = {
@@ -9,11 +10,12 @@ type Page = {
 
 type BreadcrumbProps = {
   pages?: Page[];
+  blueBg?: boolean;
 };
 
-export const Breadcrumb = ({ pages = [] }: BreadcrumbProps) => {
+export const Breadcrumb = ({ pages = [], blueBg }: BreadcrumbProps) => {
   return (
-    <section className={s.section}>
+    <section className={clsx(s.section, { [s.blueBg]: blueBg })}>
       <Container>
         <div className={s.wrapper}>
           <Link className='home' href='/'>

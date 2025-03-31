@@ -1,0 +1,133 @@
+.section {
+  padding: rem(70px) 0;
+  border-top: 1px solid $c-blue-ff;
+
+  @include isTablet {
+    padding-bottom: rem(70px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(70px);
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+
+  & > div {
+    flex: 1;
+  }
+}
+
+.info {
+  @include isTablet {
+    padding-bottom: rem(160px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    gap: rem(36px);
+    padding-bottom: rem(100px);
+  }
+
+  h2 {
+    font-size: rem(40px);
+    line-height: rem(60px);
+    letter-spacing: -0.03em;
+    padding-bottom: rem(25px);
+
+    @include isTablet {
+      font-size: rem(32px);
+      line-height: rem(44.8px);
+      letter-spacing: 0;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  h3 {
+    font-size: rem(16px);
+    line-height: rem(24px);
+    letter-spacing: 0.3em;
+    padding-bottom: rem(10px);
+    text-transform: uppercase;
+    color: $c-blue-eb;
+
+    @include isTablet {
+      font-size: rem(32px);
+      line-height: rem(44.8px);
+      letter-spacing: 0;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  p {
+    width: 552px;
+    flex-shrink: 0;
+    padding-right: rem(50px);
+    font-size: rem(20px);
+    line-height: rem(30px);
+    letter-spacing: 0;
+    color: $c-gray-30;
+    padding-bottom: rem(30px);
+
+    @include isTablet {
+      width: 500px;
+      padding-right: 0;
+    }
+
+    @include isMobile {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+}
+
+.tech {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1px;
+  margin-right: -1px;
+  background: $c-blue-ff;
+
+  @include isMobile {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $c-white-ff;
+
+    img {
+      width: 65%;
+      padding: 20% 0;
+    }
+
+    @include isTablet {
+      height: 236px;
+
+      img {
+        width: 105px;
+      }
+    }
+
+    @include isMobile {
+      height: 140px;
+
+      img {
+        width: 60px;
+      }
+    }
+  }
+}

@@ -47,7 +47,8 @@ const query = `{
   },
   "techCapabilities": *[_type == "techCapability"] {
     _id,
-    "icon": icon.asset->url,
+    url,
+    "icon": iconDarkBg.asset->url,
     alt
   },
   "featuredProjects": *[_type == "project" && primarySection.isFeatured == true] {

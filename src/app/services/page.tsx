@@ -39,7 +39,7 @@ const query = `{
   },
   "techCapabilities": *[_type == "techCapability"] {
     _id,
-    "icon": icon.asset->url,
+    "icon": iconDarkBg.asset->url,
     alt
   }
 }`;

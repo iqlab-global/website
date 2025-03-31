@@ -1,0 +1,141 @@
+.block {
+  position: relative;
+  display: block;
+  width: 323px;
+
+  &.blueBg {
+    color: white;
+
+    .tags {
+      span {
+        border: 1px solid $c-white;
+        background: transparent;
+      }
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  &.firstLarge {
+    @include isDesktop {
+      &:nth-child(6n + 1),
+      &:nth-child(6n + 6) {
+        width: 552px;
+
+        .imageWrapper {
+          height: 552px;
+        }
+      }
+    }
+
+    @include isSmallDesktop {
+      &:nth-child(4n + 1),
+      &:nth-child(4n + 4) {
+        width: 552px;
+
+        .imageWrapper {
+          height: 552px;
+        }
+      }
+    }
+
+    @include isTablet {
+      &:nth-child(4n + 1),
+      &:nth-child(4n + 4) {
+        width: 504px;
+
+        .imageWrapper {
+          height: 504px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .industry {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.2);
+    }
+  }
+
+  @include isTablet {
+    width: 301px;
+  }
+
+  @include isMobile {
+    width: 100%;
+  }
+
+  .industry {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    color: white;
+    background: $c-blue-a5;
+    font-family: var(--font-disket-mono);
+    font-size: rem(12px);
+    padding: 10px 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .imageWrapper {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: rem(28px);
+    overflow: hidden;
+
+    @include isTablet {
+      height: 301px;
+      margin-bottom: rem(18px);
+    }
+
+    @include isMobile {
+      height: 280px;
+      margin-bottom: rem(24px);
+      aspect-ratio: auto;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  h5 {
+    font-size: rem(24px);
+    line-height: rem(33.6px);
+    letter-spacing: 0;
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: rem(28px);
+    letter-spacing: 0;
+    color: $c-gray-30;
+  }
+}
+
+.tags {
+  display: flex;
+  gap: 4px;
+  padding-top: rem(12px);
+  padding-bottom: rem(24px);
+
+  span {
+    display: block;
+    padding: rem(6px) rem(10px);
+    font-size: rem(12px);
+    line-height: rem(16.8px);
+    letter-spacing: -0.24px;
+    background-color: $c-blue-e3;
+  }
+}

@@ -8,7 +8,11 @@ export const techCapabilityType = defineType({
   icon: DashboardIcon,
   fields: [
     defineField({
-      name: 'icon',
+      name: 'iconDarkBg',
+      type: 'image',
+    }),
+    defineField({
+      name: 'iconLightBg',
       type: 'image',
     }),
     defineField({
