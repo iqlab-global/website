@@ -17,10 +17,10 @@ export const TechSection = async ({ data }: Props) => {
       <Container>
         <div className={s.wrapper}>
           <div className={s.tech}>
-            {data.slice(0, 6).map(({ icon, alt }) => (
-              <div key={alt}>
+            {data.slice(0, 6).map(({ url, icon, alt }) => (
+              <a key={alt} href={url} target='_blank'>
                 <img src={icon} alt={alt} />
-              </div>
+              </a>
             ))}
           </div>
           <div className={s.info}>

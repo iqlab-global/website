@@ -3,6 +3,7 @@ import s from './style.module.scss';
 
 interface TechCapabilityProps {
   data: {
+    url: string;
     icon: string;
     alt: string;
   }[];
@@ -16,10 +17,10 @@ export const TechCapability = async ({ data }: TechCapabilityProps) => {
       subTitle='Explore our robust technology portfolio, from Ruby on Rails to GraphQL.'
     >
       <div className={s.wrapper}>
-        {data.map(({ icon, alt }) => (
-          <div key={alt} className={s.block}>
+        {data.map(({ url, icon, alt }) => (
+          <a key={alt} className={s.block} href={url} target='_blank'>
             <img src={icon} alt={alt} />
-          </div>
+          </a>
         ))}
       </div>
     </Section>

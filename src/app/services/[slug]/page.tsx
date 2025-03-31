@@ -53,6 +53,7 @@ const query = (slug: string) => `{
   },
   "techCapabilities": *[_type == "techCapability"] {
     _id,
+    url,
     "icon": iconLightBg.asset->url,
     alt
   },
