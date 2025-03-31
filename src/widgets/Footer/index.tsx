@@ -14,6 +14,7 @@ import { AddressInfo, ContactInfo } from '@/widgets/Contact';
 export default function Footer() {
   return (
     <footer className={s.footer}>
+      <div className={s.footerNoise} />
       <Container>
         <div className={s.wrapper}>
           <div className={s.main}>

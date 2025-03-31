@@ -11,6 +11,10 @@
     height: 304px;
     object-fit: cover;
 
+    @include isSmallDesktop {
+      height: 250px;
+    }
+
     @include isTablet {
       height: 206px;
     }

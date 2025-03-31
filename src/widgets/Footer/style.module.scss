@@ -1,16 +1,30 @@
 .footer {
+  position: relative;
   padding: rem(40px) 0 rem(10px) 0;
-  background-position: center;
-  background-repeat: no-repeat;
   background-image: url('../../assets/images/gradient.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
   color: $c-white;
+
+  .footerNoise {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url('../../assets/images/textures/noise.png');
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+  }
 
   @include smallDesktopAndAbove() {
     padding: rem(80px) 0 rem(10px) 0;
   }
 
   .wrapper {
+    position: relative;
+
     h2 {
       font-size: rem(34px);
 
