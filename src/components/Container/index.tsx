@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 
 interface ContainerProps {
@@ -8,7 +9,7 @@ interface ContainerProps {
 
 export const Container = ({ children, className, id }: ContainerProps) => {
   return (
-    <div className={`container ${className}`} id={id || ''}>
+    <div className={clsx('container', className)} id={id ?? ''}>
       {children}
     </div>
   );

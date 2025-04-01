@@ -19,3 +19,26 @@ export function sortBy<T>(
 
   return (a: T, b: T) => sortDir * compare(String(a[key]), String(b[key]));
 }
+
+export function splitStringEvenly(s = ''): string[] {
+  if (!s) return [];
+
+  const words = s.split(' ');
+  const totalChars = words.reduce((sum, word) => sum + word.length, 0);
+  const halfChars = Math.floor(totalChars / 2);
+
+  const part1: string[] = [words.shift()!];
+  const part2: string[] = [];
+  let count = part1[0].length;
+
+  for (const word of words) {
+    if (count + word.length <= halfChars) {
+      part1.push(word);
+      count += word.length;
+    } else {
+      part2.push(word);
+    }
+  }
+
+  return [part1.join(' '), part2.join(' ')];
+}

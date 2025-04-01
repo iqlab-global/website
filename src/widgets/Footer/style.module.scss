@@ -22,33 +22,42 @@
     padding: rem(80px) 0 rem(10px) 0;
   }
 
+  @include isTablet() {
+    padding: rem(46px) 0 rem(10px) 0;
+  }
+
   .wrapper {
     position: relative;
 
     h2 {
       font-size: rem(34px);
 
-      @include tabletAndAbove() {
-        font-size: rem(40px);
+      @include isTablet() {
+        font-size: rem(36px);
       }
 
-      @include smallDesktopAndAbove() {
+      @include isSmallDesktop() {
+        font-size: rem(42px);
+      }
+
+      @include isDesktop() {
         font-size: rem(54px);
       }
     }
+
     .main {
       display: flex;
       justify-content: space-between;
       margin-bottom: rem(30px);
 
-      @include smallDesktopAndAbove() {
+      @include tabletAndAbove() {
         margin-bottom: rem(60px);
       }
 
       .callToAction {
         width: 100%;
 
-        @include smallDesktopAndAbove() {
+        @include tabletAndAbove() {
           width: 50%;
         }
 
@@ -68,9 +77,11 @@
           display: flex;
           gap: rem(20px);
           margin-top: rem(30px);
+          flex-direction: column;
 
           @include smallDesktopAndAbove() {
-            margin-top: rem(60px);
+            flex-direction: row;
+            margin-top: rem(50px);
           }
 
           .feature {
@@ -83,18 +94,18 @@
       }
 
       .navigations {
-        width: 30%;
+        width: 40%;
         display: none;
 
-        @include smallDesktopAndAbove() {
+        @include tabletAndAbove() {
           display: flex;
-          justify-content: space-between;
+          gap: rem(70px);
         }
 
         .internal {
           display: grid;
           padding: 0 !important;
-          gap: rem(40px);
+          gap: rem(70px);
           grid-template-columns: repeat(2, 1fr);
 
           li {
@@ -126,6 +137,7 @@
         }
       }
     }
+
     .dotted {
       padding: rem(40px) 0 rem(20px) 0;
       width: 100%;
@@ -142,11 +154,23 @@
         font-weight: 700;
       }
 
-      @include smallDesktopAndAbove() {
+      @include tabletAndAbove() {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
-        padding: rem(80px) 0 rem(40px) 0;
+      }
+
+      @include isDesktop() {
+        padding: rem(80px) rem(60px) rem(60px) rem(60px);
+      }
+
+      @include isSmallDesktop() {
+        padding: rem(80px) rem(20px) rem(60px) rem(20px);
+      }
+
+      @include isTablet() {
+        font-size: rem(12px);
+        padding: rem(80px) rem(20px) rem(60px) rem(20px);
       }
     }
   }

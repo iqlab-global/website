@@ -1,10 +1,10 @@
 .section {
   background-color: $c-blue-a5;
   background-image: url('../../../../../assets/images/textures/noise.png');
-  background-blend-mode: overlay;
   background-repeat: repeat;
-  color: $c-blue-ff;
-  padding: 70px 0;
+  background-blend-mode: overlay;
+  color: $c-blue-ff3;
+  padding: rem(70px) 0;
 }
 
 .wrapper {
@@ -13,7 +13,7 @@
   padding-bottom: rem(50px);
 
   @include isTablet {
-    padding-bottom: rem(160px);
+    padding-bottom: rem(40px);
   }
 
   @include isMobile {
@@ -28,15 +28,8 @@
 
   h2 {
     font-size: rem(40px);
-    line-height: rem(40px);
+    line-height: rem(60px);
     letter-spacing: -0.03em;
-    padding-bottom: rem(15px);
-
-    @include isTablet {
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
-    }
 
     @include isMobile {
       width: 100%;
@@ -52,9 +45,6 @@
     color: $c-blue-eb;
 
     @include isTablet {
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
     }
 
     @include isMobile {
@@ -69,11 +59,19 @@
   }
 }
 
+.dots {
+  width: 100%;
+}
+
 .items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   padding-top: 50px;
+
+  @include isTablet {
+    padding-top: rem(40px);
+  }
 }
 
 .item {
@@ -88,6 +86,14 @@
   div {
     width: 100%;
     padding: 0 15%;
+
+    @include isSmallDesktop {
+      padding: 0 12%;
+    }
+
+    @include isTablet {
+      padding: 0 10%;
+    }
   }
 
   &:first-child div {
@@ -103,5 +109,9 @@
   h5 {
     font-size: rem(20px);
     padding-bottom: rem(15px);
+
+    @include isTablet {
+      line-height: rem(30px);
+    }
   }
 }

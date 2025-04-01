@@ -1,7 +1,28 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
+  gap: 5%;
   color: white;
+  padding-bottom: rem(40px);
+
+  @include isTablet {
+    flex-direction: column;
+  }
+}
+
+.info {
+  flex: 1;
+
+  @include isTablet {
+    width: 60%;
+    padding-bottom: rem(70px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    gap: rem(36px);
+    padding-bottom: rem(100px);
+  }
 
   h1 {
     font-size: rem(63px);
@@ -11,7 +32,8 @@
     padding-bottom: rem(40px);
 
     @include isTablet {
-      padding-bottom: rem(72px);
+      padding-top: rem(20px);
+      padding-bottom: rem(30px);
     }
 
     @include isMobile {
@@ -21,21 +43,6 @@
       line-height: rem(56px);
       letter-spacing: -0.03em;
     }
-  }
-}
-
-.info {
-  padding-bottom: rem(100px);
-  width: 510px;
-
-  @include isTablet {
-    padding-bottom: rem(160px);
-  }
-
-  @include isMobile {
-    flex-direction: column;
-    gap: rem(36px);
-    padding-bottom: rem(100px);
   }
 
   h3 {
@@ -94,9 +101,11 @@
 
 .image {
   position: relative;
+  flex: 1;
+  overflow: hidden;
 
   @include isTablet {
-    padding-bottom: rem(90px);
+    overflow: visible;
   }
 
   @include isMobile {
@@ -104,17 +113,18 @@
   }
 
   .mainImage {
-    position: relative;
-    width: 608px;
-    height: 426px;
+    position: absolute;
     display: block;
+    width: 91%;
+    height: 92%;
     object-fit: cover;
-    margin-top: 44px;
-    margin-right: 64px;
+    bottom: 0;
+    left: 0;
 
     @include isTablet {
-      width: 623px;
-      height: 310px;
+      position: relative;
+      width: 100%;
+      height: auto;
     }
 
     @include isMobile {
@@ -127,5 +137,13 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    @include isTablet {
+      object-fit: cover;
+      top: -152px;
+      right: -20px;
+      width: 38%;
+      height: 29%;
+    }
   }
 }

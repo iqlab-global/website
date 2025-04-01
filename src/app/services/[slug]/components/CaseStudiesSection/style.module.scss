@@ -1,15 +1,19 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 120px 0 50px;
+  padding: rem(120px) 0 rem(50px);
+
+  @include isTablet {
+    padding: rem(80px) 0 rem(50px);
+  }
 }
 
 .info {
-  width: 484px;
+  flex: 1;
+  padding-right: rem(50px);
   overflow: hidden;
 
   @include isTablet {
-    padding-bottom: rem(160px);
   }
 
   @include isMobile {
@@ -25,9 +29,6 @@
     padding-bottom: rem(15px);
 
     @include isTablet {
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
     }
 
     @include isMobile {
@@ -44,9 +45,6 @@
     color: $c-blue-eb;
 
     @include isTablet {
-      font-size: rem(32px);
-      line-height: rem(44.8px);
-      letter-spacing: 0;
     }
 
     @include isMobile {
@@ -55,29 +53,27 @@
   }
 
   p {
-    width: 552px;
     flex-shrink: 0;
-    padding-right: rem(50px);
     font-size: rem(20px);
     line-height: rem(30px);
     letter-spacing: 0;
     color: $c-gray-30;
-    padding-bottom: rem(30px);
+    padding-bottom: rem(20px);
 
     @include isTablet {
-      width: 500px;
-      padding-right: 0;
     }
 
     @include isMobile {
       width: 100%;
-      padding-right: 0;
     }
   }
 
   img {
-    width: 110%;
+    width: 100%;
+    height: 263px;
     padding: rem(30px) 0;
+    object-fit: cover;
+    object-position: 0px 0;
   }
 }
 
@@ -86,11 +82,15 @@
   flex-wrap: wrap;
   column-gap: rem(70px);
   row-gap: rem(120px);
-  margin-bottom: rem(50px);
+  padding-bottom: rem(50px);
+
+  @include isSmallDesktop {
+    column-gap: rem(40px);
+  }
 
   @include isTablet {
     row-gap: rem(60px);
-    column-gap: rem(40px);
+    column-gap: rem(25px);
   }
 
   @include isMobile {

@@ -2,6 +2,7 @@ import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import Pattern from '@/assets/images/textures/pattern-4.svg';
 import { BlockContent } from '@/components/Block';
+import { TwoLineText } from '@/widgets/TwoLineText';
 
 type Area = {
   title: string;
@@ -35,7 +36,9 @@ export const WhySection = ({ image, icon, body, areas }: Props) => {
             <div key={area.title} className={s.area}>
               <div>
                 <img src={area.icon} alt={area.title} />
-                <h5>{area.title}</h5>
+                <h5>
+                  <TwoLineText string={area.title} />
+                </h5>
                 <p>{area.description}</p>
               </div>
             </div>

@@ -30,7 +30,7 @@ export const HowSection = ({ data }: Props) => {
             </p>
           </div>
         </div>
-        <img src={Pattern.src} alt='Pattern' />
+        <img className={s.dots} src={Pattern.src} alt='Pattern' />
         <div className={s.items}>
           {data?.sort(sortBy('order'))?.map((item, index) => (
             <div key={item.title} className={s.item}>
