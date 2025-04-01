@@ -2,12 +2,8 @@
   padding: rem(70px) 0;
   border-top: 1px solid $c-blue-ff;
 
-  @include isTablet {
-    padding-bottom: rem(70px);
-  }
-
   @include isMobile {
-    padding-bottom: rem(70px);
+    padding: rem(50px) 0;
   }
 }
 
@@ -15,6 +11,11 @@
   display: flex;
   justify-content: space-between;
   gap: 70px;
+
+  @include isMobile {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
 
   & > div {
     flex: 1;
@@ -25,7 +26,7 @@
   @include isMobile {
     flex-direction: column;
     gap: rem(36px);
-    padding-bottom: rem(100px);
+    padding-bottom: rem(30px);
   }
 
   h2 {
@@ -36,6 +37,8 @@
 
     @include isMobile {
       width: 100%;
+      font-size: rem(28px);
+      padding-bottom: rem(5px);
     }
   }
 
@@ -49,6 +52,7 @@
 
     @include isMobile {
       width: 100%;
+      padding-bottom: rem(5px);
     }
   }
 
@@ -75,7 +79,8 @@
 
   @include isMobile {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin-right: 0;
   }
 
   a {

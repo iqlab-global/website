@@ -8,6 +8,11 @@
   @include isTablet {
     flex-direction: column;
   }
+
+  @include isMobile {
+    flex-direction: column;
+    padding-bottom: rem(30px);
+  }
 }
 
 .info {
@@ -38,7 +43,7 @@
 
     @include isMobile {
       padding-top: 0;
-      padding-bottom: rem(30px);
+      padding-bottom: rem(10px);
       font-size: rem(40px);
       line-height: rem(56px);
       letter-spacing: -0.03em;
@@ -58,7 +63,9 @@
     }
 
     @include isMobile {
+      font-size: rem(20px);
       width: 100%;
+      padding-bottom: rem(10px);
     }
   }
 
@@ -87,9 +94,19 @@
     align-items: center;
     margin-top: rem(40px);
 
+    @include isMobile {
+      flex-direction: column;
+      gap: rem(25px);
+    }
+
     .contact {
       background-color: white;
       color: $c-blue-a5;
+      text-align: center;
+
+      @include isMobile {
+        width: 100%;
+      }
     }
 
     .scroll {
@@ -109,7 +126,7 @@
   }
 
   @include isMobile {
-    padding-bottom: rem(90px);
+    overflow: visible;
   }
 
   .mainImage {
@@ -128,8 +145,9 @@
     }
 
     @include isMobile {
+      position: relative;
       width: 100%;
-      height: 251px;
+      height: auto;
     }
   }
 
@@ -137,6 +155,14 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    @include isMobile {
+      object-fit: cover;
+      top: -54px;
+      right: -15px;
+      width: 66%;
+      height: 55%;
+    }
 
     @include isTablet {
       object-fit: cover;

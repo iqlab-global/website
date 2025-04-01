@@ -4,7 +4,7 @@
   background-repeat: repeat;
   background-blend-mode: overlay;
   color: $c-blue-ff3;
-  padding: rem(70px) 0;
+  padding: rem(25px) 0;
 }
 
 .wrapper {
@@ -18,8 +18,7 @@
 
   @include isMobile {
     flex-direction: column;
-    gap: rem(36px);
-    padding-bottom: rem(100px);
+    padding-bottom: rem(20px);
   }
 
   div {
@@ -44,11 +43,9 @@
     text-transform: uppercase;
     color: $c-blue-eb;
 
-    @include isTablet {
-    }
-
     @include isMobile {
       width: 100%;
+      padding-bottom: rem(10px);
     }
   }
 
@@ -56,21 +53,37 @@
     padding-top: rem(25px);
     font-size: rem(20px);
     line-height: rem(30px);
+
+    @include isMobile {
+      width: 100%;
+      padding: rem(10px) 0;
+    }
   }
 }
 
 .dots {
   width: 100%;
+
+  @include isMobile {
+    width: 100%;
+    object-fit: cover;
+    height: 270px;
+  }
 }
 
 .items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  padding-top: 50px;
+  padding-top: rem(50px);
 
   @include isTablet {
     padding-top: rem(40px);
+  }
+
+  @include isMobile {
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: rem(20px);
   }
 }
 
@@ -83,6 +96,11 @@
     border: none;
   }
 
+  @include isMobile {
+    border-left: none;
+    border-top: 1px solid $c-blue-e6;
+  }
+
   div {
     width: 100%;
     padding: 0 15%;
@@ -93,6 +111,10 @@
 
     @include isTablet {
       padding: 0 10%;
+    }
+
+    @include isMobile {
+      padding: rem(20px) 0;
     }
   }
 
@@ -112,6 +134,10 @@
 
     @include isTablet {
       line-height: rem(30px);
+    }
+
+    @include isMobile {
+      line-height: rem(35px);
     }
   }
 }
