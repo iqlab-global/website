@@ -1,6 +1,5 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
-import HeroBg from '@/assets/images/hero.png';
 import { Button } from '@/components/Button';
 import { DiscoverArrow } from '@/assets/icons/DiscoverArrow';
 
@@ -35,10 +34,7 @@ export const Hero = ({
   const { primarySection: project } = recentProject ?? {};
 
   return (
-    <section
-      className={s.hero}
-      style={{ backgroundImage: `url(${HeroBg.src})` }}
-    >
+    <section className={s.hero}>
       <Container>
         <div className={s.wrapper}>
           <div className={s.content}>

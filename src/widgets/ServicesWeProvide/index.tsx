@@ -5,7 +5,6 @@ import PatternImg from '@/assets/images/pattern.svg';
 import ServicesImg from '@/assets/images/services.jpeg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
 import { Service } from '@/lib/types';
-import { Header } from '../Header';
 
 interface ServicesWeProvideProps {
   data: Service[];
@@ -14,7 +13,6 @@ interface ServicesWeProvideProps {
 export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
   return (
     <>
-      <Header whiteBg isHome />
       <section className={s.section}>
         <Container>
           <div className={s.wrapper}>

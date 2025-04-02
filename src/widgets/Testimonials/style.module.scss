@@ -38,9 +38,11 @@
     h2 {
       margin-bottom: rem(50px);
       font-size: rem(28px);
+
       @include isMobile() {
-        margin-bottom: rem(20px);
+        margin-bottom: 0;
       }
+
       @include isTablet() {
         font-size: rem(30px);
       }

@@ -1,3 +1,9 @@
+.section {
+  @include isMobile {
+    padding-top: rem(120px);
+  }
+}
+
 .wrapper {
   .list {
     display: flex;

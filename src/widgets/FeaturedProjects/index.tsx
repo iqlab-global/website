@@ -9,10 +9,6 @@ interface FeaturedProjectsProps {
 }
 
 export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
-  // TODO: Dots background
-  // TODO: Mobile '/ ALL PROJECTS' button
-  // TODO: Short description of project block might need some kind of shortening function for dots (...) at the end
-
   return (
     <section className={s.section}>
       <Container>
@@ -27,6 +23,11 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
             {data.map((project) => (
               <ProjectBlock key={project._id} {...project} blueBg firstLarge />
             ))}
+          </div>
+          <div className={s.links}>
+            <Button href='/showcase' transparentBg outline>
+              / All Projects
+            </Button>
           </div>
         </div>
       </Container>

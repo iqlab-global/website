@@ -37,6 +37,10 @@
       flex: 0 0 30%;
       color: black;
       padding-bottom: rem(60px);
+
+      @include isMobile {
+        display: none;
+      }
     }
   }
 }

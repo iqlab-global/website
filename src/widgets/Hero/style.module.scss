@@ -3,6 +3,11 @@
   min-height: 700px;
   color: $c-white;
   background-size: cover;
+  background-image: url('../../assets/images/hero.jpg');
+
+  @include isMobile {
+    background-position: 46% 0px;
+  }
 
   .wrapper {
     height: 100vh;
@@ -52,6 +57,7 @@
 
       @include isMobile {
         padding-bottom: rem(25px);
+        font-size: rem(14px);
       }
     }
 
@@ -123,10 +129,17 @@
     bottom: 80px;
     width: 400px;
     height: 150px;
-    background: rgba($c-blue-a5, 0.85);
+    background: rgba($c-blue-e6, 0.5);
+    backdrop-filter: blur(25px);
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
+
+    @include isMobile {
+      left: 50%;
+      bottom: -70px;
+      margin-left: -200px;
+    }
 
     .projectText {
       position: absolute;
@@ -148,6 +161,7 @@
       top: 0;
       right: 0;
       height: 100%;
+      border-radius: 6px;
     }
   }
 }

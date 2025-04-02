@@ -64,5 +64,11 @@
 
   @include isMobile {
     row-gap: rem(60px);
+    margin-bottom: rem(50px);
   }
+}
+
+.links {
+  display: flex;
+  justify-content: center;
 }
