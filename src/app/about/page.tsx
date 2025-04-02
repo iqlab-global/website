@@ -4,7 +4,7 @@ import { AboutCta } from '@/widgets/AboutCta';
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import { InfoBlock } from '@/app/about/components/InfoBlock';
-import AboutImage from '@/assets/images/services.jpeg';
+import AboutImage from '@/assets/images/about.jpg';
 import { ValueBlocks } from '@/app/about/components/ValueBlocks';
 import { MeetTheTeam } from '@/widgets/MeetTheTeam';
 
