@@ -6,6 +6,7 @@
 }
 
 .block {
+  position: relative;
   width: 319px;
   height: 319px;
   display: flex;
@@ -13,7 +14,19 @@
   justify-content: space-between;
   color: $c-blue-ff2;
   padding: rem(32px) rem(36px) rem(50px);
+  background-image: url('../../../../assets/images/gradient.png');
   background-size: cover;
+
+  .noise {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url('../../../../assets/images/textures/noise.png');
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+  }
 
   @include isMobile {
     width: 100%;

@@ -22,6 +22,12 @@ export const aboutPageSingleton = defineType({
   ],
   fields: [
     defineField({
+      name: 'name',
+      type: 'string',
+      hidden: true,
+      initialValue: 'About Page',
+    }),
+    defineField({
       name: 'companyHistorySection',
       type: 'object',
       group: 'companyHistoryGroup',
@@ -93,7 +99,7 @@ export const aboutPageSingleton = defineType({
                 }),
                 defineField({
                   name: 'position',
-                  type: 'text',
+                  type: 'string',
                 }),
               ],
             }),

@@ -1,16 +1,15 @@
 import s from './style.module.scss';
 
-export const InfoBlock = () => {
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+export const InfoBlock = ({ title, description }: Props) => {
   return (
     <section className={s.section}>
-      <h4>Company History</h4>
-      <p>
-        Founded by Heinrich in 2001, IQ Lab has grown into a powerhouse of
-        software development excellence. With decades of experience and projects
-        spanning industries from big data to cloud solutions, we’ve established
-        ourselves as a leader in delivering top-tier, scalable, and secure
-        applications.
-      </p>
+      <h4>{title}</h4>
+      <p>{description}</p>
     </section>
   );
 };
