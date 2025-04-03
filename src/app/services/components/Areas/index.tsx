@@ -7,7 +7,7 @@ type Props = {
   services?: Service[];
 };
 
-export const ServicesAreas = ({ title, services }: Props) => {
+export const Areas = ({ title, services }: Props) => {
   return (
     <section className={s.section}>
       <Container>

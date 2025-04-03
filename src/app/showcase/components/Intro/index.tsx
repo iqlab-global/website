@@ -10,7 +10,7 @@ type Props = {
   body?: string[];
 };
 
-export const ShowcaseIntro = ({ title, subtitle, body }: Props) => {
+export const Intro = ({ title, subtitle, body }: Props) => {
   return (
     <section className={s.section}>
       <Container>

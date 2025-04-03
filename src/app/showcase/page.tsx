@@ -1,8 +1,9 @@
 import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
-import { ShowcaseIntro } from '@/widgets/ShowcaseIntro';
-import { ShowcaseList } from '@/widgets/ShowcaseList';
 import { client } from '@/sanity/lib/client';
+
+import { Intro } from './components/Intro';
+import { ProjectList } from './components/ProjectList';
 
 const query = `{
   "showcasePage": *[_type == "showcasePageSingleton"][0] {
@@ -34,8 +35,8 @@ export default async function Showcase() {
   return (
     <Page whiteHeader>
       <Breadcrumb pages={[{ label: 'Showcase', href: '/showcase' }]} />
-      <ShowcaseIntro {...introSection} />
-      <ShowcaseList projects={projects} />
+      <Intro {...introSection} />
+      <ProjectList projects={projects} />
     </Page>
   );
 }

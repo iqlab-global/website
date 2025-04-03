@@ -1,11 +1,12 @@
 import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
-import { ServicesIntro } from '@/widgets/ServicesIntro';
-import { ServicesAreas } from '@/widgets/ServicesAreas';
-import { ServicesSlogan } from '@/widgets/ServicesSlogan';
-import { TechCapability } from '@/widgets/TechCapability';
+import { TechCapabilities } from '@/widgets/TechCapabilities';
 import { client } from '@/sanity/lib/client';
-import IndustriesServed from '@/widgets/IndustriesServed';
+
+import { Intro } from './components/Intro';
+import { Areas } from './components/Areas';
+import { Slogan } from './components/Slogan';
+import { Industries } from './components/Industries';
 
 const query = `{
   "servicesPage": *[_type == "servicePageSingleton"][0] {
@@ -56,11 +57,11 @@ export default async function Services() {
   return (
     <Page whiteHeader>
       <Breadcrumb pages={[{ label: 'Services', href: '/services' }]} />
-      <ServicesIntro {...introSection} />
-      <ServicesAreas {...areasSection} />
-      <ServicesSlogan />
-      <IndustriesServed {...industriesServedSection} />
-      <TechCapability data={techCapabilities} />
+      <Intro {...introSection} />
+      <Areas {...areasSection} />
+      <Slogan />
+      <Industries {...industriesServedSection} />
+      <TechCapabilities data={techCapabilities} />
     </Page>
   );
 }

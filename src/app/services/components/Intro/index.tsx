@@ -8,12 +8,7 @@ type Props = {
   image?: string;
 };
 
-export const ServicesIntro = ({
-  title,
-  subtitle,
-  description,
-  image,
-}: Props) => {
+export const Intro = ({ title, subtitle, description, image }: Props) => {
   return (
     <section className={s.section}>
       <Container>

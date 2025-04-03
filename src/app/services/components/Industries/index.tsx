@@ -1,8 +1,9 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
-import { Card } from './components/Card';
 import AppImage from '@/components/AppImage';
 import Pattern from '@/assets/images/textures/pattern-2.svg';
+
+import { IndustryCard } from '../IndustryCard';
 
 type Industry = {
   title: string;
@@ -16,11 +17,7 @@ type Props = {
   industries?: Industry[];
 };
 
-export default function IndustriesServed({
-  title,
-  description,
-  industries = [],
-}: Props) {
+export function Industries({ title, description, industries = [] }: Props) {
   return (
     <section className={s.section}>
       <Container>
@@ -35,7 +32,7 @@ export default function IndustriesServed({
             </div>
             <div className={s.serviceCards}>
               {industries.map(({ title, description, image }) => (
-                <Card
+                <IndustryCard
                   key={title}
                   title={title}
                   img={image}

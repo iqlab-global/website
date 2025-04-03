@@ -1,15 +1,15 @@
 import { Section } from '@/components/Section';
 import s from './style.module.scss';
 
-interface TechCapabilityProps {
+type Props = {
   data: {
     url: string;
     icon: string;
     alt: string;
   }[];
-}
+};
 
-export const TechCapability = async ({ data }: TechCapabilityProps) => {
+export const TechCapabilities = async ({ data }: Props) => {
   return (
     <Section
       className={s.section}

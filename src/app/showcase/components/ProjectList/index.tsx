@@ -7,7 +7,7 @@ type Props = {
   projects: Project[];
 };
 
-export const ShowcaseList = ({ projects }: Props) => {
+export const ProjectList = ({ projects }: Props) => {
   return (
     <section className={s.section}>
       <Container>

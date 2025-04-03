@@ -1,7 +1,7 @@
 import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
 import { notFound } from 'next/navigation';
-import { CareersSingleIntro } from '@/widgets/CareersSingleIntro';
+import { CareersSingleIntro } from '@/app/careers/components/CareersSingleIntro';
 
 type CareersSingleProps = {
   params: Promise<{ slug: string }>;

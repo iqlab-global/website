@@ -6,7 +6,7 @@ interface CardProps {
   img: string;
 }
 
-export const Card = ({ title, description, img }: CardProps) => {
+export const IndustryCard = ({ title, description, img }: CardProps) => {
   return (
     <div className={s.serviceCardWrapper}>
       <img className={s.industryImage} src={img} alt={title} />

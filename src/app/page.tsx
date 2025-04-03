@@ -1,11 +1,11 @@
-import { Hero } from '@/widgets/Hero';
-import { WhyChooseUs } from '@/widgets/WhyChooseUs';
 import { client } from '@/sanity/lib/client';
-import { ServicesWeProvide } from '@/widgets/ServicesWeProvide';
-import { TechCapability } from '@/widgets/TechCapability';
-import { FeaturedProjects } from '@/widgets/FeaturedProjects';
 import { Page } from '@/components/Page';
-import Testimonials from '@/widgets/Testimonials';
+import { Hero } from '@/widgets/HomeHero';
+import { WhyChooseUs } from '@/widgets/HomeWhyChooseUs';
+import { ServicesWeProvide } from '@/widgets/ServicesWeProvide';
+import { TechCapabilities } from '@/widgets/TechCapabilities';
+import { FeaturedProjects } from '@/widgets/HomeFeaturedProjects';
+import Testimonials from '@/widgets/HomeTestimonials';
 
 const query = `{
   "homePage": *[_type == "homePageSingleton"][0] {
@@ -79,7 +79,9 @@ export default async function Home() {
       {heroSection && <Hero data={heroSection} />}
       {!!whyChooseUs?.length && <WhyChooseUs data={whyChooseUs} />}
       {!!services?.length && <ServicesWeProvide data={services} />}
-      {!!techCapabilities?.length && <TechCapability data={techCapabilities} />}
+      {!!techCapabilities?.length && (
+        <TechCapabilities data={techCapabilities} />
+      )}
       {!!featuredProjects?.length && (
         <FeaturedProjects data={featuredProjects} />
       )}

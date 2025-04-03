@@ -2,7 +2,7 @@ import s from './style.module.scss';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import PatternImg from '@/assets/images/pattern.svg';
-import ServicesImg from '@/assets/images/services.jpeg';
+import ServicesImg from '@/assets/images/services.jpg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
 import { Service } from '@/lib/types';
 
