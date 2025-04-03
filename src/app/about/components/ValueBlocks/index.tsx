@@ -12,8 +12,12 @@ type Props = {
 export const ValueBlocks = ({ values }: Props) => {
   return (
     <section className={s.section}>
-      {values?.map(({ title, description }) => (
-        <div key={title} className={s.block}>
+      {values?.map(({ title, description }, index) => (
+        <div
+          key={title}
+          className={s.block}
+          style={{ backgroundPosition: index % 2 === 0 ? '0' : '100%' }}
+        >
           <div className={s.noise} />
           <h6>{title}</h6>
           <p>{description}</p>

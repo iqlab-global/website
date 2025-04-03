@@ -121,10 +121,6 @@ export const serviceType = defineType({
               name: 'description',
               type: 'text',
             }),
-            defineField({
-              name: 'order',
-              type: 'number',
-            }),
           ],
         }),
       ],

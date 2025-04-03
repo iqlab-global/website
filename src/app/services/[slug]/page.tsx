@@ -70,6 +70,7 @@ export default async function Service({ params }: ServiceProps) {
 
   const { service, techCapabilities } = await client.fetch(query(slug));
   const { introSection, whySection, howSection, caseStudySection } = service[0];
+  console.log(howSection);
 
   const pages = [
     { label: 'Services', href: '/services' },

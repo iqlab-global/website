@@ -1,13 +1,14 @@
+import s from './style.module.scss';
 import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
-import { AboutCta } from '@/widgets/AboutCta';
-import s from './style.module.scss';
 import { Container } from '@/components/Container';
-import { InfoBlock } from '@/app/about/components/InfoBlock';
 import AboutImage from '@/assets/images/about.jpg';
-import { ValueBlocks } from '@/app/about/components/ValueBlocks';
-import { MeetTheTeam } from '@/widgets/MeetTheTeam';
 import { client } from '@/sanity/lib/client';
+
+import { AboutBanner } from './components/AboutBanner';
+import { InfoBlock } from './components/InfoBlock';
+import { ValueBlocks } from './components/ValueBlocks';
+import { MeetTheTeam } from './components/MeetTheTeam';
 
 const query = `{
   "aboutPage": *[_type == "aboutPageSingleton"][0] {
@@ -41,7 +42,7 @@ export default async function About() {
   return (
     <Page whiteHeader>
       <Breadcrumb pages={[{ label: 'About Us', href: '/about' }]} />
-      <AboutCta />
+      <AboutBanner />
       <Container>
         <div className={s.wrapper}>
           <div className={s.sidebar}>{/*TODO: Complete sidebar*/}</div>
@@ -60,7 +61,7 @@ export default async function About() {
               title='Meet the Team'
               description={meetTheTeamSection.description}
             />
-            <MeetTheTeam />
+            <MeetTheTeam members={meetTheTeamSection.blocks} />
           </div>
         </div>
       </Container>

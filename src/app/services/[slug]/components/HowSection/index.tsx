@@ -1,7 +1,6 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import Pattern from '@/assets/images/textures/pattern-5.svg';
-import { sortBy } from '@/lib/utils';
 
 type HowItem = {
   title: string;
@@ -32,7 +31,7 @@ export const HowSection = ({ data }: Props) => {
         </div>
         <img className={s.dots} src={Pattern.src} alt='Pattern' />
         <div className={s.items}>
-          {data?.sort(sortBy('order'))?.map((item, index) => (
+          {data?.map((item, index) => (
             <div key={item.title} className={s.item}>
               <div>
                 <h5>
