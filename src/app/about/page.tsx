@@ -3,6 +3,9 @@ import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
 import { Container } from '@/components/Container';
 import AboutImage from '@/assets/images/about.jpg';
+import Pattern from '@/assets/images/textures/pattern-4.svg';
+import PatternMobile from '@/assets/images/textures/pattern-5-dark.svg';
+
 import { client } from '@/sanity/lib/client';
 
 import { AboutBanner } from './components/AboutBanner';
@@ -52,8 +55,13 @@ export default async function About() {
               description={companyHistorySection.description}
             />
             <div className={s.image}>
-              {/*TODO: Add dots figure here*/}
-              <img src={AboutImage.src} alt='About' />
+              <img className={s.pattern} src={Pattern.src} alt='Pattern' />
+              <img
+                className={s.patternMobile}
+                src={PatternMobile.src}
+                alt='Pattern'
+              />
+              <img className={s.main} src={AboutImage.src} alt='About' />
             </div>
             <InfoBlock title='Values' description={valuesSection.description} />
             <ValueBlocks values={valuesSection.blocks} />

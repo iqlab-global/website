@@ -21,6 +21,7 @@
 }
 
 .image {
+  position: relative;
   padding-bottom: rem(160px);
 
   @include isTablet {
@@ -30,10 +31,12 @@
   }
 
   @include isMobile {
-    padding-bottom: rem(300px);
+    padding-bottom: rem(225px);
+    overflow: hidden;
   }
 
-  img {
+  .main {
+    position: relative;
     display: block;
     width: 100%;
     height: 544px;
@@ -42,6 +45,34 @@
     @include isTablet {
       width: 90%;
       height: 334px;
+    }
+  }
+
+  .pattern {
+    position: absolute;
+    left: -44px;
+    bottom: 118px;
+
+    @include isTablet {
+      left: 5px;
+      bottom: 85px;
+    }
+
+    @include isMobile {
+      display: none;
+    }
+  }
+
+  .patternMobile {
+    position: absolute;
+    left: 50%;
+    bottom: 46px;
+    display: none;
+    object-fit: cover;
+    margin-left: -676px;
+
+    @include isMobile {
+      display: block;
     }
   }
 }

@@ -1,8 +1,13 @@
 .section {
+  position: relative;
   display: flex;
   gap: rem(20px);
   flex-wrap: wrap;
   padding-bottom: rem(224px);
+
+  @include isMobile {
+    padding-bottom: rem(100px);
+  }
 }
 
 .block {
@@ -45,5 +50,24 @@
     line-height: rem(22.68px);
     letter-spacing: 0;
     color: $c-white-ff;
+  }
+}
+
+.pattern {
+  position: absolute;
+  right: -90px;
+  bottom: 104px;
+  width: 363px;
+  height: 334px;
+  object-fit: none;
+  object-position: -20px 5px;
+
+  @include isTablet {
+    right: -63px;
+    bottom: 175px;
+  }
+
+  @include isMobile {
+    display: none;
   }
 }

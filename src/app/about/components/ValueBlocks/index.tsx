@@ -1,4 +1,5 @@
 import s from './style.module.scss';
+import Pattern from '@/assets/images/textures/pattern-3.svg';
 
 type Value = {
   title?: string;
@@ -12,6 +13,7 @@ type Props = {
 export const ValueBlocks = ({ values }: Props) => {
   return (
     <section className={s.section}>
+      <img className={s.pattern} src={Pattern.src} alt='Pattern' />
       {values?.map(({ title, description }, index) => (
         <div
           key={title}
