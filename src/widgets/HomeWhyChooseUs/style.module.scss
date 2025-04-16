@@ -1,4 +1,4 @@
-.section {
+section.section {
   @include isMobile {
     padding-top: rem(120px);
   }

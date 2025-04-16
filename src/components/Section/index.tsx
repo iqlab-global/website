@@ -21,7 +21,7 @@ export const Section = ({
   const ContentWrapper = container ? Container : Fragment;
 
   return (
-    <section className={clsx(s.section, className)}>
+    <section className={clsx(className, s.section)}>
       <ContentWrapper>
         <div className={s.headers}>
           {title && <h2>{title}</h2>}

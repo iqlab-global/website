@@ -3,6 +3,10 @@
   background-color: $c-white-ff;
   height: 111px;
   z-index: 1001;
+
+  @include isMobile {
+    height: 81px;
+  }
 }
 
 .header {
@@ -21,6 +25,10 @@
 
   &.isHome {
     margin-top: -111px;
+
+    @include isMobile {
+      margin-top: -81px;
+    }
   }
 
   .flex {
@@ -28,6 +36,10 @@
     align-items: center;
     justify-content: space-between;
     height: 110px;
+
+    @include isMobile {
+      height: 80px;
+    }
   }
 
   .nav {
@@ -43,6 +55,10 @@
 
       @include isTablet {
         gap: rem(30px);
+      }
+
+      @include isMobile {
+        display: none;
       }
 
       li {
@@ -66,13 +82,21 @@
       font-size: rem(12px);
       padding: rem(12px) rem(16px);
     }
+
+    @include isMobile {
+      display: none;
+    }
   }
 }
 
 .hamburgerBtn {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+
+  @include isMobile {
+    display: flex;
+  }
 }
 
 .mobileHeader {

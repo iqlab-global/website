@@ -11,11 +11,11 @@
 }
 
 .wrapper {
-  padding-top: rem(250px);
   position: relative;
+  padding-top: rem(250px);
 
   @include isMobile {
-    padding-top: rem(50px);
+    padding-top: 0;
   }
 }
 
@@ -81,6 +81,7 @@
   }
 
   @include isMobile {
+    gap: rem(145px);
     flex-direction: column;
   }
 

@@ -5,7 +5,6 @@ import LogoBlue from '@/assets/images/logo-blue.svg';
 import LogoSmall from '@/assets/images/logo-small.svg';
 import { Container } from '@/components/Container';
 import { Button } from '@/components/Button';
-import { useWindowSize } from '@/hooks/useWindowSize';
 import { HamburgerIcon } from '@/assets/icons/HamburgerIcon';
 import { clsx } from 'clsx';
 import { NavLink } from '@/components/NavLink';
@@ -17,9 +16,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
-  const { isMobile } = useWindowSize();
-
-  // TODO: Hamburger iconu whiteBg olanda itir.
+  // TODO: Hamburger iconu whiteBg
   return (
     <>
       {isHome && <div className={s.stickyCover}></div>}
@@ -38,44 +35,38 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
                 alt='IQ Lab'
               />
             </Link>
-            {!isMobile && (
-              <>
-                <nav className={s.nav}>
-                  <ul>
-                    <li>
-                      <NavLink href='/about' activeClassName={s.active}>
-                        About Us
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href='/services' activeClassName={s.active}>
-                        Services
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink href='/showcase'>Showcase</NavLink>
-                    </li>
-                    {/*<li>*/}
-                    {/*  <a href="#">Careers</a>*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                    {/*  <a href="#">Open Source</a>*/}
-                    {/*</li>*/}
-                    {/*<li>*/}
-                    {/*  <a href="#">Blogs</a>*/}
-                    {/*</li>*/}
-                  </ul>
-                </nav>
-                <Button className={s.contactUs} href='/contact'>
-                  Contact Us
-                </Button>
-              </>
-            )}
-            {isMobile && (
-              <button className={s.hamburgerBtn}>
-                <HamburgerIcon />
-              </button>
-            )}
+            <nav className={s.nav}>
+              <ul>
+                <li>
+                  <NavLink href='/about' activeClassName={s.active}>
+                    About Us
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink href='/services' activeClassName={s.active}>
+                    Services
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink href='/showcase'>Showcase</NavLink>
+                </li>
+                {/*<li>*/}
+                {/*  <a href="#">Careers</a>*/}
+                {/*</li>*/}
+                {/*<li>*/}
+                {/*  <a href="#">Open Source</a>*/}
+                {/*</li>*/}
+                {/*<li>*/}
+                {/*  <a href="#">Blogs</a>*/}
+                {/*</li>*/}
+              </ul>
+            </nav>
+            <Button className={s.contactUs} href='/contact'>
+              Contact Us
+            </Button>
+            <button className={s.hamburgerBtn}>
+              <HamburgerIcon />
+            </button>
           </div>
         </Container>
       </header>
