@@ -11,10 +11,10 @@ This the IQ Lab website project
 First, make sure you have `.env.local` file with the following content:
 
 ```bash
-NEXT_PUBLIC_SANITY_PRJECT_ID="ID_HERE"
-NEXT_PUBLIC_SANITY_DATASET="production" // develop or production
-NEXT_PUBLIC_SANITY_API_KEY="KEY_HERE"
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY=KEY_HERE"
+NEXT_PUBLIC_SANITY_PROJECT_ID=ID_HERE
+NEXT_PUBLIC_SANITY_DATASET=production # develop or production
+NEXT_PUBLIC_SANITY_API_KEY=KEY_HERE
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=KEY_HERE
 ```
 
 See `.env.local.example`.
