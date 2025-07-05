@@ -30,6 +30,80 @@
   align-items: center;
   justify-content: center;
 
+  &:nth-child(2n + 1) {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c-blue-a5;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+  }
+
+  &:nth-child(1) {
+    grid-row-start: 1;
+    grid-column-end: 2;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c-blue-a5;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &:nth-last-child(4) {
+    grid-row-start: 1;
+    grid-column-end: -1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c-blue-a5;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  &:nth-child(2n + 2) {
+    grid-row-end: -1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c-blue-a5;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+  }
+
+  &:nth-last-child(1) {
+    grid-row-end: -1;
+    grid-column-end: 2;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c-blue-a5;
+    border-right: none;
+    border-top: none;
+  }
+
+  &:nth-child(4) {
+    grid-row-end: -1;
+    grid-column-end: -1;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $c-blue-a5;
+    border-left: none;
+    border-top: none;
+  }
+
+  .iconLight {
+    display: none;
+  }
+
+  @include transitionHover($c-white) {
+    .iconDark {
+      display: none;
+    }
+    .iconLight {
+      display: block;
+    }
+  }
+
   @include isTablet {
     height: 236px;
 

@@ -12,13 +12,18 @@ import { AboutBanner } from './components/AboutBanner';
 import { InfoBlock } from './components/InfoBlock';
 import { ValueBlocks } from './components/ValueBlocks';
 import { MeetTheTeam } from './components/MeetTheTeam';
+import { Sidebar } from './components/Sidebar';
 
 const query = `{
   "aboutPage": *[_type == "aboutPageSingleton"][0] {
     companyHistorySection {
+      hash,
+      menuLabel,
       description,
     },
     valuesSection {
+      hash,
+      menuLabel,
       description,
       blocks[] {
         _id,
@@ -27,6 +32,8 @@ const query = `{
       }
     },
     meetTheTeamSection {
+      hash,
+      menuLabel,
       description,
       blocks[] {
         name,
@@ -42,15 +49,33 @@ export default async function About() {
   const { companyHistorySection, valuesSection, meetTheTeamSection } =
     aboutPage ?? {};
 
+  const sidebarItems = [
+    {
+      label: companyHistorySection?.menuLabel ?? 'Company History',
+      hash: companyHistorySection?.hash ?? 'company',
+    },
+    {
+      label: valuesSection?.menuLabel ?? 'Culture and value',
+      hash: valuesSection?.hash ?? 'values',
+    },
+    {
+      label: meetTheTeamSection?.menuLabel ?? 'Meet the team',
+      hash: meetTheTeamSection?.hash ?? 'team',
+    },
+  ];
+
   return (
     <Page whiteHeader>
       <Breadcrumb pages={[{ label: 'About Us', href: '/about' }]} />
       <AboutBanner />
       <Container>
         <div className={s.wrapper}>
-          <div className={s.sidebar}>{/*TODO: Complete sidebar*/}</div>
+          <div className={s.sidebar}>
+            <Sidebar items={sidebarItems} />
+          </div>
           <div className={s.content}>
             <InfoBlock
+              id={companyHistorySection.hash ?? 'company'}
               title='Company History'
               description={companyHistorySection.description}
             />
@@ -63,9 +88,14 @@ export default async function About() {
               />
               <img className={s.main} src={AboutImage.src} alt='About' />
             </div>
-            <InfoBlock title='Values' description={valuesSection.description} />
+            <InfoBlock
+              id={valuesSection.hash ?? 'values'}
+              title='Values'
+              description={valuesSection.description}
+            />
             <ValueBlocks values={valuesSection.blocks} />
             <InfoBlock
+              id={meetTheTeamSection.hash ?? 'team'}
               title='Meet the Team'
               description={meetTheTeamSection.description}
             />

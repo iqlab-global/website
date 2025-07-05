@@ -15,6 +15,38 @@ interface HeaderProps {
   isHome?: boolean;
 }
 
+type NavItem = {
+  href: string;
+  label: string;
+};
+
+const navItems: NavItem[] = [
+  {
+    href: 'about',
+    label: 'About Us',
+  },
+  {
+    href: 'services',
+    label: 'Services',
+  },
+  {
+    href: 'showcase',
+    label: 'Showcase',
+  },
+  // {
+  //   href: 'careers',
+  //   label: 'Careers',
+  // },
+  // {
+  //   href: 'open-source',
+  //   label: 'Open Source',
+  // },
+  // {
+  //   href: 'blogs',
+  //   label: 'Blogs',
+  // },
+];
+
 export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
   // TODO: Hamburger iconu whiteBg
   return (
@@ -37,28 +69,13 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
             </Link>
             <nav className={s.nav}>
               <ul>
-                <li>
-                  <NavLink href='/about' activeClassName={s.active}>
-                    About Us
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink href='/services' activeClassName={s.active}>
-                    Services
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink href='/showcase'>Showcase</NavLink>
-                </li>
-                {/*<li>*/}
-                {/*  <a href="#">Careers</a>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*  <a href="#">Open Source</a>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*  <a href="#">Blogs</a>*/}
-                {/*</li>*/}
+                {navItems.map(({ href, label }) => (
+                  <li key={href}>
+                    <NavLink href={`/${href}`} activeClassName={s.active}>
+                      {label}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </nav>
             <Button className={s.contactUs} href='/contact'>

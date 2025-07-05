@@ -72,12 +72,18 @@
           &.active {
             color: $c-blue-a5;
           }
+
+          &:hover {
+            color: $c-blue-a5;
+          }
         }
       }
     }
   }
 
   .contactUs {
+    @include transitionHover($c-blue-84);
+
     @include isTablet {
       font-size: rem(12px);
       padding: rem(12px) rem(16px);

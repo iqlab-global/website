@@ -66,6 +66,12 @@
       align-items: center;
       gap: rem(49px);
 
+      .getInTouch {
+        @include transitionHover($c-white) {
+          color: $c-blue-a5;
+        }
+      }
+
       @include isMobile {
         flex-direction: column;
         justify-content: center;
@@ -82,6 +88,10 @@
         text-decoration: underline;
         text-decoration-thickness: 5%;
         text-underline-offset: 25%;
+
+        @include transitionHover {
+          color: $c-blue-ff3;
+        }
       }
     }
   }

@@ -15,7 +15,12 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
         <div className={s.wrapper}>
           <div className={s.header}>
             <h2>Featured Projects</h2>
-            <Button href='/showcase' transparentBg outline>
+            <Button
+              className={s.showcase}
+              href='/showcase'
+              transparentBg
+              outline
+            >
               / All Projects
             </Button>
           </div>
@@ -24,11 +29,11 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
               <ProjectBlock key={project._id} {...project} blueBg firstLarge />
             ))}
           </div>
-          <div className={s.links}>
+          {/* <div className={s.links}>
             <Button href='/showcase' transparentBg outline>
               / All Projects
             </Button>
-          </div>
+          </div> */}
         </div>
       </Container>
     </section>
