@@ -43,6 +43,12 @@
     }
   }
 
+  .showcase {
+    @include transitionHover {
+      border-color: transparent;
+    }
+  }
+
   a {
     @include isMobile {
       display: none;

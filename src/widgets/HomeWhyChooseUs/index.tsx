@@ -24,7 +24,7 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
             </div>
           ))}
         </div>
-        <Button outline href='/about'>
+        <Button className={s.about} outline href='/about'>
           / learn more
         </Button>
       </div>
