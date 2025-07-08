@@ -1,6 +1,6 @@
-import s from './style.module.scss';
-import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
+import { Sidebar } from '@/widgets/Sidebar';
+import { Page } from '@/components/Page';
 import { Container } from '@/components/Container';
 import AboutImage from '@/assets/images/about.jpg';
 import Pattern from '@/assets/images/textures/pattern-4.svg';
@@ -12,6 +12,23 @@ import { AboutBanner } from './components/AboutBanner';
 import { InfoBlock } from './components/InfoBlock';
 import { ValueBlocks } from './components/ValueBlocks';
 import { MeetTheTeam } from './components/MeetTheTeam';
+
+import s from './style.module.scss';
+
+const sidebarItems = [
+  {
+    label: 'Company History',
+    hash: 'company',
+  },
+  {
+    label: 'Culture and value',
+    hash: 'values',
+  },
+  {
+    label: 'Meet the team',
+    hash: 'team',
+  },
+];
 
 const query = `{
   "aboutPage": *[_type == "aboutPageSingleton"][0] {
@@ -48,9 +65,12 @@ export default async function About() {
       <AboutBanner />
       <Container>
         <div className={s.wrapper}>
-          <div className={s.sidebar}>{/*TODO: Complete sidebar*/}</div>
+          <div className={s.sidebar}>
+            <Sidebar items={sidebarItems} />
+          </div>
           <div className={s.content}>
             <InfoBlock
+              id='company'
               title='Company History'
               description={companyHistorySection.description}
             />
@@ -63,9 +83,14 @@ export default async function About() {
               />
               <img className={s.main} src={AboutImage.src} alt='About' />
             </div>
-            <InfoBlock title='Values' description={valuesSection.description} />
+            <InfoBlock
+              id='values'
+              title='Values'
+              description={valuesSection.description}
+            />
             <ValueBlocks values={valuesSection.blocks} />
             <InfoBlock
+              id='team'
               title='Meet the Team'
               description={meetTheTeamSection.description}
             />
