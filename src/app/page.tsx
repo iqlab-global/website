@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { client } from '@/sanity/lib/client';
 import { Page } from '@/components/Page';
 import { Hero } from '@/widgets/HomeHero';
@@ -75,20 +77,22 @@ export default async function Home() {
   const { services } = servicesSection;
 
   return (
-    <Page>
-      {heroSection && <Hero data={heroSection} />}
-      {!!whyChooseUs?.length && <WhyChooseUs data={whyChooseUs} />}
-      {!!services?.length && <ServicesWeProvide data={services} />}
-      {!!techCapabilities?.length && (
-        <TechCapabilities data={techCapabilities} />
-      )}
-      {!!featuredProjects?.length && (
-        <FeaturedProjects data={featuredProjects} />
-      )}
-      {!!testimonialsSection?.length && (
-        <Testimonials data={testimonialsSection} />
-      )}
-      {/*TODO: Insights & Inspiration section*/}
-    </Page>
+    <Suspense>
+      <Page>
+        {heroSection && <Hero data={heroSection} />}
+        {!!whyChooseUs?.length && <WhyChooseUs data={whyChooseUs} />}
+        {!!services?.length && <ServicesWeProvide data={services} />}
+        {!!techCapabilities?.length && (
+          <TechCapabilities data={techCapabilities} />
+        )}
+        {!!featuredProjects?.length && (
+          <FeaturedProjects data={featuredProjects} />
+        )}
+        {!!testimonialsSection?.length && (
+          <Testimonials data={testimonialsSection} />
+        )}
+        {/*TODO: Insights & Inspiration section*/}
+      </Page>
+    </Suspense>
   );
 }
