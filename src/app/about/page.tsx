@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { Breadcrumb } from '@/widgets/Breadcrumb';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Page } from '@/components/Page';
@@ -60,44 +62,46 @@ export default async function About() {
     aboutPage ?? {};
 
   return (
-    <Page whiteHeader>
-      <Breadcrumb pages={[{ label: 'About Us', href: '/about' }]} />
-      <AboutBanner />
-      <Container>
-        <div className={s.wrapper}>
-          <div className={s.sidebar}>
-            <Sidebar items={sidebarItems} />
-          </div>
-          <div className={s.content}>
-            <InfoBlock
-              id='company'
-              title='Company History'
-              description={companyHistorySection.description}
-            />
-            <div className={s.image}>
-              <img className={s.pattern} src={Pattern.src} alt='Pattern' />
-              <img
-                className={s.patternMobile}
-                src={PatternMobile.src}
-                alt='Pattern'
-              />
-              <img className={s.main} src={AboutImage.src} alt='About' />
+    <Suspense>
+      <Page whiteHeader>
+        <Breadcrumb pages={[{ label: 'About Us', href: '/about' }]} />
+        <AboutBanner />
+        <Container>
+          <div className={s.wrapper}>
+            <div className={s.sidebar}>
+              <Sidebar items={sidebarItems} />
             </div>
-            <InfoBlock
-              id='values'
-              title='Values'
-              description={valuesSection.description}
-            />
-            <ValueBlocks values={valuesSection.blocks} />
-            <InfoBlock
-              id='team'
-              title='Meet the Team'
-              description={meetTheTeamSection.description}
-            />
-            <MeetTheTeam members={meetTheTeamSection.blocks} />
+            <div className={s.content}>
+              <InfoBlock
+                id='company'
+                title='Company History'
+                description={companyHistorySection.description}
+              />
+              <div className={s.image}>
+                <img className={s.pattern} src={Pattern.src} alt='Pattern' />
+                <img
+                  className={s.patternMobile}
+                  src={PatternMobile.src}
+                  alt='Pattern'
+                />
+                <img className={s.main} src={AboutImage.src} alt='About' />
+              </div>
+              <InfoBlock
+                id='values'
+                title='Values'
+                description={valuesSection.description}
+              />
+              <ValueBlocks values={valuesSection.blocks} />
+              <InfoBlock
+                id='team'
+                title='Meet the Team'
+                description={meetTheTeamSection.description}
+              />
+              <MeetTheTeam members={meetTheTeamSection.blocks} />
+            </div>
           </div>
-        </div>
-      </Container>
-    </Page>
+        </Container>
+      </Page>
+    </Suspense>
   );
 }
