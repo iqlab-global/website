@@ -132,7 +132,10 @@
 
   &.open {
     opacity: 1;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-padding-top: 0;
   }
 
   ul {
@@ -146,6 +149,21 @@
       a {
         font-size: 20px;
         color: $c-white;
+      }
+    }
+  }
+
+  .socialMedia {
+    min-height: rem(125px);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    > div {
+      gap: rem(28px);
+
+      > button {
+        background-color: $c-blue-a5;
       }
     }
   }

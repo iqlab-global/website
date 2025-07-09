@@ -15,6 +15,7 @@ import { Container } from '@/components/Container';
 import { NavLink } from '@/components/NavLink';
 
 import s from './style.module.scss';
+import SocialMedia from '@/widgets/SocialMedia';
 
 interface HeaderProps {
   whiteBg?: boolean;
@@ -64,6 +65,7 @@ const navItemsMobile: NavItem[] = [
 export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const toggleMobileMenu = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setOpenMobileMenu((isOpen) => !isOpen);
   }, []);
 
@@ -110,29 +112,34 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
         </Container>
       </header>
       <div className={clsx(s.mobileNav, { [s.open]: openMobileMenu })}>
-        <div className={s.mobileHeader}>
-          <Link href='/'>
-            <img src={LogoMobile.src} alt='logo' />
-          </Link>
-          <button onClick={toggleMobileMenu}>
-            <CancelIcon />
-          </button>
+        <div>
+          <div className={s.mobileHeader}>
+            <Link href='/'>
+              <img src={LogoMobile.src} alt='logo' />
+            </Link>
+            <button onClick={toggleMobileMenu}>
+              <CancelIcon />
+            </button>
+          </div>
+          <nav>
+            <ul>
+              {navItemsMobile.map(({ href, label }) => (
+                <li key={href}>
+                  <NavLink
+                    href={`/${href}`}
+                    activeClassName={s.active}
+                    onClick={toggleMobileMenu}
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav>
-          <ul>
-            {navItemsMobile.map(({ href, label }) => (
-              <li key={href}>
-                <NavLink
-                  href={`/${href}`}
-                  activeClassName={s.active}
-                  onClick={toggleMobileMenu}
-                >
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className={s.socialMedia}>
+          <SocialMedia />
+        </div>
       </div>
     </>
   );
