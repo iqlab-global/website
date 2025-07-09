@@ -32,6 +32,7 @@
 
   @include isMobile {
     padding-bottom: rem(225px);
+    overflow: hidden;
   }
 
   .main {
@@ -44,6 +45,11 @@
     @include isTablet {
       width: 90%;
       height: 334px;
+    }
+
+    @include isMobile {
+      width: 85%;
+      left: 7.5%;
     }
   }
 
