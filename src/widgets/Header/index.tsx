@@ -3,11 +3,12 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import { useState, useCallback } from 'react';
 
-import { HamburgerIcon } from '@/assets/icons/HamburgerIcon';
 import { CancelIcon } from '@/assets/icons/CancelIcon';
 import LogoBlue from '@/assets/images/logo-blue.svg';
 import LogoSmall from '@/assets/images/logo-small.svg';
 import Logo from '@/assets/images/logo.svg';
+import Hamburger from '@/assets/images/hamburger.svg';
+import HamburgerBlue from '@/assets/images/hamburger-blue.svg';
 
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
@@ -62,7 +63,7 @@ const navItemsMobile: NavItem[] = [
 
 export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  const handleOpenMobileMenu = useCallback(() => {
+  const toggleMobileMenu = useCallback(() => {
     setOpenMobileMenu((isOpen) => !isOpen);
   }, []);
 
@@ -98,8 +99,12 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
             <Button className={s.contactUs} href='/contact'>
               Contact Us
             </Button>
-            <button className={s.hamburgerBtn} onClick={handleOpenMobileMenu}>
-              <HamburgerIcon />
+            <button className={s.hamburgerBtn} onClick={toggleMobileMenu}>
+              <img
+                style={{ display: 'block' }}
+                src={whiteBg ? HamburgerBlue.src : Hamburger.src}
+                alt='IQ Lab'
+              />
             </button>
           </div>
         </Container>
@@ -109,7 +114,7 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
           <Link href='/'>
             <img src={LogoSmall.src} alt='logo' />
           </Link>
-          <button onClick={handleOpenMobileMenu}>
+          <button onClick={toggleMobileMenu}>
             <CancelIcon />
           </button>
         </div>
@@ -117,7 +122,11 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
           <ul>
             {navItemsMobile.map(({ href, label }) => (
               <li key={href}>
-                <NavLink href={`/${href}`} activeClassName={s.active}>
+                <NavLink
+                  href={`/${href}`}
+                  activeClassName={s.active}
+                  onClick={toggleMobileMenu}
+                >
                   {label}
                 </NavLink>
               </li>
