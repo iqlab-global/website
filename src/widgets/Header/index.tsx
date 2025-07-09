@@ -5,7 +5,7 @@ import { useState, useCallback } from 'react';
 
 import { CancelIcon } from '@/assets/icons/CancelIcon';
 import LogoBlue from '@/assets/images/logo-blue.svg';
-import LogoSmall from '@/assets/images/logo-small.svg';
+import LogoMobile from '@/assets/images/logo-mobile.svg';
 import Logo from '@/assets/images/logo.svg';
 import Hamburger from '@/assets/images/hamburger.svg';
 import HamburgerBlue from '@/assets/images/hamburger-blue.svg';
@@ -112,7 +112,7 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
       <div className={clsx(s.mobileNav, { [s.open]: openMobileMenu })}>
         <div className={s.mobileHeader}>
           <Link href='/'>
-            <img src={LogoSmall.src} alt='logo' />
+            <img src={LogoMobile.src} alt='logo' />
           </Link>
           <button onClick={toggleMobileMenu}>
             <CancelIcon />
