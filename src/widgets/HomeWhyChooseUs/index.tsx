@@ -15,7 +15,6 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
     <Section title='Why Choose Us' className={s.section}>
       <div className={s.wrapper}>
         <div className={s.list}>
-          {/*TODO: Mobile slider for blocks*/}
           {data.map(({ icon, description, title }) => (
             <div key={title} className={s.block}>
               <img src={icon} alt={title} />
