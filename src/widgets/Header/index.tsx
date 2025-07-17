@@ -1,22 +1,74 @@
 'use client';
-import s from './style.module.scss';
-import Logo from '@/assets/images/logo.svg';
-import LogoBlue from '@/assets/images/logo-blue.svg';
-import LogoSmall from '@/assets/images/logo-small.svg';
-import { Container } from '@/components/Container';
-import { Button } from '@/components/Button';
-import { HamburgerIcon } from '@/assets/icons/HamburgerIcon';
 import { clsx } from 'clsx';
-import { NavLink } from '@/components/NavLink';
 import Link from 'next/link';
+import { useState, useCallback } from 'react';
+
+import { CancelIcon } from '@/assets/icons/CancelIcon';
+import LogoBlue from '@/assets/images/logo-blue.svg';
+import LogoMobile from '@/assets/images/logo-mobile.svg';
+import Logo from '@/assets/images/logo.svg';
+import Hamburger from '@/assets/images/hamburger.svg';
+import HamburgerBlue from '@/assets/images/hamburger-blue.svg';
+
+import { Button } from '@/components/Button';
+import { Container } from '@/components/Container';
+import { NavLink } from '@/components/NavLink';
+
+import s from './style.module.scss';
+import SocialMedia from '@/widgets/SocialMedia';
 
 interface HeaderProps {
   whiteBg?: boolean;
   isHome?: boolean;
 }
 
+type NavItem = {
+  href: string;
+  label: string;
+};
+
+const navItems: NavItem[] = [
+  {
+    href: 'about',
+    label: 'About Us',
+  },
+  {
+    href: 'services',
+    label: 'Services',
+  },
+  {
+    href: 'showcase',
+    label: 'Showcase',
+  },
+  // {
+  //   href: 'careers',
+  //   label: 'Careers',
+  // },
+  // {
+  //   href: 'open-source',
+  //   label: 'Open Source',
+  // },
+  // {
+  //   href: 'blogs',
+  //   label: 'Blogs',
+  // },
+];
+
+const navItemsMobile: NavItem[] = [
+  {
+    href: '',
+    label: 'Home page',
+  },
+  ...navItems,
+];
+
 export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
-  // TODO: Hamburger iconu whiteBg
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const toggleMobileMenu = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setOpenMobileMenu((isOpen) => !isOpen);
+  }, []);
+
   return (
     <>
       {isHome && <div className={s.stickyCover}></div>}
@@ -37,47 +89,57 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
             </Link>
             <nav className={s.nav}>
               <ul>
-                <li>
-                  <NavLink href='/about' activeClassName={s.active}>
-                    About Us
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink href='/services' activeClassName={s.active}>
-                    Services
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink href='/showcase'>Showcase</NavLink>
-                </li>
-                {/*<li>*/}
-                {/*  <a href="#">Careers</a>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*  <a href="#">Open Source</a>*/}
-                {/*</li>*/}
-                {/*<li>*/}
-                {/*  <a href="#">Blogs</a>*/}
-                {/*</li>*/}
+                {navItems.map(({ href, label }) => (
+                  <li key={href}>
+                    <NavLink href={`/${href}`} activeClassName={s.active}>
+                      {label}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </nav>
             <Button className={s.contactUs} href='/contact'>
               Contact Us
             </Button>
-            <button className={s.hamburgerBtn}>
-              <HamburgerIcon />
+            <button className={s.hamburgerBtn} onClick={toggleMobileMenu}>
+              <img
+                style={{ display: 'block' }}
+                src={whiteBg ? HamburgerBlue.src : Hamburger.src}
+                alt='IQ Lab'
+              />
             </button>
           </div>
         </Container>
       </header>
-      {/*TODO: Mobile nav complete*/}
-      <div className={s.mobileNav}>
-        <div className={s.mobileHeader}>
-          <Link href='/'>
-            <img src={LogoSmall.src} alt='logo' />
-          </Link>
+      <div className={clsx(s.mobileNav, { [s.open]: openMobileMenu })}>
+        <div>
+          <div className={s.mobileHeader}>
+            <Link href='/'>
+              <img src={LogoMobile.src} alt='logo' />
+            </Link>
+            <button onClick={toggleMobileMenu}>
+              <CancelIcon />
+            </button>
+          </div>
+          <nav>
+            <ul>
+              {navItemsMobile.map(({ href, label }) => (
+                <li key={href}>
+                  <NavLink
+                    href={`/${href}`}
+                    activeClassName={s.active}
+                    onClick={toggleMobileMenu}
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav></nav>
+        <div className={s.socialMedia}>
+          <SocialMedia />
+        </div>
       </div>
     </>
   );
