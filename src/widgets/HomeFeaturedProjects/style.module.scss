@@ -44,8 +44,9 @@
   }
 
   .showcase {
-    @include transitionHover {
+    @include transitionHover($c-white) {
       border-color: transparent;
+      color: $c-blue-a5;
     }
   }
 
