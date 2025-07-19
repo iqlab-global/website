@@ -30,6 +30,51 @@
   align-items: center;
   justify-content: center;
 
+  border-width: 1px;
+  border-style: solid;
+  border-color: $c-blue-a5;
+
+  .iconLight {
+    display: none;
+  }
+
+  @include transitionHover($c-white) {
+    .iconDark {
+      display: none;
+    }
+    .iconLight {
+      display: block;
+    }
+  }
+
+  // first row
+  &:nth-child(-n + 4) {
+    border-bottom: none;
+  }
+
+  // first column;
+  &:nth-child(4n + 1) {
+    border-right: none;
+  }
+
+  // last row
+  &:nth-child(n + 5) {
+    border-top: none;
+  }
+
+  // last column
+  &:nth-child(4n) {
+    border-left: none;
+  }
+
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(6),
+  &:nth-child(7) {
+    border-left: none;
+    border-right: none;
+  }
+
   @include isTablet {
     height: 236px;
 
@@ -40,6 +85,13 @@
 
   @include isMobile {
     height: 140px;
+
+    // reset all cell borders
+    &:nth-child(n + 1) {
+      border-width: 1px;
+      border-style: solid;
+      border-color: $c-blue-a5;
+    }
 
     img {
       width: 80px;
