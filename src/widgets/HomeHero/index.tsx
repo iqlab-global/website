@@ -41,7 +41,9 @@ export const Hero = ({
             <h1>{title}</h1>
             <p>{paragraph}</p>
             <div className={s.footer}>
-              <Button href={ctaButtonUrl}>{ctaButtonText}</Button>
+              <Button className={s.getInTouch} href={ctaButtonUrl}>
+                {ctaButtonText}
+              </Button>
               <a href={servicesButtonUrl} className={s.ourServices}>
                 {servicesButtonText} ↗
               </a>

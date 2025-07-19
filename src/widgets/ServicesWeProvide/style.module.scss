@@ -51,6 +51,12 @@
     }
   }
 
+  .service {
+    @include transitionHover($c-blue-a5) {
+      color: $c-white;
+    }
+  }
+
   a {
     @include isMobile {
       display: none;

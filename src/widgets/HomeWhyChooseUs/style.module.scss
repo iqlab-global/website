@@ -72,4 +72,10 @@ section.section {
       }
     }
   }
+
+  .about {
+    @include transitionHover($c-blue-a5) {
+      color: $c-white;
+    }
+  }
 }

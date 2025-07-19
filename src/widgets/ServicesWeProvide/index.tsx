@@ -24,7 +24,7 @@ export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
                 Services <br />
                 We Provide
               </h2>
-              <Button href='/services' outline>
+              <Button className={s.service} href='/services' outline>
                 / Everything we do
               </Button>
             </div>
