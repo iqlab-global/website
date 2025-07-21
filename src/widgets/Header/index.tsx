@@ -60,13 +60,22 @@ const navItemsMobile: NavItem[] = [
     label: 'Home page',
   },
   ...navItems,
+  {
+    href: 'contact',
+    label: 'Contact Us',
+  },
 ];
 
 export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const toggleMobileMenu = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setOpenMobileMenu((isOpen) => !isOpen);
+    const body = document.body;
+    setOpenMobileMenu((isOpen) => {
+      if (isOpen) body.classList.remove('mobile-open');
+      else body.classList.add('mobile-open');
+
+      return !isOpen;
+    });
   }, []);
 
   return (
@@ -111,34 +120,39 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
           </div>
         </Container>
       </header>
-      <div className={clsx(s.mobileNav, { [s.open]: openMobileMenu })}>
-        <div>
-          <div className={s.mobileHeader}>
-            <Link href='/'>
-              <img src={LogoMobile.src} alt='logo' />
-            </Link>
-            <button onClick={toggleMobileMenu}>
-              <CancelIcon />
-            </button>
+      <div className={clsx(s.mobileMenu, { [s.open]: openMobileMenu })}>
+        <div className={s.mobileWrapper}>
+          <div className={s.noise} />
+          <div className={s.mobileNav}>
+            <div>
+              <div className={s.mobileHeader}>
+                <Link href='/'>
+                  <img src={LogoMobile.src} alt='logo' />
+                </Link>
+                <button onClick={toggleMobileMenu}>
+                  <CancelIcon />
+                </button>
+              </div>
+              <nav>
+                <ul>
+                  {navItemsMobile.map(({ href, label }) => (
+                    <li key={href}>
+                      <NavLink
+                        href={`/${href}`}
+                        activeClassName={s.active}
+                        onClick={toggleMobileMenu}
+                      >
+                        {label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+            <div className={s.socialMedia}>
+              <SocialMedia />
+            </div>
           </div>
-          <nav>
-            <ul>
-              {navItemsMobile.map(({ href, label }) => (
-                <li key={href}>
-                  <NavLink
-                    href={`/${href}`}
-                    activeClassName={s.active}
-                    onClick={toggleMobileMenu}
-                  >
-                    {label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-        <div className={s.socialMedia}>
-          <SocialMedia />
         </div>
       </div>
     </>

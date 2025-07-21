@@ -111,59 +111,78 @@
   }
 }
 
-.mobileNav {
-  position: absolute;
+.mobileMenu {
+  position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100dvh;
   z-index: 1000;
-  background-color: #0071f9;
-  background-image: url('../../assets/images/textures/noise2.png'),
-    url('../../assets/images/gradient2.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   opacity: 0;
   display: none;
+  scroll-padding-top: 0;
   transition:
     opacity 0.4s ease,
     display 0.4s ease allow-discrete;
 
   &.open {
     opacity: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    scroll-padding-top: 0;
+    display: block;
   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: rem(24px);
-    gap: rem(12px);
+  .mobileWrapper {
+    position: relative;
+    background-image: url('../../assets/images/gradient2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
-    li {
-      a {
-        font-size: 20px;
-        color: $c-white;
-      }
+    .noise {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url('../../assets/images/textures/noise.png');
+      mix-blend-mode: overlay;
+      background-repeat: repeat;
     }
-  }
 
-  .socialMedia {
-    min-height: rem(125px);
-    justify-content: center;
-    display: flex;
-    align-items: center;
+    .mobileNav {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100dvh;
+      width: 100vw;
 
-    > div {
-      gap: rem(28px);
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: rem(24px);
+        gap: rem(12px);
 
-      > button {
-        background-color: $c-blue-a5;
+        li {
+          a {
+            font-size: 20px;
+            color: $c-white;
+          }
+        }
+      }
+
+      .socialMedia {
+        min-height: rem(125px);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+        > div {
+          gap: rem(28px);
+
+          > button {
+            background-color: $c-blue-a5;
+          }
+        }
       }
     }
   }
