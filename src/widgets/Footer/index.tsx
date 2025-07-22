@@ -67,14 +67,14 @@ export default function Footer() {
         </div>
       </Container>
       <Dots className={s.dotted}>
-        <div>
+        <div className={s.dottedContent}>
           <p>&copy; {new Date().getFullYear()} IQ Lab.</p>
           <p>All Right Reserved</p>
         </div>
-        <div>
+        <div className={s.dottedContent}>
           <ContactInfo />
         </div>
-        <AddressInfo className={s.address} />
+        <AddressInfo className={s.dottedContent} />
       </Dots>
     </footer>
   );

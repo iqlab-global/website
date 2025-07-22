@@ -28,7 +28,7 @@ export default function Dots({ className, children }: DotsProps) {
 
   const generateDots = useCallback(() => {
     const container = document.getElementById('dots-container');
-    const textBoxes = document.querySelectorAll('.dotted-content');
+    const textBoxes = document.querySelectorAll('.dot-box');
     const containerRect = container?.getBoundingClientRect();
     const W = containerRect?.width || 0;
     const H = containerRect?.height || 0;
@@ -108,8 +108,10 @@ export default function Dots({ className, children }: DotsProps) {
     <div id='dots-container' className={s.container}>
       <div className={className}>
         {Children.map(children, (child) => {
-          return isValidElement(child)
-            ? cloneElement(child, { className: `dotted-content ${s.content}` })
+          return isValidElement<{ className: string }>(child)
+            ? cloneElement(child, {
+                className: `dot-box ${s.dotsChild} ${child.props.className}`,
+              })
             : child;
         })}
       </div>
