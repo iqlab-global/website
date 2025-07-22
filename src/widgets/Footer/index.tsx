@@ -5,7 +5,7 @@ import { MonitorWhite } from '@/assets/icons/MonitorWhite';
 
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
-import Dots from '@/components/Dots';
+import { Dots } from '@/components/Dots';
 
 import SocialMedia from '@/widgets/SocialMedia';
 import { AddressInfo, ContactInfo } from '@/widgets/Contact';

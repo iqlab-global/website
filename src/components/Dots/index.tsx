@@ -23,7 +23,7 @@ interface DotsProps extends PropsWithChildren {
   className?: string;
 }
 
-export default function Dots({ className, children }: DotsProps) {
+export const Dots = ({ className, children }: DotsProps) => {
   const isMounted = useMounted();
 
   const generateDots = useCallback(() => {
@@ -117,4 +117,4 @@ export default function Dots({ className, children }: DotsProps) {
       </div>
     </div>
   );
-}
+};
