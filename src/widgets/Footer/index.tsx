@@ -1,16 +1,16 @@
+import Link from 'next/link';
+
+import { CodeFileWhite } from '@/assets/icons/CodeFileWhite';
+import { MonitorWhite } from '@/assets/icons/MonitorWhite';
+
+import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
+import Dots from '@/components/Dots';
+
+import SocialMedia from '@/widgets/SocialMedia';
+import { AddressInfo, ContactInfo } from '@/widgets/Contact';
 
 import s from './style.module.scss';
-import { Button } from '@/components/Button';
-import Link from 'next/link';
-import { MonitorWhite } from '@/assets/icons/MonitorWhite';
-import { CodeFileWhite } from '@/assets/icons/CodeFileWhite';
-import FB from '@/assets/images/icons/facebook.svg';
-import Insta from '@/assets/images/icons/insta.svg';
-import Linkedin from '@/assets/images/icons/linkedin.svg';
-import AppImage from '@/components/AppImage';
-import { AddressInfo, ContactInfo } from '@/widgets/Contact';
-import Dots from '@/components/Dots';
 
 export default function Footer() {
   return (
@@ -61,18 +61,7 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-
-              <div className={s.socials}>
-                <button className={s.socialBtn}>
-                  <AppImage src={FB} alt='Facebook' />
-                </button>
-                <button className={s.socialBtn}>
-                  <AppImage src={Linkedin} alt='Facebook' />
-                </button>
-                <button className={s.socialBtn}>
-                  <AppImage src={Insta} alt='Facebook' />
-                </button>
-              </div>
+              <SocialMedia />
             </div>
           </div>
         </div>

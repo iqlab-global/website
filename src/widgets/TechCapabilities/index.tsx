@@ -4,7 +4,8 @@ import s from './style.module.scss';
 type Props = {
   data: {
     url: string;
-    icon: string;
+    iconDark: string;
+    iconLight: string;
     alt: string;
   }[];
 };
@@ -17,9 +18,10 @@ export const TechCapabilities = async ({ data }: Props) => {
       subTitle='Explore our robust technology portfolio, from Ruby on Rails to GraphQL.'
     >
       <div className={s.wrapper}>
-        {data.map(({ url, icon, alt }) => (
+        {data.map(({ url, iconDark, iconLight, alt }) => (
           <a key={alt} className={s.block} href={url} target='_blank'>
-            <img src={icon} alt={alt} />
+            <img className={s.iconDark} src={iconDark} alt={alt} />
+            <img className={s.iconLight} src={iconLight} alt={alt} />
           </a>
         ))}
       </div>

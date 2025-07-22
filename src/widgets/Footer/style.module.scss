@@ -115,26 +115,6 @@
             }
           }
         }
-
-        .socials {
-          display: flex;
-          flex-direction: column;
-          gap: rem(10px);
-          margin-left: rem(10px);
-
-          .socialBtn {
-            width: rem(52px);
-            height: rem(52px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba($c-blue-a5, 0.5);
-
-            img {
-              display: block;
-            }
-          }
-        }
       }
     }
   }
