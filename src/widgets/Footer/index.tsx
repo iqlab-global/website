@@ -10,7 +10,7 @@ import Insta from '@/assets/images/icons/insta.svg';
 import Linkedin from '@/assets/images/icons/linkedin.svg';
 import AppImage from '@/components/AppImage';
 import { AddressInfo, ContactInfo } from '@/widgets/Contact';
-import Halftone from '@/widgets/Halftone';
+import Dots from '@/components/Dots';
 
 export default function Footer() {
   return (
@@ -75,18 +75,18 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <Halftone className={s.dotted}>
-            <div>
-              <p>&copy; {new Date().getFullYear()} IQ Lab.</p>
-              <p>All Right Reserved</p>
-            </div>
-            <div>
-              <ContactInfo />
-            </div>
-            <AddressInfo className={s.address} />
-          </Halftone>
         </div>
       </Container>
+      <Dots className={s.dotted}>
+        <div>
+          <p>&copy; {new Date().getFullYear()} IQ Lab.</p>
+          <p>All Right Reserved</p>
+        </div>
+        <div>
+          <ContactInfo />
+        </div>
+        <AddressInfo className={s.address} />
+      </Dots>
     </footer>
   );
 }

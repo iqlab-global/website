@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+}
+
+.content {
+  padding: rem(10px);
+}
+
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: $c-white;
+  z-index: 1;
+}
