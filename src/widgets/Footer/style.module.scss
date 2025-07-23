@@ -67,9 +67,19 @@
           align-items: center;
           margin-top: rem(30px);
 
+          .contact {
+            @include transitionHover($c-white) {
+              color: $c-blue-a5;
+            }
+          }
+
           .servicesLink {
             padding-bottom: 4px;
             border-bottom: 1px solid $c-white;
+
+            @include transitionHover {
+              color: $c-blue-ff3;
+            }
           }
         }
 
@@ -109,9 +119,16 @@
           grid-template-columns: repeat(2, 1fr);
 
           li {
-            font-weight: 300;
+            font-weight: 400;
             &:not(:last-child) {
               margin-bottom: rem(20px);
+            }
+
+            a {
+              @include transitionHover {
+                color: $c-blue-ff3;
+                text-decoration: underline;
+              }
             }
           }
         }
