@@ -9,6 +9,10 @@ body {
   line-height: normal;
   font-weight: 400;
   scroll-behavior: smooth;
+
+  &.mobile-open {
+    overflow-y: hidden;
+  }
 }
 
 body {

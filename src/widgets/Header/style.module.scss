@@ -105,16 +105,96 @@
 }
 
 .mobileHeader {
-  padding: rem(24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 rem(16px);
+
+  a {
+    display: flex;
+  }
 }
 
-.mobileNav {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-  background-color: #0071f9; // TODO: Change color to background image.
+.mobileMenu {
+  position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
+  z-index: 1000;
+  opacity: 0;
   display: none;
+  scroll-padding-top: 0;
+  transition:
+    opacity 0.4s ease,
+    display 0.4s ease allow-discrete;
+
+  &.open {
+    opacity: 1;
+    display: block;
+  }
+
+  .mobileWrapper {
+    position: relative;
+    background-image: url('../../assets/images/gradient2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .noise {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url('../../assets/images/textures/noise.png');
+      mix-blend-mode: overlay;
+      background-repeat: repeat;
+    }
+
+    .mobileNav {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100dvh;
+      width: 100vw;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: rem(24px);
+        gap: rem(12px);
+
+        li {
+          a {
+            font-size: 20px;
+            color: $c-white;
+          }
+        }
+      }
+
+      .socialMedia {
+        min-height: rem(125px);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+        > div {
+          gap: rem(28px);
+
+          > button {
+            background-color: $c-blue-a5;
+          }
+        }
+      }
+    }
+  }
+
+  @starting-style {
+    &.open {
+      opacity: 0;
+    }
+  }
 }
