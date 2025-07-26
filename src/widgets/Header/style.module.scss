@@ -171,7 +171,8 @@
       }
 
       .socialMedia {
-        min-height: rem(125px);
+        width: 100%;
+        height: 125px;
         justify-content: center;
         display: flex;
         align-items: center;
