@@ -3,8 +3,6 @@ $time: 300ms;
 @mixin transitionHover($color: transparent) {
   &:hover {
     background-color: $color;
-    -webkit-transition: background-color $time linear;
-    -ms-transition: background-color $time linear;
     transition: background-color $time linear;
 
     @content;

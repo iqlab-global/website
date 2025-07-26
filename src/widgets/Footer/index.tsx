@@ -23,7 +23,9 @@ export default function Footer() {
               <h2>Ready to transform your project? Let&apos;s Talk</h2>
 
               <div className={s.buttons}>
-                <Button href='/contact'>Get in touch</Button>
+                <Button className={s.contact} href='/contact'>
+                  Get in touch
+                </Button>
                 <Link className={s.servicesLink} href='/services'>
                   Our services ↗
                 </Link>
