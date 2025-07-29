@@ -16,7 +16,7 @@ export function useVisibleSection(sections: string[]) {
       const sectionPosition = section.getBoundingClientRect();
 
       return (
-        sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerWidth
+        sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerHeight
       );
     }
 
