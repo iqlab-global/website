@@ -7,9 +7,7 @@ import { useThrottle } from '@/hooks/useThrottle';
 
 export function useVisibleSection(sections: string[]) {
   const isMounted = useMounted();
-  const [visibleSectionId, setVisibleSectionId] = useState<
-    string | undefined
-  >();
+  const [visibleSectionId, setVisibleSectionId] = useState<string>();
 
   const isSectionVisible = (elementId: string) => {
     const section = document.getElementById(elementId);
@@ -27,11 +25,8 @@ export function useVisibleSection(sections: string[]) {
 
   const checkVisibility = useThrottle(
     useCallback(() => {
-      sections.forEach((id) => {
-        if (isSectionVisible(id)) {
-          setVisibleSectionId(id);
-        }
-      });
+      for (const id of sections)
+        if (isSectionVisible(id)) setVisibleSectionId(id);
     }, [sections]),
     325
   );
