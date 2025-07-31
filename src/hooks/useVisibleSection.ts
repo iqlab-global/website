@@ -34,7 +34,7 @@ export function useVisibleSection(sections: string[]) {
   const checkVisibility = debounce(() => {
     for (const id of sections)
       if (isSectionVisible(id)) setVisibleSectionId(id);
-  }, 250);
+  }, 325);
 
   useEffect(() => {
     if (sections && isMounted) {
