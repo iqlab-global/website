@@ -1,35 +1,40 @@
-//Credits: https://medium.com/@guilherme.ramalho/creating-a-side-menu-with-section-highlighting-in-react-8247be6c9f56
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMounted } from '@/hooks/useMounted';
-import { useThrottle } from '@/hooks/useThrottle';
+import { debounce } from 'es-toolkit';
 
 export function useVisibleSection(sections: string[]) {
   const isMounted = useMounted();
   const [visibleSectionId, setVisibleSectionId] = useState<string>();
 
   const isSectionVisible = (elementId: string) => {
-    const section = document.getElementById(elementId);
+    const headerEl = document.getElementById(elementId);
+    const contentEl = headerEl?.nextElementSibling;
+    const viewportHeight = window.innerHeight;
 
-    if (section) {
-      const sectionPosition = section.getBoundingClientRect();
+    if (headerEl && contentEl) {
+      const headerPosition = headerEl.getBoundingClientRect();
+      const contentPosition = contentEl.getBoundingClientRect();
 
-      return (
-        sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerHeight
-      );
+      const visibleHeight =
+        Math.min(contentPosition.bottom, viewportHeight) -
+        Math.max(contentPosition.top, 0);
+
+      const isHeaderVisible =
+        headerPosition.top >= 0 && headerPosition.bottom <= viewportHeight;
+      const isContentVisible = visibleHeight >= contentEl.clientHeight * 0.01;
+
+      return isHeaderVisible || isContentVisible;
     }
 
     return false;
   };
 
-  const checkVisibility = useThrottle(
-    useCallback(() => {
-      for (const id of sections)
-        if (isSectionVisible(id)) setVisibleSectionId(id);
-    }, [sections]),
-    325
-  );
+  const checkVisibility = debounce(() => {
+    for (const id of sections)
+      if (isSectionVisible(id)) setVisibleSectionId(id);
+  }, 250);
 
   useEffect(() => {
     if (sections && isMounted) {
