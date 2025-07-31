@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
-import { Container } from '@/components/Container';
 import { CodeFileWhite } from '@/assets/icons/CodeFileWhite';
 import { MonitorWhite } from '@/assets/icons/MonitorWhite';
 
 import { Button } from '@/components/Button';
+import { Container } from '@/components/Container';
+import { Dots } from '@/components/Dots';
 
 import SocialMedia from '@/widgets/SocialMedia';
 import { AddressInfo, ContactInfo } from '@/widgets/Contact';
@@ -65,18 +66,18 @@ export default function Footer() {
               <SocialMedia />
             </div>
           </div>
-          <div className={s.dotted}>
-            <div>
-              <p>&copy; {new Date().getFullYear()} IQ Lab.</p>
-              <p>All Right Reserved</p>
-            </div>
-            <div>
-              <ContactInfo />
-            </div>
-            <AddressInfo className={s.address} />
-          </div>
         </div>
       </Container>
+      <Dots className={s.dotted}>
+        <div className={s.dottedContent}>
+          <p>&copy; {new Date().getFullYear()} IQ Lab.</p>
+          <p>All Right Reserved</p>
+        </div>
+        <div className={s.dottedContent}>
+          <ContactInfo />
+        </div>
+        <AddressInfo className={s.dottedContent} />
+      </Dots>
     </footer>
   );
 }

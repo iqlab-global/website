@@ -1,5 +1,5 @@
 .section {
-  padding-top: rem(60px);
+  padding-top: rem(20px);
   padding-bottom: rem(75px);
   background-color: $c-blue-a5;
   color: $c-white;
@@ -13,48 +13,75 @@
     padding-bottom: rem(55px);
   }
 }
-
-.header {
-  padding-bottom: rem(106px);
+.dottedHeader {
+  height: 130px;
+  width: 100%;
   display: flex;
-  align-items: center;
+  font-size: rem(14px);
+  text-align: center;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  gap: rem(20px);
+  max-width: 1391px;
+  margin: 0 auto;
 
-  @include isTablet {
-    padding-bottom: rem(38px);
-  }
+  .header {
+    margin: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  @include isMobile {
-    padding-bottom: rem(60px);
-  }
-
-  h2 {
-    font-size: rem(40px);
-    line-height: rem(56px);
-    letter-spacing: -0.03em;
+    @include isTablet {
+      padding-bottom: rem(38px);
+    }
 
     @include isMobile {
-      font-weight: 400;
-      font-size: rem(28px);
-      line-height: rem(39.2px);
-      letter-spacing: 0;
-      text-align: center;
-      width: 100%;
+      padding-bottom: rem(60px);
     }
-  }
 
-  .showcase {
-    @include transitionHover($c-white) {
-      border-color: transparent;
-      color: $c-blue-a5;
-    }
-  }
+    h2 {
+      font-size: rem(40px);
+      line-height: rem(56px);
+      letter-spacing: -0.03em;
 
-  a {
-    @include isMobile {
-      display: none;
+      @include isMobile {
+        font-weight: 400;
+        font-size: rem(28px);
+        line-height: rem(39.2px);
+        letter-spacing: 0;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .showcase {
+      @include transitionHover($c-white) {
+        border-color: transparent;
+        color: $c-blue-a5;
+      }
+    }
+
+    a {
+      @include isMobile {
+        display: none;
+      }
     }
   }
+}
+
+.dottedProjects {
+  min-height: 990px;
+  width: 100%;
+  display: flex;
+  font-size: rem(14px);
+  text-align: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: rem(20px);
+  max-width: 1391px;
+  margin: 0 auto;
 }
 
 .list {
