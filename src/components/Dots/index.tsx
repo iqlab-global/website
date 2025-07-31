@@ -115,7 +115,7 @@ export const Dots = ({ className, children }: DotsProps) => {
   }, [isMounted, generateDots]);
 
   return (
-    <div ref={containerRef} className={s.container}>
+    <div ref={containerRef} className={s.dotsContainer}>
       <div className={className}>
         {Children.map(children, (child) =>
           isValidElement<{ className?: string }>(child)
