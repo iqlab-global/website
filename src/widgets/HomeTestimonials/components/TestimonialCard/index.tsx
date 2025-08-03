@@ -17,7 +17,7 @@ export const TestimonialCard = ({
         <p>{String(order).padStart(2, '0')}/</p>
         <span />
       </div>
-      <p className={s.text}>{`"${text}"`}</p>
+      <p className={s.text}>{text}</p>
       <p className={s.personName}>{personName}</p>
     </div>
   );

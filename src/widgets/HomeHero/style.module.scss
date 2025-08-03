@@ -145,12 +145,6 @@
     border-radius: 6px;
     overflow: hidden;
 
-    @include isMobile {
-      left: 50%;
-      bottom: -70px;
-      margin-left: -200px;
-    }
-
     .projectText {
       position: absolute;
       left: 30px;
@@ -172,6 +166,15 @@
       right: 0;
       height: 100%;
       border-radius: 6px;
+    }
+
+    @include isMobile {
+      width: 281px;
+      height: 110px;
+      left: 50%;
+      right: 50%;
+      bottom: -70px;
+      transform: translate(-50%);
     }
   }
 }
