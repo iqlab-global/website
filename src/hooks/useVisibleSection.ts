@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useMounted } from '@/hooks/useMounted';
-import { debounce } from 'es-toolkit';
+import { throttle } from 'es-toolkit';
 
 export function useVisibleSection(sections: string[]) {
   const isMounted = useMounted();
@@ -31,10 +31,10 @@ export function useVisibleSection(sections: string[]) {
     return false;
   };
 
-  const checkVisibility = debounce(() => {
+  const checkVisibility = throttle(() => {
     for (const id of sections)
       if (isSectionVisible(id)) setVisibleSectionId(id);
-  }, 325);
+  }, 100);
 
   useEffect(() => {
     if (sections && isMounted) {
