@@ -15,6 +15,10 @@
   border-top: 1px solid $c-blue-a5;
   padding-top: rem(28px);
 
+  @include isSmallDesktop {
+    column-gap: rem(10px);
+  }
+
   @include isMobile {
     flex-direction: column;
   }
@@ -50,7 +54,7 @@
   row-gap: rem(120px);
 
   @include isSmallDesktop {
-    column-gap: rem(40px);
+    column-gap: rem(30px);
   }
 
   @include isTablet {
