@@ -1,6 +1,7 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import { BlockContent } from '@/components/Block';
+import Pattern from '@/assets/images/textures/pattern-4.svg';
 
 type Props = {
   title?: string;
@@ -21,7 +22,8 @@ export const ThirdSection = ({ title, body, image }: Props) => {
           </div>
         </div>
         <div className={s.images}>
-          <img src={image} alt={title} />
+          <img className={s.pattern} src={Pattern.src} alt='Pattern' />
+          <img className={s.main} src={image} alt={title} />
         </div>
       </Container>
     </section>

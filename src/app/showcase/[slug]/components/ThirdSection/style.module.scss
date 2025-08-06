@@ -51,22 +51,42 @@
 }
 
 .images {
+  position: relative;
   display: flex;
   gap: rem(23px);
-  justify-content: right;
+  justify-content: flex-end;
 
-  img {
+  @include isMobile {
+    display: none;
+  }
+
+  .main {
+    position: relative;
     width: 75%;
+    height: 502px;
+    display: block;
     object-fit: cover;
-    overflow: hidden;
 
-    @include isMobile {
+    @include isTablet {
       width: 100%;
-      margin: auto;
+      height: 470px;
     }
   }
 
-  @include isMobile {
-    flex-direction: column;
+  .pattern {
+    position: absolute;
+    left: 116px;
+    top: -110px;
+
+    @include isSmallDesktop {
+      left: 80px;
+      top: -89px;
+    }
+
+    @include isTablet {
+      left: -235px;
+      top: -110px;
+    }
   }
+
 }
