@@ -1,8 +1,12 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: rem(128px);
   padding-bottom: rem(64px);
+
+  @include isMobile {
+    gap: rem(56px);
+  }
 }
 
 .body {
@@ -56,8 +60,7 @@
     overflow: hidden;
 
     @include isMobile {
-      width: 280px;
-      height: 173px;
+      width: 100%;
       margin: auto;
     }
   }
