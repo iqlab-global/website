@@ -1,0 +1,102 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(56px);
+  color: white;
+  padding-bottom: rem(64px);
+  font-family: 'BDO Grotesk', sans-serif;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 0.75;
+  color: $c-blue-a5;
+
+  h1 {
+    font-size: rem(40px);
+    line-height: rem(70px);
+    letter-spacing: -0.02em;
+    padding-top: rem(30px);
+    padding-bottom: rem(30px);
+  }
+
+  .detail {
+    display: flex;
+
+    .detailItem {
+      display: flex;
+      flex-direction: column;
+      font-size: rem(16px);
+
+      span {
+        color: $c-black-30;
+        font-size: rem(12px);
+      }
+
+      &:nth-child(n + 2) {
+        border-left: solid 1px $c-blue-a5;
+        margin-left: rem(28px);
+        padding-left: rem(28px);
+
+        @include isMobile {
+          border-left: none;
+          margin-left: 0px;
+          padding-left: 0px;
+
+          border-top: solid 1px $c-blue-a5;
+          margin-top: rem(16px);
+          padding-top: rem(16px);
+        }
+      }
+    }
+
+    @include isMobile {
+      flex-direction: column;
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: rem(180px);
+
+  h1 {
+    color: $c-blue-a5;
+    font-size: rem(36px);
+    line-height: 100%;
+    width: 50%;
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  p {
+    color: $c-black-30;
+    font-size: rem(20px);
+    line-height: 150%;
+    width: 50%;
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  @include isMobile {
+    gap: rem(24px);
+    flex-direction: column;
+  }
+}
+
+.mainImage {
+  width: 100%;
+  object-fit: cover;
+
+  @include isMobile {
+    height: 305px;
+  }
+}

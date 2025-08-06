@@ -1,0 +1,68 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+  padding-bottom: rem(64px);
+}
+
+.body {
+  display: flex;
+  gap: rem(23px);
+  justify-content: space-between;
+  border-top: 1px solid $c-blue-a5;
+  padding-top: rem(28px);
+
+  .title {
+    width: 50%;
+
+    h3 {
+      font-size: 32px;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  .bodyContent {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: rem(24px);
+
+    p {
+      font-size: rem(20px);
+      line-height: 150%;
+      color: $c-black-30;
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  @include isMobile {
+    flex-direction: column;
+  }
+}
+
+.images {
+  display: flex;
+  gap: rem(23px);
+
+  img {
+    width: 50%;
+    object-fit: cover;
+    overflow: hidden;
+
+    @include isMobile {
+      width: 280px;
+      height: 173px;
+      margin: auto;
+    }
+  }
+
+  @include isMobile {
+    flex-direction: column;
+  }
+}
