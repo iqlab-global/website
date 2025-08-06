@@ -1,0 +1,74 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(56px);
+  color: white;
+  padding-bottom: rem(64px);
+  font-family: 'BDO Grotesk', sans-serif;
+}
+
+.body {
+  display: flex;
+  gap: 77px;
+  justify-content: space-between;
+  border-top: 1px solid $c-blue-a5;
+  padding-top: rem(28px);
+
+  @include isMobile {
+    flex-direction: column;
+  }
+}
+
+.info {
+  width: rem(287px);
+  display: flex;
+  flex-direction: column;
+  flex: 0.75;
+  gap: 145px;
+  color: $c-blue-a5;
+
+  h3 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: 150%;
+    color: $c-black-30;
+  }
+
+  @include isMobile {
+    width: 100%;
+    gap: 20px;
+  }
+}
+
+.projects {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  gap: 77px;
+
+  @include isMobile {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.back {
+  margin-top: 36px;
+
+  @include isMobile {
+    display: none !important;
+  }
+}
+
+.mobileBack {
+  text-align: center;
+  display: none !important;
+
+  @include isMobile {
+    display: block !important;
+  }
+}

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { PrimarySection } from './components/PrimarySection';
 import { SecondSection } from './components/SecondSection';
 import { ThirdSection } from './components/ThirdSection';
+import { NextProjectsSection } from './components/NextProjectsSection';
 
 const query = (slug: string) => `{
   "project": *[_type == "project" && primarySection.slug.current == "${slug}"] {
@@ -13,7 +14,6 @@ const query = (slug: string) => `{
       title,
       subTitle,
       slug,
-      "previewImage": previewImage.asset->url,
       industries,
       serviceType,
       techStack,
@@ -30,6 +30,20 @@ const query = (slug: string) => `{
       title,
       body,
       "image": image.asset->url,
+    },
+    nextProjectsSection {
+      projects[]->{
+        _id,
+        primarySection {
+          title,
+          subTitle,
+          slug,
+          industries,
+          serviceType,
+          techStack,
+          "previewImage": previewImage.asset->url
+        }
+      }
     }
   }
 }`;
@@ -44,7 +58,8 @@ export default async function Service({ params }: ServiceProps) {
   if (!slug) notFound();
 
   const { project } = await client.fetch(query(slug));
-  const { primarySection, secondSection, thirdSection } = project[0];
+  const { primarySection, secondSection, thirdSection, nextProjectsSection } =
+    project[0];
 
   const pages = [
     { label: 'Projects', href: '/projects' },
@@ -57,6 +72,7 @@ export default async function Service({ params }: ServiceProps) {
       <PrimarySection {...primarySection} />
       <SecondSection {...secondSection} />
       <ThirdSection {...thirdSection} />
+      <NextProjectsSection {...nextProjectsSection} />
     </Page>
   );
 }

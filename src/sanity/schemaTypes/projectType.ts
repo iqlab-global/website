@@ -19,6 +19,10 @@ export const projectType = defineType({
       name: 'thirdContentGroup',
       title: 'Tertiary Content',
     },
+    {
+      name: 'nextProjectsGroup',
+      title: 'Next Projects Content',
+    },
   ],
   fields: [
     defineField({
@@ -129,6 +133,18 @@ export const projectType = defineType({
           options: {
             hotspot: true,
           },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'nextProjectsSection',
+      type: 'object',
+      group: 'nextProjectsGroup',
+      fields: [
+        defineField({
+          name: 'projects',
+          type: 'array',
+          of: [{ type: 'reference', to: { type: 'project' } }],
         }),
       ],
     }),
