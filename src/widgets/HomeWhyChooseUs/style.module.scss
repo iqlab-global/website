@@ -38,6 +38,7 @@ section.section {
 
       @include isMobile {
         padding-top: rem(20px);
+        padding-bottom: rem(6px);
         font-size: rem(14px);
         line-height: rem(19.6px);
       }
@@ -48,6 +49,8 @@ section.section {
       @include isMobile {
         font-size: rem(12px);
         line-height: rem(16.8px);
+        height: 100%;
+        min-height:auto;
       }
     }
 
@@ -62,14 +65,14 @@ section.section {
     }
 
     @include isTablet {
-      min-width: 48.5%;
-      min-height: 462px;
+      width: 462px;
+      height: 462px;
     }
 
     @include isMobile {
-      min-width: rem(206px);
-      min-height: rem(206px);
-      padding: rem(18px);
+      min-width: 206px;
+      min-height: 206px;
+      padding: 20px;
     }
   }
 
