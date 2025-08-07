@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: rem(128px);
   padding-bottom: rem(64px);
+  font-family: 'BDO Grotesk', sans-serif;
 
   @include isMobile {
     gap: rem(56px);

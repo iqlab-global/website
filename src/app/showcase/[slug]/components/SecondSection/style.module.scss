@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: rem(128px);
   padding-bottom: rem(64px);
+  font-family: 'BDO Grotesk', sans-serif;
 
   @include isMobile {
     gap: rem(56px);
@@ -17,10 +18,13 @@
   padding-top: rem(28px);
 
   .title {
+    position: relative;
     width: 50%;
+    min-height: 530px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 
     h3 {
       font-size: 32px;
@@ -28,6 +32,20 @@
 
     @include isMobile {
       width: 100%;
+      min-height: auto;
+    }
+  }
+
+  img {
+    position: absolute;
+    bottom: 0px;
+
+    @include isTablet() {
+      right: 0px;
+    }
+
+    @include isMobile {
+      display: none;
     }
   }
 
