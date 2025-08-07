@@ -16,13 +16,17 @@
 
 .body {
   display: flex;
-  gap: rem(23px);
+  gap: rem(45px);
   justify-content: space-between;
   border-top: 1px solid $c-blue-a5;
   padding-top: rem(28px);
 
   .title {
     width: 50%;
+
+    @include isTablet() {
+      width: 40%;
+    }
 
     @include isMobile {
       width: 100%;
@@ -39,6 +43,10 @@
       font-size: rem(20px);
       line-height: 150%;
       color: $c-black-30;
+    }
+
+    @include isTablet() {
+      width: 60%;
     }
 
     @include isMobile {
@@ -89,5 +97,4 @@
       top: -110px;
     }
   }
-
 }

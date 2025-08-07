@@ -12,7 +12,7 @@
 
 .body {
   display: flex;
-  gap: rem(23px);
+  gap: rem(45px);
   justify-content: space-between;
   border-top: 1px solid $c-blue-a5;
   padding-top: rem(28px);
@@ -20,7 +20,7 @@
   .title {
     position: relative;
     width: 50%;
-    min-height: 530px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,6 +28,10 @@
 
     h3 {
       font-size: 32px;
+    }
+
+    @include isTablet() {
+      width: 40%;
     }
 
     @include isMobile {
@@ -59,6 +63,10 @@
       font-size: rem(20px);
       line-height: 150%;
       color: $c-black-30;
+    }
+
+    @include isTablet() {
+      width: 60%;
     }
 
     @include isMobile {

@@ -10,7 +10,7 @@ import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { TechSection } from './components/TechSection';
 
 const query = (slug: string) => `{
-  "service": *[_type == "service" && introSection.slug.current == "${slug}"] {
+  "service": *[_type == "service" && introSection.slug.current == "${slug}"][0] {
     _id,
     introSection {
       title,
@@ -69,7 +69,7 @@ export default async function Service({ params }: ServiceProps) {
   if (!slug) notFound();
 
   const { service, techCapabilities } = await client.fetch(query(slug));
-  const { introSection, whySection, howSection, caseStudySection } = service[0];
+  const { introSection, whySection, howSection, caseStudySection } = service;
 
   const pages = [
     { label: 'Services', href: '/services' },

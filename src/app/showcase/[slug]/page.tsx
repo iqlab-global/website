@@ -8,7 +8,7 @@ import { ThirdSection } from './components/ThirdSection';
 import { NextProjectsSection } from './components/NextProjectsSection';
 
 const query = (slug: string) => `{
-  "project": *[_type == "project" && primarySection.slug.current == "${slug}"] {
+  "project": *[_type == "project" && primarySection.slug.current == "${slug}"][0] {
     _id,
     primarySection {
       title,
@@ -59,11 +59,11 @@ export default async function Service({ params }: ServiceProps) {
 
   const { project } = await client.fetch(query(slug));
   const { primarySection, secondSection, thirdSection, nextProjectsSection } =
-    project[0];
+    project;
 
   const pages = [
-    { label: 'Projects', href: '/projects' },
-    { label: primarySection?.title, href: `/projects/${slug}` },
+    { label: 'Projects', href: '/showcase' },
+    { label: primarySection?.title, href: `/showcase/${slug}` },
   ];
 
   return (

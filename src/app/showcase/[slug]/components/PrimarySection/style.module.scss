@@ -16,7 +16,7 @@
 
   h1 {
     font-size: rem(40px);
-    line-height: rem(70px);
+    line-height: rem(50px);
     letter-spacing: -0.02em;
     padding-top: rem(30px);
     padding-bottom: rem(30px);
@@ -44,7 +44,6 @@
           border-left: none;
           margin-left: 0px;
           padding-left: 0px;
-
           border-top: solid 1px $c-blue-a5;
           margin-top: rem(16px);
           padding-top: rem(16px);
@@ -62,13 +61,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: rem(180px);
+  gap: rem(160px);
+
+  @include isTablet {
+    gap: rem(100px);
+  }
 
   h1 {
     color: $c-blue-a5;
-    font-size: rem(36px);
-    line-height: 100%;
+    font-size: rem(32px);
+    line-height: rem(40px);
     width: 50%;
+
+    @include isTablet {
+      width: 40%;
+    }
 
     @include isMobile {
       width: 100%;
@@ -80,6 +87,10 @@
     font-size: rem(20px);
     line-height: 150%;
     width: 50%;
+
+    @include isTablet {
+      width: 60%;
+    }
 
     @include isMobile {
       width: 100%;
