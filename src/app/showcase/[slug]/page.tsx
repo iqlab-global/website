@@ -30,20 +30,18 @@ const query = (slug: string) => `{
       title,
       body,
       "image": image.asset->url,
-    },
-    nextProjectsSection {
-      projects[]->{
-        _id,
-        primarySection {
-          title,
-          subTitle,
-          slug,
-          industries,
-          serviceType,
-          techStack,
-          "previewImage": previewImage.asset->url
-        }
-      }
+    }
+  },
+  "projects": *[_type == "project" && primarySection.slug.current != "${slug}"] | order(_createdAt desc)[0..2] {
+    _id,
+    primarySection {
+      title,
+      subTitle,
+      slug,
+      industries,
+      serviceType,
+      techStack,
+      "previewImage": previewImage.asset->url
     }
   }
 }`;
@@ -57,9 +55,8 @@ export default async function Service({ params }: ServiceProps) {
 
   if (!slug) notFound();
 
-  const { project } = await client.fetch(query(slug));
-  const { primarySection, secondSection, thirdSection, nextProjectsSection } =
-    project;
+  const { project, projects } = await client.fetch(query(slug));
+  const { primarySection, secondSection, thirdSection } = project;
 
   const pages = [
     { label: 'Projects', href: '/showcase' },
@@ -72,7 +69,7 @@ export default async function Service({ params }: ServiceProps) {
       <PrimarySection {...primarySection} />
       <SecondSection {...secondSection} />
       <ThirdSection {...thirdSection} />
-      <NextProjectsSection {...nextProjectsSection} />
+      <NextProjectsSection projects={projects} />
     </Page>
   );
 }
