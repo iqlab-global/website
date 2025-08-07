@@ -136,18 +136,6 @@ export const projectType = defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'nextProjectsSection',
-      type: 'object',
-      group: 'nextProjectsGroup',
-      fields: [
-        defineField({
-          name: 'projects',
-          type: 'array',
-          of: [{ type: 'reference', to: { type: 'project' } }],
-        }),
-      ],
-    }),
   ],
   preview: {
     select: {
