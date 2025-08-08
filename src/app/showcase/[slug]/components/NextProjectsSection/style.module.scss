@@ -76,6 +76,16 @@
   @include isTablet {
     row-gap: rem(60px);
     column-gap: rem(25px);
+    flex-wrap: initial;
+
+    a {
+      width: 50% !important;
+      max-width: 50%;
+
+      :first-child {
+        height: auto !important;
+      }
+    }
   }
 
   @include isMobile {
