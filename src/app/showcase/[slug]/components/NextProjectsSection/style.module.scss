@@ -29,6 +29,7 @@
   flex: 1;
   gap: 145px;
   color: $c-blue-a5;
+  min-width: 285px;
 
   h3 {
     font-size: 32px;
@@ -38,6 +39,11 @@
     font-size: rem(20px);
     line-height: 150%;
     color: $c-black-30;
+  }
+
+  @include isTablet {
+    max-width: 25%;
+    width: 25%;
   }
 
   @include isMobile {
@@ -54,6 +60,17 @@
 
   @include isSmallDesktop {
     column-gap: rem(30px);
+    max-width: 75%;
+    flex-wrap: initial;
+
+    a {
+      width: 50% !important;
+      max-width: 50%;
+
+      :first-child {
+        height: auto !important;
+      }
+    }
   }
 
   @include isTablet {
