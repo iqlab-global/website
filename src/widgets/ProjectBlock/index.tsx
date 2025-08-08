@@ -27,7 +27,7 @@ export const ProjectBlock = ({
   return (
     <a
       key={_id}
-      href={`/projects/${slug.current}`}
+      href={`/showcase/${slug.current}`}
       className={clsx(s.block, {
         [s.blueBg]: blueBg,
         [s.firstLarge]: firstLarge,

@@ -19,6 +19,10 @@ export const projectType = defineType({
       name: 'thirdContentGroup',
       title: 'Tertiary Content',
     },
+    {
+      name: 'nextProjectsGroup',
+      title: 'Next Projects Content',
+    },
   ],
   fields: [
     defineField({
