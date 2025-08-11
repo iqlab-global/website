@@ -57,9 +57,6 @@
     color: $c-gray-30;
     padding-bottom: rem(20px);
 
-    @include isTablet {
-    }
-
     @include isMobile {
       width: 100%;
     }

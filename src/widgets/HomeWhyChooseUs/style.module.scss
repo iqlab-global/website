@@ -15,7 +15,7 @@ section.section {
     }
 
     @include isMobile {
-      flex-direction: column;
+      overflow: auto;
       padding-bottom: rem(24px);
     }
   }
@@ -25,22 +25,11 @@ section.section {
     padding-left: rem(30px);
     padding-right: rem(30px);
     padding-bottom: rem(40px);
-    width: 323px;
-    height: 323px;
+    min-width: 323px;
+    min-height: 323px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
-    @include isTablet {
-      width: 48.5%;
-      height: 462px;
-    }
-
-    @include isMobile {
-      width: 100%;
-      height: unset;
-      padding: rem(20px);
-    }
 
     h6 {
       padding-top: rem(32px);
@@ -49,6 +38,7 @@ section.section {
 
       @include isMobile {
         padding-top: rem(20px);
+        padding-bottom: rem(6px);
         font-size: rem(14px);
         line-height: rem(19.6px);
       }
@@ -59,6 +49,8 @@ section.section {
       @include isMobile {
         font-size: rem(12px);
         line-height: rem(16.8px);
+        height: 100%;
+        min-height:auto;
       }
     }
 
@@ -70,6 +62,17 @@ section.section {
         width: 40px;
         height: 40px;
       }
+    }
+
+    @include isTablet {
+      width: 462px;
+      height: 462px;
+    }
+
+    @include isMobile {
+      min-width: 206px;
+      min-height: 206px;
+      padding: 20px;
     }
   }
 

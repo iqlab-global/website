@@ -1,0 +1,23 @@
+$sidebar-offset: calc(110px + rem(75px));
+
+.sidebar {
+  position: sticky;
+  top: $sidebar-offset;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menuItem {
+  color: $c-gray-b4;
+  font-family: 'BDO Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.active {
+  color: $c-blue-a5;
+}

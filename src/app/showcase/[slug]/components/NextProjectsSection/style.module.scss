@@ -1,0 +1,111 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(56px);
+  padding-bottom: rem(64px);
+  font-family: 'BDO Grotesk', sans-serif;
+}
+
+.body {
+  display: flex;
+  gap: rem(40px);
+  justify-content: space-between;
+  border-top: 1px solid $c-blue-a5;
+  padding-top: rem(28px);
+
+  @include isSmallDesktop {
+    column-gap: rem(10px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 145px;
+  color: $c-blue-a5;
+  min-width: 285px;
+
+  h3 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: 150%;
+    color: $c-black-30;
+  }
+
+  @include isTablet {
+    max-width: 25%;
+    width: 25%;
+  }
+
+  @include isMobile {
+    width: 100%;
+    gap: 20px;
+  }
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: rem(77px);
+  row-gap: rem(120px);
+
+  @include isSmallDesktop {
+    column-gap: rem(30px);
+    max-width: 75%;
+    flex-wrap: initial;
+
+    a {
+      width: 50% !important;
+      max-width: 50%;
+
+      :first-child {
+        height: auto !important;
+      }
+    }
+  }
+
+  @include isTablet {
+    row-gap: rem(60px);
+    column-gap: rem(25px);
+    flex-wrap: initial;
+
+    a {
+      width: 50% !important;
+      max-width: 50%;
+
+      :first-child {
+        height: auto !important;
+      }
+    }
+  }
+
+  @include isMobile {
+    row-gap: rem(60px);
+  }
+}
+
+.back {
+  margin-top: 36px;
+
+  @include isMobile {
+    display: none !important;
+  }
+}
+
+.mobileBack {
+  text-align: center;
+  display: none !important;
+
+  @include isMobile {
+    display: block !important;
+  }
+}
