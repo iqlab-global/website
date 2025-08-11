@@ -1,6 +1,7 @@
 import { emailRegex } from '@/lib/utils';
 import { apiKey, dataset, projectId } from '@/sanity/env';
 import { NextRequest } from 'next/server';
+import sendEmail from '@/helpers/sendEmail';
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
@@ -43,6 +44,19 @@ export async function POST(request: NextRequest): Promise<Response> {
     if (!response.ok) {
       throw new Error('Failed to submit data');
     }
+
+    await sendEmail({
+      email: [process.env.NEXT_PUBLIC_IQLAB_EMAIL!],
+      subject: `New contact submission from ${firstName}`,
+      description: message,
+      html: `
+       <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>`,
+    });
 
     return Response.json({ success: true }, { status: 200 });
   } catch (error) {
