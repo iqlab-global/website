@@ -6,6 +6,7 @@ type Props = Project & {
   styleOverides?: Styles;
   blueBg?: boolean;
   firstLarge?: boolean;
+  className?: string;
 };
 
 export const ProjectBlock = ({
@@ -13,6 +14,7 @@ export const ProjectBlock = ({
   primarySection,
   blueBg,
   firstLarge,
+  className,
 }: Props) => {
   const {
     title,
@@ -28,7 +30,7 @@ export const ProjectBlock = ({
     <a
       key={_id}
       href={`/showcase/${slug.current}`}
-      className={clsx(s.block, {
+      className={clsx(s.block, className, {
         [s.blueBg]: blueBg,
         [s.firstLarge]: firstLarge,
       })}

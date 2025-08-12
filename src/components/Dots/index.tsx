@@ -11,6 +11,7 @@ import {
   isValidElement,
   ReactNode,
 } from 'react';
+import { clsx } from 'clsx';
 
 import { useMounted } from '@/hooks/useMounted';
 
@@ -24,9 +25,16 @@ const centerToCenter = dotSize + dotSpacing;
 
 interface DotsProps extends PropsWithChildren {
   className?: string;
+  dotsWrapperClassName?: string;
+  selectChildrenBy?: string;
 }
 
-export const Dots = ({ className, children }: DotsProps) => {
+export const Dots = ({
+  className,
+  dotsWrapperClassName,
+  selectChildrenBy,
+  children,
+}: DotsProps) => {
   const isMounted = useMounted();
   const containerRef = useRef<HTMLDivElement>(null);
   const [dots, setDots] = useState<ReactNode[]>([]);
@@ -35,7 +43,9 @@ export const Dots = ({ className, children }: DotsProps) => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const childBoxes = container?.querySelectorAll('.dot-box');
+    const childBoxes = container?.querySelectorAll(
+      selectChildrenBy || '.dot-box'
+    );
     const containerRect = container?.getBoundingClientRect();
     const W = containerRect?.width || 0;
     const H = containerRect?.height || 0;
@@ -53,16 +63,16 @@ export const Dots = ({ className, children }: DotsProps) => {
     const textRects = Array.from(childBoxes || []).map((child) => {
       const rect = child.getBoundingClientRect();
 
-      const containerPostitions = {
+      const containerPositions = {
         left: containerRect?.left || 0,
         top: containerRect?.top || 0,
       };
 
       return {
-        left: rect.left - containerPostitions.left || 0 - childBoxExtraSpacing,
-        right: rect.right - containerPostitions.left + childBoxExtraSpacing,
-        top: rect.top - containerPostitions.top,
-        bottom: rect.bottom - containerPostitions.top,
+        left: rect.left - containerPositions.left || 0 - childBoxExtraSpacing,
+        right: rect.right - containerPositions.left + childBoxExtraSpacing,
+        top: rect.top - containerPositions.top,
+        bottom: rect.bottom - containerPositions.top,
       };
     });
 
@@ -100,7 +110,7 @@ export const Dots = ({ className, children }: DotsProps) => {
 
       return nextDots;
     });
-  }, []);
+  }, [selectChildrenBy]);
 
   useEffect(() => {
     if (!isMounted) return;
@@ -125,7 +135,11 @@ export const Dots = ({ className, children }: DotsProps) => {
             : child
         )}
       </div>
-      {dots}
+      <div className={s.dotsChildren}>
+        <div className={clsx(s.dotsContainer, dotsWrapperClassName)}>
+          {dots}
+        </div>
+      </div>
     </div>
   );
 };
