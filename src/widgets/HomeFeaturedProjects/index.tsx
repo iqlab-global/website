@@ -18,34 +18,32 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
         dotsWrapperClassName={s.dotsWrapper}
       >
         <Container>
-          <div className={s.wrapper}>
-            <div className={s.header}>
-              <h2 className='featuredProjectChild'>Featured Projects</h2>
-              <Button
-                className={clsx(s.showcase, 'featuredProjectChild')}
-                href='/showcase'
-                transparentBg
-                outline
-              >
-                / All Projects
-              </Button>
-            </div>
-            <div className={s.list}>
-              {data.map((project) => (
-                <ProjectBlock
-                  className='featuredProjectChild'
-                  key={project._id}
-                  {...project}
-                  blueBg
-                  firstLarge
-                />
-              ))}
-            </div>
-            <div className={s.links}>
-              <Button href='/showcase' transparentBg outline>
-                / All Projects
-              </Button>
-            </div>
+          <div className={s.header}>
+            <h2 className='featuredProjectChild'>Featured Projects</h2>
+            <Button
+              className={clsx(s.showcase, 'featuredProjectChild')}
+              href='/showcase'
+              transparentBg
+              outline
+            >
+              / All Projects
+            </Button>
+          </div>
+          <div className={s.list}>
+            {data.map((project) => (
+              <ProjectBlock
+                className='featuredProjectChild'
+                key={project._id}
+                {...project}
+                blueBg
+                firstLarge
+              />
+            ))}
+          </div>
+          <div className={s.links}>
+            <Button href='/showcase' transparentBg outline>
+              / All Projects
+            </Button>
           </div>
         </Container>
       </Dots>

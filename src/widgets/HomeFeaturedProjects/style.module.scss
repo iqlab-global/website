@@ -34,6 +34,7 @@
   }
 
   h2 {
+    padding: rem(10px);
     font-size: rem(40px);
     line-height: rem(56px);
     letter-spacing: -0.03em;
@@ -64,10 +65,15 @@
 
 .list {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   column-gap: rem(70px);
   row-gap: rem(120px);
   margin-bottom: rem(120px);
+
+  a {
+    padding: rem(10px);
+  }
 
   @include isTablet {
     row-gap: rem(60px);
