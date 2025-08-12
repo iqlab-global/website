@@ -26,13 +26,13 @@ const centerToCenter = dotSize + dotSpacing;
 interface DotsProps extends PropsWithChildren {
   className?: string;
   dotsWrapperClassName?: string;
-  selectChildrenBy?: string;
+  queryChildrenBy?: string;
 }
 
 export const Dots = ({
   className,
   dotsWrapperClassName,
-  selectChildrenBy,
+  queryChildrenBy,
   children,
 }: DotsProps) => {
   const isMounted = useMounted();
@@ -44,7 +44,7 @@ export const Dots = ({
 
     const container = containerRef.current;
     const childBoxes = container?.querySelectorAll(
-      selectChildrenBy || '.dot-box'
+      queryChildrenBy || '.dot-box'
     );
     const containerRect = container?.getBoundingClientRect();
     const W = containerRect?.width || 0;
@@ -110,7 +110,7 @@ export const Dots = ({
 
       return nextDots;
     });
-  }, [selectChildrenBy]);
+  }, [queryChildrenBy]);
 
   useEffect(() => {
     if (!isMounted) return;
@@ -130,7 +130,7 @@ export const Dots = ({
         {Children.map(children, (child) =>
           isValidElement<{ className?: string }>(child)
             ? cloneElement(child, {
-                className: `dot-box ${s.dotsChild} ${child.props.className}`,
+                className: `dot-box ${queryChildrenBy ? '' : s.dotsChild} ${child.props.className}`,
               })
             : child
         )}

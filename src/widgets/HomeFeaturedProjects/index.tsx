@@ -14,10 +14,10 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
   return (
     <section className={s.section}>
       <Dots
-        selectChildrenBy='.featuredProjectChild'
+        queryChildrenBy='.featuredProjectChild'
         dotsWrapperClassName={s.dotsWrapper}
       >
-        <Container>
+        <Container className={s.container}>
           <div className={s.header}>
             <h2 className='featuredProjectChild'>Featured Projects</h2>
             <Button
