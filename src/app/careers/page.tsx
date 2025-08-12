@@ -11,7 +11,6 @@ export default function Careers() {
       <Join />
       <Positions />
       <CompanyCulture />
-      {/*TODO: Company Culture Section*/}
       {/*TODO: Internship Program Section*/}
     </Page>
   );
