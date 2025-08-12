@@ -1,0 +1,118 @@
+.notFoundPage {
+  font-family: var(--font-disket-mono);
+  position: relative;
+
+  .mainContent {
+    width: 100%;
+    height: 100vh;
+    background-color: $c-blue-a5;
+    color: $c-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: rem(44px);
+      font-weight: 700;
+
+      @include isMobile() {
+        font-size: rem(20px);
+      }
+    }
+
+    p {
+      max-width: rem(332px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: rem(60px);
+
+      @include isTablet() {
+        max-width: rem(460px);
+      }
+    }
+
+    .errorStatus {
+      max-width: rem(1018px);
+
+      @include isMobile() {
+        margin: rem(20px) 0;
+      }
+    }
+
+    .btn {
+      @include isMobile() {
+        position: absolute;
+        bottom: 50px;
+      }
+    }
+  }
+
+  .textures {
+    span {
+      position: absolute;
+      color: $c-blue-ff3;
+      font-size: rem(37px);
+      z-index: 2;
+
+      @include isMobile() {
+        font-size: rem(24px);
+      }
+
+      &:first-child {
+        top: 60px;
+        left: 80px;
+
+        @include isMobile() {
+          top: 30px;
+          left: 20px;
+        }
+
+        @include isTablet() {
+          top: 40px;
+          left: 30px;
+        }
+      }
+      &:nth-child(2) {
+        top: 60px;
+        right: 80px;
+
+        @include isMobile() {
+          top: 30px;
+          right: 20px;
+        }
+
+        @include isTablet() {
+          top: 40px;
+          right: 30px;
+        }
+      }
+      &:nth-child(3) {
+        bottom: 60px;
+        left: 80px;
+
+        @include isMobile() {
+          display: none;
+        }
+
+        @include isTablet() {
+          bottom: 40px;
+          left: 30px;
+        }
+      }
+      &:last-child {
+        bottom: 60px;
+        right: 80px;
+
+        @include isMobile() {
+          display: none;
+        }
+
+        @include isTablet() {
+          bottom: 40px;
+          right: 30px;
+        }
+      }
+    }
+  }
+}
