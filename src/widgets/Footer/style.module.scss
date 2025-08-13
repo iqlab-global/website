@@ -175,6 +175,8 @@
     }
 
     .dottedContent {
+      padding: rem(10px);
+
       @include isMobile() {
         width: 100%;
       }

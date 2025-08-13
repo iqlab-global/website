@@ -43,7 +43,7 @@ export const Dots = ({
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const childBoxes = container?.querySelectorAll(
+    const childBoxes = container.querySelectorAll(
       queryChildrenBy || '.dot-box'
     );
     const containerRect = container?.getBoundingClientRect();
@@ -130,7 +130,7 @@ export const Dots = ({
         {Children.map(children, (child) =>
           isValidElement<{ className?: string }>(child)
             ? cloneElement(child, {
-                className: `dot-box ${queryChildrenBy ? '' : s.dotsChild} ${child.props.className}`,
+                className: `${queryChildrenBy ? '' : 'dot-box '}${child.props.className}`,
               })
             : child
         )}

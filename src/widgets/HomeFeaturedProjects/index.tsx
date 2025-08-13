@@ -20,14 +20,16 @@ export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
         <Container className={s.container}>
           <div className={s.header}>
             <h2 className='featuredProjectChild'>Featured Projects</h2>
-            <Button
-              className={clsx(s.showcase, 'featuredProjectChild')}
-              href='/showcase'
-              transparentBg
-              outline
-            >
-              / All Projects
-            </Button>
+            <div className={clsx(s.showcaseWrapper, 'featuredProjectChild')}>
+              <Button
+                className={s.showcase}
+                href='/showcase'
+                transparentBg
+                outline
+              >
+                / All Projects
+              </Button>
+            </div>
           </div>
           <div className={s.list}>
             {data.map((project) => (

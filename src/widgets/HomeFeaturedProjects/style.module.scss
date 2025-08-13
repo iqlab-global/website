@@ -17,7 +17,6 @@
   }
 
   @include isMobile {
-    padding-top: rem(45px);
     padding-bottom: rem(55px);
   }
 }
@@ -36,36 +35,41 @@
   }
 
   @include isMobile {
-    padding-bottom: rem(60px);
+    padding-bottom: rem(45px);
   }
 
   h2 {
-    padding:rem(20px);
+    padding-left:rem(17px);
+    padding-bottom:rem(10px);
     font-size: rem(40px);
     line-height: rem(56px);
     letter-spacing: -0.03em;
 
     @include isMobile {
+      padding: 10px 20px;
       font-weight: 400;
       font-size: rem(28px);
       line-height: rem(39.2px);
       letter-spacing: 0;
       text-align: center;
-      width: 100%;
+      width: auto;
+      margin: auto
     }
   }
 
+  .showcaseWrapper {
+    margin-right:rem(20px);
+    padding-left:rem(10px);
+    padding-bottom:rem(10px);
+
+    @include isMobile {
+      display: none;
+    }
+  }
   .showcase {
-    margin:rem(20px);
     @include transitionHover($c-white) {
       border-color: transparent;
       color: $c-blue-a5;
-    }
-  }
-
-  a {
-    @include isMobile {
-      display: none;
     }
   }
 }
@@ -81,6 +85,7 @@
 
   a {
     padding: rem(10px);
+    padding-left: rem(20px);
   }
 
   @include isTablet {
