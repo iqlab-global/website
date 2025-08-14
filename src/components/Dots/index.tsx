@@ -60,7 +60,7 @@ export const Dots = ({
     const m_y = Math.floor((center_y - dotSize / 2) / centerToCenter);
 
     // Get text box rectangles relative to footer, extended horizontally
-    const textRects = Array.from(childBoxes || []).map((child) => {
+    const childRects = Array.from(childBoxes || []).map((child) => {
       const rect = child.getBoundingClientRect();
 
       const containerPositions = {
@@ -88,12 +88,12 @@ export const Dots = ({
           const dot_bottom = dot_top + dotSize;
 
           // Check intersection with extended text box areas
-          const intersects = textRects?.some(
-            (tr) =>
-              dot_left < tr.right &&
-              dot_right > tr.left &&
-              dot_top < tr.bottom &&
-              dot_bottom > tr.top
+          const intersects = childRects?.some(
+            (cr) =>
+              dot_left < cr.right &&
+              dot_right > cr.left &&
+              dot_top < cr.bottom &&
+              dot_bottom > cr.top
           );
 
           if (!intersects) {
@@ -115,12 +115,37 @@ export const Dots = ({
   useEffect(() => {
     if (!isMounted) return;
 
-    window.addEventListener('load', generateDots);
     window.addEventListener('resize', generateDots);
 
     return () => {
-      window.removeEventListener('load', generateDots);
       window.removeEventListener('resize', generateDots);
+    };
+  }, [isMounted, generateDots]);
+
+  useEffect(() => {
+    if (!isMounted || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+
+        if (entry.isIntersecting) {
+          generateDots();
+          observer.disconnect();
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      if (containerRef.current) observer.unobserve(containerRef.current);
+      observer.disconnect();
     };
   }, [isMounted, generateDots]);
 
