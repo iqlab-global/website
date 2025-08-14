@@ -150,8 +150,8 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
                 </ul>
               </nav>
             </div>
-            <Dots className={s.socialMedia}>
-              <SocialMedia />
+            <Dots className={s.dotsSocialMedia}>
+              <SocialMedia className={s.socialMedia} />
             </Dots>
           </div>
         </div>
