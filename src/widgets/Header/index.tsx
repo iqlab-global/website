@@ -13,6 +13,7 @@ import HamburgerBlue from '@/assets/images/hamburger-blue.svg';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { NavLink } from '@/components/NavLink';
+import { Dots } from '@/components/Dots';
 
 import s from './style.module.scss';
 import SocialMedia from '@/widgets/SocialMedia';
@@ -149,9 +150,9 @@ export const Header = ({ whiteBg = false, isHome = false }: HeaderProps) => {
                 </ul>
               </nav>
             </div>
-            <div className={s.socialMedia}>
-              <SocialMedia />
-            </div>
+            <Dots className={s.dotsSocialMedia}>
+              <SocialMedia className={s.socialMedia} />
+            </Dots>
           </div>
         </div>
       </div>
