@@ -113,9 +113,7 @@ export const Dots = ({
   }, [queryChildrenBy]);
 
   useEffect(() => {
-    if (!isMounted) return;
-
-    window.addEventListener('resize', generateDots);
+    if (isMounted) window.addEventListener('resize', generateDots);
 
     return () => {
       window.removeEventListener('resize', generateDots);
@@ -144,7 +142,6 @@ export const Dots = ({
     observer.observe(containerRef.current);
 
     return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
       observer.disconnect();
     };
   }, [isMounted, generateDots]);
