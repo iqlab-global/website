@@ -3,10 +3,25 @@
   padding-bottom: rem(85px);
 
   img {
-    display: block;
     width: 100%;
-    height: 563px;
     object-fit: cover;
     object-position: 50% 43%;
+  }
+}
+
+.slogan {
+  display: block;
+  height: 563px;
+
+  @include isMobile {
+    display: none;
+  }
+}
+
+.sloganMobile {
+  display: none;
+
+  @include isMobile {
+    display: block;
   }
 }
