@@ -12,6 +12,7 @@ import {
   ReactNode,
 } from 'react';
 import { clsx } from 'clsx';
+import { throttle } from 'es-toolkit';
 
 import { useMounted } from '@/hooks/useMounted';
 
@@ -39,78 +40,83 @@ export const Dots = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [dots, setDots] = useState<ReactNode[]>([]);
 
-  const generateDots = useCallback(() => {
-    if (!containerRef.current) return;
+  const generateDots = useCallback(
+    throttle(() => {
+      if (!containerRef.current) return;
 
-    const container = containerRef.current;
-    const childBoxes = container.querySelectorAll(
-      queryChildrenBy || '.dot-box'
-    );
-    const containerRect = container?.getBoundingClientRect();
-    const W = containerRect?.width || 0;
-    const H = containerRect?.height || 0;
+      console.log('generateDots');
 
-    const center_x = W / 2;
-    const center_y = H / 2;
+      const container = containerRef.current;
+      const childBoxes = container.querySelectorAll(
+        queryChildrenBy || '.dot-box'
+      );
+      const containerRect = container?.getBoundingClientRect();
+      const W = containerRect?.width || 0;
+      const H = containerRect?.height || 0;
 
-    // Calculate maximum number of dots from center
-    const m_x = Math.floor(
-      (center_x - viewportEdgeSpacing - dotSize / 2) / centerToCenter
-    );
-    const m_y = Math.floor((center_y - dotSize / 2) / centerToCenter);
+      const center_x = W / 2;
+      const center_y = H / 2;
 
-    // Get text box rectangles relative to footer, extended horizontally
-    const childRects = Array.from(childBoxes || []).map((child) => {
-      const rect = child.getBoundingClientRect();
+      // Calculate maximum number of dots from center
+      const m_x = Math.floor(
+        (center_x - viewportEdgeSpacing - dotSize / 2) / centerToCenter
+      );
+      const m_y = Math.floor((center_y - dotSize / 2) / centerToCenter);
 
-      const containerPositions = {
-        left: containerRect?.left || 0,
-        top: containerRect?.top || 0,
-      };
+      // Get text box rectangles relative to footer, extended horizontally
+      const childRects = Array.from(childBoxes || []).map((child) => {
+        const rect = child.getBoundingClientRect();
 
-      return {
-        left: rect.left - containerPositions.left || 0 - childBoxExtraSpacing,
-        right: rect.right - containerPositions.left + childBoxExtraSpacing,
-        top: rect.top - containerPositions.top,
-        bottom: rect.bottom - containerPositions.top,
-      };
-    });
+        const containerPositions = {
+          left: containerRect?.left || 0,
+          top: containerRect?.top || 0,
+        };
 
-    setDots(() => {
-      const nextDots = [];
-      // Generate dots
-      for (let j = -m_y; j <= m_y; j++) {
-        const dot_top = center_y + j * centerToCenter - dotSize / 2;
+        return {
+          left: rect.left - containerPositions.left || 0 - childBoxExtraSpacing,
+          right: rect.right - containerPositions.left + childBoxExtraSpacing,
+          top: rect.top - containerPositions.top,
+          bottom: rect.bottom - containerPositions.top,
+        };
+      });
 
-        for (let i = -m_x; i <= m_x; i++) {
-          const dot_left = center_x + i * centerToCenter - dotSize / 2;
-          const dot_right = dot_left + dotSize;
-          const dot_bottom = dot_top + dotSize;
+      setDots(() => {
+        const nextDots = [];
+        // Generate dots
+        for (let j = -m_y; j <= m_y; j++) {
+          const dot_top = center_y + j * centerToCenter - dotSize / 2;
 
-          // Check intersection with extended text box areas
-          const intersects = childRects?.some(
-            (cr) =>
-              dot_left < cr.right &&
-              dot_right > cr.left &&
-              dot_top < cr.bottom &&
-              dot_bottom > cr.top
-          );
+          for (let i = -m_x; i <= m_x; i++) {
+            const dot_left = center_x + i * centerToCenter - dotSize / 2;
+            const dot_right = dot_left + dotSize;
+            const dot_bottom = dot_top + dotSize;
 
-          if (!intersects) {
-            nextDots.push(
-              <div
-                key={`${dot_left}-${dot_top}`}
-                className={s.dot}
-                style={{ left: `${dot_left}px`, top: `${dot_top}px` }}
-              />
+            // Check intersection with extended text box areas
+            const intersects = childRects?.some(
+              (cr) =>
+                dot_left < cr.right &&
+                dot_right > cr.left &&
+                dot_top < cr.bottom &&
+                dot_bottom > cr.top
             );
+
+            if (!intersects) {
+              nextDots.push(
+                <div
+                  key={`${dot_left}-${dot_top}`}
+                  className={s.dot}
+                  style={{ left: `${dot_left}px`, top: `${dot_top}px` }}
+                />
+              );
+            }
           }
         }
-      }
 
-      return nextDots;
-    });
-  }, [queryChildrenBy]);
+        return nextDots;
+      });
+    }, 50),
+    [queryChildrenBy]
+  );
 
   useEffect(() => {
     if (isMounted) window.addEventListener('resize', generateDots);
