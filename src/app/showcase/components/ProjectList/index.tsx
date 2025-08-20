@@ -5,9 +5,11 @@ import { ProjectBlock } from '@/widgets/ProjectBlock';
 
 type Props = {
   projects: Project[];
+  total: number;
+  onShowMore: () => void;
 };
 
-export const ProjectList = ({ projects }: Props) => {
+export const ProjectList = ({ projects, total, onShowMore }: Props) => {
   return (
     <section className={s.section}>
       <Container>
@@ -16,6 +18,11 @@ export const ProjectList = ({ projects }: Props) => {
             <ProjectBlock key={p._id} {...p} firstLarge />
           ))}
         </div>
+        {projects.length < total && (
+          <button className={s.showMore} onClick={onShowMore}>
+            / Show more
+          </button>
+        )}
       </Container>
     </section>
   );
