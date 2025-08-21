@@ -5,7 +5,7 @@ import { client } from '@/sanity/lib/client';
 import { Intro } from './components/Intro';
 import { ProjectList } from './components/ProjectList';
 
-const queryContent = `{
+const query = `{
   "showcasePage": *[_type == "showcasePageSingleton"][0] {
     introSection {
       title,
@@ -13,18 +13,31 @@ const queryContent = `{
       body,
       "image": image.asset->url,
     },
-  }
+  },
+   "projects": *[_type == "project"] | order(_id) [0...3] {
+    _id,
+    primarySection {
+      title,
+      subTitle,
+      slug,
+      industries,
+      serviceType,
+      techStack,
+      "previewImage": previewImage.asset->url
+    }
+  },
+  "total": count(*[_type == "project"])
 }`;
 
 export default async function Showcase() {
-  const { showcasePage } = await client.fetch(queryContent, {});
+  const { showcasePage, projects, total } = await client.fetch(query, {});
   const { introSection } = showcasePage ?? {};
 
   return (
     <Page whiteHeader>
       <Breadcrumb pages={[{ label: 'Showcase', href: '/showcase' }]} />
       <Intro {...introSection} />
-      <ProjectList />
+      <ProjectList projects={projects} total={total} />
     </Page>
   );
 }
