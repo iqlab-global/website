@@ -2,7 +2,9 @@ import s from './style.module.scss';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { Project } from '@/lib/types';
+import clsx from 'clsx';
 import { ProjectBlock } from '@/widgets/ProjectBlock';
+import { Dots } from '@/components/Dots';
 
 interface FeaturedProjectsProps {
   data: Project[];
@@ -11,31 +13,42 @@ interface FeaturedProjectsProps {
 export const FeaturedProjects = ({ data }: FeaturedProjectsProps) => {
   return (
     <section className={s.section}>
-      <Container>
-        <div className={s.wrapper}>
+      <Dots
+        queryChildrenBy='.featuredProjectChild'
+        dotsWrapperClassName={s.dotsWrapper}
+      >
+        <Container className={s.container}>
           <div className={s.header}>
-            <h2>Featured Projects</h2>
-            <Button
-              className={s.showcase}
-              href='/showcase'
-              transparentBg
-              outline
-            >
-              / All Projects
-            </Button>
+            <h2 className='featuredProjectChild'>Featured Projects</h2>
+            <div className={clsx(s.showcaseWrapper, 'featuredProjectChild')}>
+              <Button
+                className={s.showcase}
+                href='/showcase'
+                transparentBg
+                outline
+              >
+                / All Projects
+              </Button>
+            </div>
           </div>
           <div className={s.list}>
             {data.map((project) => (
-              <ProjectBlock key={project._id} {...project} blueBg firstLarge />
+              <ProjectBlock
+                className='featuredProjectChild'
+                key={project._id}
+                {...project}
+                blueBg
+                firstLarge
+              />
             ))}
           </div>
-          {/* <div className={s.links}>
+          <div className={s.links}>
             <Button href='/showcase' transparentBg outline>
               / All Projects
             </Button>
-          </div> */}
-        </div>
-      </Container>
+          </div>
+        </Container>
+      </Dots>
     </section>
   );
 };

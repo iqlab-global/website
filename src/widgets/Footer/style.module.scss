@@ -134,40 +134,51 @@
         }
       }
     }
+  }
 
-    .dotted {
-      padding: rem(40px) 0 rem(20px) 0;
-      width: 100%;
-      display: flex;
-      font-family: var(--font-disket-mono);
-      font-size: rem(14px);
-      text-align: center;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: rem(20px);
+  .dotted {
+    height: 205px;
+    width: 100%;
+    display: flex;
+    font-family: var(--font-disket-mono);
+    font-size: rem(14px);
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(20px);
+    padding-left: rem(80px);
+    padding-right: rem(80px);
+    padding-top: rem(60px);
 
-      p {
-        font-weight: 700;
-      }
+    p {
+      font-weight: 700;
+    }
 
-      @include tabletAndAbove() {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-      }
+    @include tabletAndAbove() {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
 
-      @include isDesktop() {
-        padding: rem(80px) rem(60px) rem(60px) rem(60px);
-      }
+    @include isTablet() {
+      font-size: rem(12px);
+    }
 
-      @include isSmallDesktop() {
-        padding: rem(80px) rem(20px) rem(60px) rem(20px);
-      }
+    @include isMobile() {
+      height: 500px;
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-top: rem(55px);
 
-      @include isTablet() {
-        font-size: rem(12px);
-        padding: rem(80px) rem(20px) rem(60px) rem(20px);
+      gap: rem(50px);
+    }
+
+    .dottedContent {
+      padding: rem(10px);
+
+      @include isMobile() {
+        width: 100%;
       }
     }
   }

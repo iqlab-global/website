@@ -1,0 +1,16 @@
+.dotsContainer {
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: $c-white;
+}
+
+.dotsChildren {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}

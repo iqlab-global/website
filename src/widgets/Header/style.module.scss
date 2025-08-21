@@ -175,13 +175,15 @@
         }
       }
 
-      .socialMedia {
-        min-height: rem(125px);
+      .dotsSocialMedia {
+        width: 100%;
+        height: 125px;
         justify-content: center;
         display: flex;
         align-items: center;
 
-        > div {
+        .socialMedia {
+          padding: 10px 20px;
           gap: rem(28px);
 
           > button {

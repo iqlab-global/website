@@ -1,5 +1,13 @@
+.container {
+  padding: 0px;
+}
+
+.dotsWrapper {
+  height: 360px;
+  overflow: hidden;
+}
+
 .section {
-  padding-top: rem(60px);
   padding-bottom: rem(75px);
   background-color: $c-blue-a5;
   color: $c-white;
@@ -9,50 +17,59 @@
   }
 
   @include isMobile {
-    padding-top: rem(45px);
     padding-bottom: rem(55px);
   }
 }
 
 .header {
-  padding-bottom: rem(106px);
+  padding-top: rem(45px);
+  padding-bottom: rem(80px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 1000;
 
   @include isTablet {
     padding-bottom: rem(38px);
   }
 
   @include isMobile {
-    padding-bottom: rem(60px);
+    padding-bottom: rem(45px);
   }
 
   h2 {
+    padding-left:rem(17px);
+    padding-bottom:rem(10px);
     font-size: rem(40px);
     line-height: rem(56px);
     letter-spacing: -0.03em;
 
     @include isMobile {
+      padding: 10px 20px;
       font-weight: 400;
       font-size: rem(28px);
       line-height: rem(39.2px);
       letter-spacing: 0;
       text-align: center;
-      width: 100%;
+      width: auto;
+      margin: auto
     }
   }
 
+  .showcaseWrapper {
+    margin-right:rem(20px);
+    padding-left:rem(10px);
+    padding-bottom:rem(10px);
+
+    @include isMobile {
+      display: none;
+    }
+  }
   .showcase {
     @include transitionHover($c-white) {
       border-color: transparent;
       color: $c-blue-a5;
-    }
-  }
-
-  a {
-    @include isMobile {
-      display: none;
     }
   }
 }
@@ -62,7 +79,13 @@
   flex-wrap: wrap;
   column-gap: rem(70px);
   row-gap: rem(120px);
-  margin-bottom: rem(120px);
+  position: relative;
+  z-index: 1000;
+
+  a {
+    padding: rem(10px);
+    padding-left: rem(20px);
+  }
 
   @include isTablet {
     row-gap: rem(60px);
@@ -76,6 +99,10 @@
 }
 
 .links {
-  display: flex;
+  display: none;
   justify-content: center;
+
+  @include isMobile {
+    display: flex;
+  }
 }
