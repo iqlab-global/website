@@ -7,14 +7,15 @@ interface Props {
 }
 
 export function useGetProjects({ projects: initialProjects, total }: Props) {
+  const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   const totalRef = useRef(total);
 
-  const fetchProjects = useCallback(async (lastId = '') => {
+  const fetchProjects = useCallback(async (page: number) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/projects?lastId=${lastId}`, {
+      const response = await fetch(`/api/projects?page=${page}`, {
         method: 'GET',
       });
 
@@ -32,9 +33,11 @@ export function useGetProjects({ projects: initialProjects, total }: Props) {
   }, []);
 
   const onFetchMore = useCallback(() => {
-    const lastId = projects[projects.length - 1]?._id;
-    if (projects.length < totalRef.current && lastId) fetchProjects(lastId);
-  }, [projects, fetchProjects]);
+    if (projects.length < totalRef.current) {
+      fetchProjects(page);
+      setPage(page + 1);
+    }
+  }, [projects, fetchProjects, page, setPage]);
 
   return {
     projects,

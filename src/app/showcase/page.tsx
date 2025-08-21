@@ -14,7 +14,7 @@ const query = `{
       "image": image.asset->url,
     },
   },
-   "projects": *[_type == "project"] | order(_id) [0...3] {
+   "projects": *[_type == "project"] | order(_createdAt desc) [0...3] {
     _id,
     primarySection {
       title,

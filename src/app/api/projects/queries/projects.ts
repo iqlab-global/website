@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity';
 
 export const queryProjects = groq`{
-  "projects": *[_type == "project" && _id > $lastId] | order(_id) [0...3]  {
+  "projects": *[_type == "project"] | order(_createdAt desc) [$start...$end] {
     _id,
     primarySection {
       title,
