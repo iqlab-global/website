@@ -1,16 +1,13 @@
-import { client } from '@/sanity/lib/client';
 import { NextRequest } from 'next/server';
-
+import { client, PROJECT_PAGE_SIZE } from '@/sanity/lib/client';
 import { queryProjects } from '@/app/api/projects/queries/projects';
-
-export const PAGE_SIZE = 3;
 
 export async function GET(request: NextRequest): Promise<Response> {
   try {
     const pageQuery = request.nextUrl.searchParams.get('page') ?? '';
     const page = parseInt(pageQuery) ?? 1;
-    const start = (page - 1) * PAGE_SIZE;
-    const end = start + PAGE_SIZE;
+    const start = (page - 1) * PROJECT_PAGE_SIZE;
+    const end = start + PROJECT_PAGE_SIZE;
 
     const response = await client.fetch(queryProjects, { start, end });
 

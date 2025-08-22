@@ -1,7 +1,6 @@
 import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
-import { client } from '@/sanity/lib/client';
-import { PAGE_SIZE } from '@/app/api/projects/route';
+import { client, PROJECT_PAGE_SIZE } from '@/sanity/lib/client';
 
 import { Intro } from './components/Intro';
 import { ProjectList } from './components/ProjectList';
@@ -15,7 +14,7 @@ const query = `{
       "image": image.asset->url,
     },
   },
-   "projects": *[_type == "project"] | order(_createdAt desc) [0...${PAGE_SIZE}] {
+   "projects": *[_type == "project"] | order(_createdAt desc) [0...${PROJECT_PAGE_SIZE}] {
     _id,
     primarySection {
       title,
