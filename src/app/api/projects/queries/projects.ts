@@ -1,0 +1,17 @@
+import { groq } from 'next-sanity';
+
+export const queryProjects = groq`{
+  "projects": *[_type == "project"] | order(_createdAt desc) [$start...$end] {
+    _id,
+    primarySection {
+      title,
+      subTitle,
+      slug,
+      industries,
+      serviceType,
+      techStack,
+      "previewImage": previewImage.asset->url
+    }
+  },
+  "total": count(*[_type == "project"])
+}`;

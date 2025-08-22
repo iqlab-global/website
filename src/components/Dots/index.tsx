@@ -44,8 +44,6 @@ export const Dots = ({
     throttle(() => {
       if (!containerRef.current) return;
 
-      console.log('generateDots');
-
       const container = containerRef.current;
       const childBoxes = container.querySelectorAll(
         queryChildrenBy || '.dot-box'

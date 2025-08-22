@@ -14,3 +14,16 @@
     row-gap: rem(60px);
   }
 }
+
+.showMore {
+  font-family: var(--font-disket-mono);
+  display: flex;
+  font-weight: 700;
+  font-size: rem(16px);
+  color: $c-blue-a5;
+  background-color: $c-white;
+  border: 1px solid $c-blue-a5;
+  padding: rem(12px) rem(20px);
+  letter-spacing: unset;
+  margin: 0 auto rem(120px);
+}

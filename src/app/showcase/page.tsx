@@ -1,6 +1,6 @@
 import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
-import { client } from '@/sanity/lib/client';
+import { client, PROJECT_PAGE_SIZE } from '@/sanity/lib/client';
 
 import { Intro } from './components/Intro';
 import { ProjectList } from './components/ProjectList';
@@ -14,7 +14,7 @@ const query = `{
       "image": image.asset->url,
     },
   },
-  "projects": *[_type == "project"] {
+   "projects": *[_type == "project"] | order(_createdAt desc) [0...${PROJECT_PAGE_SIZE}] {
     _id,
     primarySection {
       title,
@@ -25,18 +25,19 @@ const query = `{
       techStack,
       "previewImage": previewImage.asset->url
     }
-  }
+  },
+  "total": count(*[_type == "project"])
 }`;
 
 export default async function Showcase() {
-  const { showcasePage, projects } = await client.fetch(query, {});
+  const { showcasePage, projects, total } = await client.fetch(query, {});
   const { introSection } = showcasePage ?? {};
 
   return (
     <Page whiteHeader>
       <Breadcrumb pages={[{ label: 'Showcase', href: '/showcase' }]} />
       <Intro {...introSection} />
-      <ProjectList projects={projects} />
+      <ProjectList projects={projects} total={total} />
     </Page>
   );
 }
