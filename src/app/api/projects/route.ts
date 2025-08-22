@@ -3,7 +3,7 @@ import { NextRequest } from 'next/server';
 
 import { queryProjects } from '@/app/api/projects/queries/projects';
 
-const PAGE_SIZE = 3;
+export const PAGE_SIZE = 3;
 
 export async function GET(request: NextRequest): Promise<Response> {
   try {
