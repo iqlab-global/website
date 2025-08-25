@@ -27,6 +27,11 @@ export default async function sendEmail({
   description?: string;
   html?: string;
 }) {
+  if (!SMTP_SERVER_USERNAME || !SMTP_SERVER_HOST) {
+    console.error('SMTP is not set up');
+    return;
+  }
+
   try {
     await transporter.verify();
   } catch (error) {
