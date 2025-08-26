@@ -18,7 +18,7 @@ const query = (slug: string) => `{
       serviceType,
       techStack,
       body,
-      "mainImage": mainImage.asset->url,
+      mainImage,
     },
     secondSection {
       title,
