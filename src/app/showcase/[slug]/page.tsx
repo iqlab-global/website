@@ -23,13 +23,13 @@ const query = (slug: string) => `{
     secondSection {
       title,
       body,
-      "image1": image1.asset->url,
-      "image2": image2.asset->url,
+      image1,
+      image2,
     },
     thirdSection {
       title,
       body,
-      "image": image.asset->url,
+      image,
     }
   },
   "projects": *[_type == "project" && primarySection.slug.current != "${slug}"] | order(_createdAt desc)[0..2] {
@@ -41,7 +41,7 @@ const query = (slug: string) => `{
       industries,
       serviceType,
       techStack,
-      "previewImage": previewImage.asset->url
+      previewImage
     }
   }
 }`;

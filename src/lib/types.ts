@@ -1,3 +1,5 @@
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
 export type Service = {
   _id: string;
   introSection: {
@@ -17,7 +19,7 @@ export type Project = {
     industries: string;
     serviceType: string;
     techStack: string;
-    previewImage: string;
+    previewImage: SanityImageSource;
   };
 };
 

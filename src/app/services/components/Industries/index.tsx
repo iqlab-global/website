@@ -4,11 +4,12 @@ import AppImage from '@/components/AppImage';
 import Pattern from '@/assets/images/textures/pattern-2.svg';
 
 import { IndustryCard } from '../IndustryCard';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 type Industry = {
   title: string;
   description: string;
-  image: string;
+  image: SanityImageSource;
 };
 
 type Props = {

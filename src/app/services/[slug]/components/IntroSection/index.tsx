@@ -3,12 +3,14 @@ import { Container } from '@/components/Container';
 import Pattern from '@/assets/images/textures/pattern-2-light.svg';
 import { Button } from '@/components/Button';
 import Link from 'next/link';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
 
 type Props = {
   title?: string;
   subtitle?: string;
   description?: string;
-  mainImage?: string;
+  mainImage?: SanityImageSource;
 };
 
 export const IntroSection = ({
@@ -36,7 +38,11 @@ export const IntroSection = ({
           </div>
           <div className={s.image}>
             <img className={s.pattern} src={Pattern.src} alt='Services' />
-            <img className={s.mainImage} src={mainImage} alt='Services' />
+            <img
+              className={s.mainImage}
+              src={getHotspotImageUrl(mainImage)}
+              alt='Services'
+            />
           </div>
         </div>
       </Container>

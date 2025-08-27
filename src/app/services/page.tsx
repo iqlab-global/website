@@ -14,7 +14,7 @@ const query = `{
       title,
       subtitle,
       description,
-      "image": image.asset->url,
+      image,
     },
     areasSection {
       title,
@@ -34,7 +34,7 @@ const query = `{
       industries[] {
         title,
         description,
-        "image": image.asset->url
+        image
       }
     }
   },
