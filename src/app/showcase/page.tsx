@@ -10,8 +10,7 @@ const query = `{
     introSection {
       title,
       subtitle,
-      body,
-      "image": image.asset->url,
+      body
     },
   },
    "projects": *[_type == "project"] | order(_createdAt desc) [0...${PROJECT_PAGE_SIZE}] {
@@ -23,7 +22,7 @@ const query = `{
       industries,
       serviceType,
       techStack,
-      "previewImage": previewImage.asset->url
+      previewImage
     }
   },
   "total": count(*[_type == "project"])

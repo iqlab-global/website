@@ -1,6 +1,8 @@
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import { BlockContent } from '@/components/Block';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 type Props = {
   title?: string;
@@ -9,7 +11,7 @@ type Props = {
   serviceType?: string;
   techStack?: string;
   body?: string;
-  mainImage?: string;
+  mainImage?: SanityImageSource;
 };
 
 export const PrimarySection = ({
@@ -45,7 +47,11 @@ export const PrimarySection = ({
           <h1>{subTitle}</h1>
           <BlockContent content={body} />
         </div>
-        <img className={s.mainImage} src={mainImage} alt={title} />
+        <img
+          className={s.mainImage}
+          src={getHotspotImageUrl(mainImage)}
+          alt={title}
+        />
       </Container>
     </section>
   );

@@ -6,6 +6,10 @@ import { dataset, projectId } from '@/sanity/env';
 // https://www.sanity.io/docs/image-url
 const builder = createImageUrlBuilder({ projectId, dataset });
 
-export const urlFor = (source: SanityImageSource) => {
-  return builder.image(source);
-};
+export function getImageUrlBuilder(source?: SanityImageSource) {
+  return source ? builder.image(source) : undefined;
+}
+
+export function getHotspotImageUrl(source?: SanityImageSource) {
+  return getImageUrlBuilder(source)?.fit('crop').auto('format').url() ?? '';
+}

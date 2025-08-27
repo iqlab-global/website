@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import s from './style.module.scss';
 import { Project, Styles } from '@/lib/types';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
 
 type Props = Project & {
   styleOverides?: Styles;
@@ -36,7 +37,7 @@ export const ProjectBlock = ({
       })}
     >
       <div className={s.imageWrapper}>
-        <img src={previewImage} alt={title} />
+        <img src={getHotspotImageUrl(previewImage)} alt={title} />
       </div>
       <h5>{title}</h5>
       <div className={s.industry}>{industries}</div>

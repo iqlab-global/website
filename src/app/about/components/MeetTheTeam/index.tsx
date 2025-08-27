@@ -1,7 +1,9 @@
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
 import s from './style.module.scss';
 
 type Member = {
-  image?: string;
+  image?: SanityImageSource;
   name?: string;
   position?: string;
 };
@@ -16,7 +18,7 @@ export const MeetTheTeam = ({ members }: Props) => {
       <div className={s.wrapper}>
         {members?.map(({ image, name, position }) => (
           <div key={name} className={s.block}>
-            <img src={image} alt='Team member' />
+            <img src={getHotspotImageUrl(image)} alt='Team member' />
             <h6>{name}</h6>
             <p>{position}</p>
           </div>

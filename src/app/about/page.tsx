@@ -50,7 +50,7 @@ const query = `{
       blocks[] {
         name,
         position,
-        "image": image.asset->url
+        image
       }
     }
   }

@@ -17,11 +17,11 @@ const query = (slug: string) => `{
       subtitle,
       slug,
       description,
-      "mainImage": mainImage.asset->url,
+      mainImage,
       "icon": icon.asset->url
     },
     whySection {
-      "image": image.asset->url,
+      image,
       body,
       areas[] {
         title,
@@ -46,7 +46,7 @@ const query = (slug: string) => `{
           industries,
           serviceType,
           techStack,
-          "previewImage": previewImage.asset->url
+          previewImage
         }
       }
     }

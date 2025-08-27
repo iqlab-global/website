@@ -3,6 +3,8 @@ import { Container } from '@/components/Container';
 import Pattern from '@/assets/images/textures/pattern-4.svg';
 import { BlockContent } from '@/components/Block';
 import { TwoLineText } from '@/widgets/TwoLineText';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
 
 type Area = {
   title: string;
@@ -11,7 +13,7 @@ type Area = {
 };
 
 type Props = {
-  image?: string;
+  image?: SanityImageSource;
   icon?: string;
   body?: string;
   areas?: Area[];
@@ -25,7 +27,11 @@ export const WhySection = ({ image, icon, body, areas }: Props) => {
           <div className={s.image}>
             <img className={s.icon} src={icon} alt='Icon' />
             <img className={s.pattern} src={Pattern.src} alt='Pattern' />
-            <img className={s.mainImage} src={image} alt='Services' />
+            <img
+              className={s.mainImage}
+              src={getHotspotImageUrl(image)}
+              alt='Services'
+            />
           </div>
           <div className={s.info}>
             <BlockContent content={body} />

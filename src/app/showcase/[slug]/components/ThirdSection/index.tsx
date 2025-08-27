@@ -1,12 +1,15 @@
-import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import { BlockContent } from '@/components/Block';
 import Pattern from '@/assets/images/textures/pattern-4.svg';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
+
+import s from './style.module.scss';
 
 type Props = {
   title?: string;
   body?: string;
-  image?: string;
+  image?: SanityImageSource;
 };
 
 export const ThirdSection = ({ title, body, image }: Props) => {
@@ -23,7 +26,7 @@ export const ThirdSection = ({ title, body, image }: Props) => {
         </div>
         <div className={s.images}>
           <img className={s.pattern} src={Pattern.src} alt='Pattern' />
-          <img className={s.main} src={image} alt={title} />
+          <img className={s.main} src={getHotspotImageUrl(image)} alt={title} />
         </div>
       </Container>
     </section>
