@@ -1,0 +1,29 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: rem(20px);
+  row-gap: rem(120px);
+  margin-bottom: rem(120px);
+
+  @include isTablet {
+    row-gap: rem(60px);
+    column-gap: rem(40px);
+  }
+
+  @include isMobile {
+    row-gap: rem(60px);
+  }
+}
+
+.showMore {
+  font-family: var(--font-disket-mono);
+  display: flex;
+  font-weight: 700;
+  font-size: rem(16px);
+  color: $c-blue-a5;
+  background-color: $c-white;
+  border: 1px solid $c-blue-a5;
+  padding: rem(12px) rem(20px);
+  letter-spacing: unset;
+  margin: 0 auto rem(120px);
+}

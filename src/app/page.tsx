@@ -6,6 +6,7 @@ import { ServicesWeProvide } from '@/widgets/ServicesWeProvide';
 import { TechCapabilities } from '@/widgets/TechCapabilities';
 import { FeaturedProjects } from '@/widgets/HomeFeaturedProjects';
 import Testimonials from '@/widgets/HomeTestimonials';
+import { InsightsInspiration } from '@/widgets/InsightsInspiration';
 
 const query = `{
   "homePage": *[_type == "homePageSingleton"][0] {
@@ -63,14 +64,19 @@ const query = `{
       techStack,
       "previewImage": previewImage.asset->url
     }
+  },
+    "posts": *[_type == "post"] | order(publishedAt desc)[0..2] {
+    _id,
+    title,
+    slug,
+    mainImage
   }
 }`;
 
 export default async function Home() {
-  const { homePage, techCapabilities, featuredProjects } = await client.fetch(
-    query,
-    {}
-  );
+  const { homePage, techCapabilities, featuredProjects, posts } =
+    await client.fetch(query, {});
+  console.log('posts: ', posts);
   const { heroSection, whyChooseUs, servicesSection, testimonialsSection } =
     homePage ?? {};
   const { services } = servicesSection;
@@ -89,7 +95,7 @@ export default async function Home() {
       {!!testimonialsSection?.length && (
         <Testimonials data={testimonialsSection} />
       )}
-      {/*TODO: Insights & Inspiration section*/}
+      {posts?.length && <InsightsInspiration posts={posts} />}
     </Page>
   );
 }

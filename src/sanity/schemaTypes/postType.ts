@@ -3,7 +3,7 @@ import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export const postType = defineType({
   name: 'post',
-  title: 'Post',
+  title: 'Posts',
   type: 'document',
   icon: DocumentTextIcon,
   fields: [
@@ -22,6 +22,18 @@ export const postType = defineType({
       name: 'author',
       type: 'reference',
       to: { type: 'author' },
+    }),
+    defineField({
+      name: 'industries',
+      type: 'string',
+    }),
+    defineField({
+      name: 'serviceType',
+      type: 'string',
+    }),
+    defineField({
+      name: 'techStack',
+      type: 'string',
     }),
     defineField({
       name: 'mainImage',
