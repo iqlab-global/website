@@ -13,14 +13,13 @@
 .block {
   position: relative;
   width: 319px;
-  height: 319px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   color: $c-blue-ff2;
   padding: rem(32px) rem(36px) rem(50px);
   background-image: url('../../../../assets/images/gradient.png');
   background-size: cover;
+  gap: rem(20px);
 
   .noise {
     position: absolute;

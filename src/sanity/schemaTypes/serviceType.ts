@@ -38,11 +38,15 @@ export const serviceType = defineType({
           name: 'slug',
           type: 'slug',
           options: {
-            source: 'title',
+            source: 'introSection.title',
           },
         }),
         defineField({
           name: 'subtitle',
+          type: 'string',
+        }),
+        defineField({
+          name: 'shortDescription',
           type: 'string',
         }),
         defineField({

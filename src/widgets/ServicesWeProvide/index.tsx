@@ -32,16 +32,16 @@ export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
             </div>
             <div className={s.list}>
               {data.map(
-                ({ _id, introSection: { icon, slug, title, description } }) => (
-                  <a
-                    href={`/services/${slug.current}`}
+                ({ _id, introSection: { icon, title, shortDescription } }) => (
+                  <div
+                    // href={`/services/${slug.current}`}
                     className={s.block}
                     key={_id}
                   >
                     <img src={icon} alt={title} />
                     <h6>{title}</h6>
-                    <p>{description}</p>
-                  </a>
+                    <p>{shortDescription}</p>
+                  </div>
                 )
               )}
             </div>

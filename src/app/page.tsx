@@ -35,7 +35,7 @@ const query = `{
         introSection {
           title,
           slug,
-          description,
+          shortDescription,
           "icon": icon.asset->url
         }
       }

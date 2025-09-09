@@ -1,7 +1,8 @@
 import { clsx } from 'clsx';
+import Link from 'next/link';
 
-import FB from '@/assets/images/icons/facebook.svg';
-import Insta from '@/assets/images/icons/insta.svg';
+// import FB from '@/assets/images/icons/facebook.svg';
+// import Instagram from '@/assets/images/icons/insta.svg';
 import Linkedin from '@/assets/images/icons/linkedin.svg';
 
 import AppImage from '@/components/AppImage';
@@ -15,15 +16,19 @@ interface SocialMediaProps {
 export default function SocialMedia({ className }: SocialMediaProps) {
   return (
     <div className={clsx(s.socials, className)}>
-      <button className={s.socialBtn}>
-        <AppImage src={FB} alt='Facebook' />
-      </button>
-      <button className={s.socialBtn}>
-        <AppImage src={Linkedin} alt='Facebook' />
-      </button>
-      <button className={s.socialBtn}>
-        <AppImage src={Insta} alt='Facebook' />
-      </button>
+      {/*<button className={s.socialBtn}>*/}
+      {/*  <AppImage src={FB} alt='Facebook' />*/}
+      {/*</button>*/}
+      <Link
+        href='https://www.linkedin.com/company/iq-lab/'
+        className={s.socialBtn}
+        target='_blank'
+      >
+        <AppImage src={Linkedin} alt='LinkedIn' />
+      </Link>
+      {/*<button className={s.socialBtn}>*/}
+      {/*  <AppImage src={Instagram} alt='Instagram' />*/}
+      {/*</button>*/}
     </div>
   );
 }

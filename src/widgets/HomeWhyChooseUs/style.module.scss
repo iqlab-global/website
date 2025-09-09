@@ -22,14 +22,11 @@ section.section {
 
   .block {
     border: 1px solid $c-blue-a5;
-    padding-left: rem(30px);
-    padding-right: rem(30px);
-    padding-bottom: rem(40px);
+    padding: rem(30px) rem(40px);
     min-width: 323px;
     min-height: 323px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
 
     h6 {
       padding-top: rem(32px);

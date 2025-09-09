@@ -6,6 +6,7 @@ export type Service = {
     title: string;
     slug: { current: string };
     icon: string;
+    shortDescription: string;
     description: string;
   };
 };
