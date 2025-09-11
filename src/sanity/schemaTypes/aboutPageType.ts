@@ -36,6 +36,13 @@ export const aboutPageSingleton = defineType({
           name: 'description',
           type: 'text',
         }),
+        defineField({
+          name: 'image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        }),
       ],
     }),
     defineField({

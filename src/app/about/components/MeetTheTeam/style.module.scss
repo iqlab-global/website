@@ -33,7 +33,7 @@
     width: 100%;
     height: 323px;
     object-fit: cover;
-    padding-bottom: rem(20px);
+    margin-bottom: rem(20px);
 
     @include isTablet {
       height: 221px;

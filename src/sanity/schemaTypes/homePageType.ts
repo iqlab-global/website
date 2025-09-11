@@ -103,6 +103,13 @@ export const homePageSingleton = defineType({
       group: 'servicesGroup',
       fields: [
         defineField({
+          name: 'image',
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        }),
+        defineField({
           name: 'services',
           type: 'array',
           of: [{ type: 'reference', to: { type: 'service' } }],

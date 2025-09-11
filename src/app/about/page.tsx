@@ -4,7 +4,6 @@ import { Breadcrumb } from '@/widgets/Breadcrumb';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Page } from '@/components/Page';
 import { Container } from '@/components/Container';
-import AboutImage from '@/assets/images/about.jpg';
 import Pattern from '@/assets/images/textures/pattern-4.svg';
 import PatternMobile from '@/assets/images/textures/pattern-5-dark.svg';
 
@@ -16,6 +15,7 @@ import { ValueBlocks } from './components/ValueBlocks';
 import { MeetTheTeam } from './components/MeetTheTeam';
 
 import s from './style.module.scss';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
 
 const sidebarItems = [
   {
@@ -35,6 +35,7 @@ const sidebarItems = [
 const query = `{
   "aboutPage": *[_type == "aboutPageSingleton"][0] {
     companyHistorySection {
+      image,
       description,
     },
     valuesSection {
@@ -84,7 +85,11 @@ export default async function About() {
                   src={PatternMobile.src}
                   alt='Pattern'
                 />
-                <img className={s.main} src={AboutImage.src} alt='About' />
+                <img
+                  className={s.main}
+                  src={getHotspotImageUrl(companyHistorySection.image)}
+                  alt={'About'}
+                />
               </div>
               <InfoBlock
                 id='values'
