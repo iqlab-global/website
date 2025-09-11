@@ -2,15 +2,21 @@ import s from './style.module.scss';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import PatternImg from '@/assets/images/pattern.svg';
-import ServicesImg from '@/assets/images/services.jpg';
 import { DotsPattern } from '@/assets/icons/DotsPattern';
 import { Service } from '@/lib/types';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { getHotspotImageUrl } from '@/sanity/lib/image';
 
 interface ServicesWeProvideProps {
-  data: Service[];
+  data: {
+    image?: SanityImageSource;
+    services?: Service[];
+  };
 }
 
 export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
+  const { image, services = [] } = data;
+
   return (
     <section className={s.section}>
       <Container>
@@ -27,11 +33,11 @@ export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
           </div>
           <div className={s.content}>
             <div className={s.image}>
-              <img src={ServicesImg.src} alt='Services' />
+              <img src={getHotspotImageUrl(image)} alt={'Services'} />
               <DotsPattern />
             </div>
             <div className={s.list}>
-              {data.map(
+              {services.map(
                 ({ _id, introSection: { icon, title, shortDescription } }) => (
                   <div
                     // href={`/services/${slug.current}`}

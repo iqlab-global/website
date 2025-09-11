@@ -30,6 +30,7 @@ const query = `{
       description
     },
     servicesSection {
+      image,
       services[]->{
         _id,
         introSection {
@@ -73,13 +74,14 @@ export default async function Home() {
   );
   const { heroSection, whyChooseUs, servicesSection, testimonialsSection } =
     homePage ?? {};
-  const { services } = servicesSection;
 
   return (
     <Page>
       {heroSection && <Hero data={heroSection} />}
       {!!whyChooseUs?.length && <WhyChooseUs data={whyChooseUs} />}
-      {!!services?.length && <ServicesWeProvide data={services} />}
+      {!!servicesSection?.services?.length && (
+        <ServicesWeProvide data={servicesSection} />
+      )}
       {!!techCapabilities?.length && (
         <TechCapabilities data={techCapabilities} />
       )}
