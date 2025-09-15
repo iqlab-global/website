@@ -17,20 +17,13 @@ export const ProjectBlock = ({
   firstLarge,
   className,
 }: Props) => {
-  const {
-    title,
-    subTitle,
-    slug,
-    industries,
-    serviceType,
-    techStack,
-    previewImage,
-  } = primarySection;
+  const { title, subTitle, industries, serviceType, techStack, previewImage } =
+    primarySection;
 
   return (
-    <a
+    <div
       key={_id}
-      href={`/showcase/${slug.current}`}
+      // href={`/showcase/${slug.current}`}
       className={clsx(s.block, className, {
         [s.blueBg]: blueBg,
         [s.firstLarge]: firstLarge,
@@ -46,6 +39,6 @@ export const ProjectBlock = ({
         <span>{techStack}</span>
       </div>
       <p>{subTitle}</p>
-    </a>
+    </div>
   );
 };
