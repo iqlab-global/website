@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 import { client, PAGE_SIZE } from '@/sanity/lib/client';
-import { query } from '@/app/api/projects/queries/projects';
+import { query } from '@/app/api/posts/queries/posts';
 
 export async function GET(request: NextRequest): Promise<Response> {
   try {

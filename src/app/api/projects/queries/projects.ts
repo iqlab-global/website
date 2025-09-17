@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-export const queryProjects = groq`{
+export const query = groq`{
   "projects": *[_type == "project"] | order(_createdAt desc) [$start...$end] {
     _id,
     primarySection {

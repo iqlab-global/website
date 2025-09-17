@@ -56,6 +56,9 @@ export default function Footer() {
                   <li>
                     <Link href='/showcase'>Showcase</Link>
                   </li>
+                  <li>
+                    <Link href='/blog'>Blogs</Link>
+                  </li>
                 </ul>
                 <ul>
                   <li>

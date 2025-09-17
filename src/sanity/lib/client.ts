@@ -2,7 +2,7 @@ import { createClient } from 'next-sanity';
 
 import { apiVersion, dataset, projectId } from '@/sanity/env';
 
-export const PROJECT_PAGE_SIZE = 3;
+export const PAGE_SIZE = 3;
 
 export const client = createClient({
   projectId,

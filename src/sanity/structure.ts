@@ -5,12 +5,12 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content Management')
     .items([
-      // S.documentTypeListItem('post').title('Posts'),
       // S.documentTypeListItem('category').title('Categories'),
       // S.documentTypeListItem('author').title('Authors'),
       S.documentTypeListItem('contactForm').title('Contact Form'),
       S.documentTypeListItem('project').title('Projects'),
       S.documentTypeListItem('service').title('Services'),
+      S.documentTypeListItem('post').title('Posts'),
       S.divider(),
       S.documentTypeListItem('homePageSingleton')
         .title('Home Page')
@@ -43,6 +43,14 @@ export const structure: StructureResolver = (S) =>
             .id('showcasePageSingleton')
             .schemaType('showcasePageSingleton')
             .documentId('showcasePageSingleton')
+        ),
+      S.documentTypeListItem('blogPageSingleton')
+        .title('Blog Page')
+        .child(
+          S.editor()
+            .id('blogPageSingleton')
+            .schemaType('blogPageSingleton')
+            .documentId('blogPageSingleton')
         ),
       S.divider(),
       S.documentTypeListItem('techCapability').title('Tech Capability Widget'),

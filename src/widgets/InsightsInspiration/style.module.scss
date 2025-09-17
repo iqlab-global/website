@@ -1,0 +1,50 @@
+.section {
+  border-top: 1px solid $c-blue-ff;
+}
+
+.head {
+  padding-top: 55px;
+  padding-bottom: 75px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 75px;
+
+  @include isMobile {
+    flex-direction: column;
+  }
+}
+
+.container {
+  margin-bottom: 7.5rem;
+
+  @include isDesktop() {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  @include isMobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.showMore {
+  @include isMobile {
+    display: none;
+  }
+}
+
+.showMoreMobile {
+  display: none;
+
+
+  @include isMobile {
+    display: inline-block;
+    align-self: center;
+  }
+}

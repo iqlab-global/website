@@ -24,6 +24,16 @@ export type Project = {
   };
 };
 
+export type Post = {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  author: string;
+  categories: string[];
+  body: string;
+  mainImage: SanityImageSource;
+};
+
 export type Styles = {
   readonly [key: string]: string;
 };

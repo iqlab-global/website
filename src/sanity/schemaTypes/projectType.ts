@@ -43,7 +43,7 @@ export const projectType = defineType({
           name: 'slug',
           type: 'slug',
           options: {
-            source: 'title',
+            source: 'primarySection.title',
           },
         }),
         defineField({

@@ -49,10 +49,10 @@ const navItems: NavItem[] = [
   //   href: 'open-source',
   //   label: 'Open Source',
   // },
-  // {
-  //   href: 'blogs',
-  //   label: 'Blogs',
-  // },
+  {
+    href: 'blog',
+    label: 'Blogs',
+  },
 ];
 
 const navItemsMobile: NavItem[] = [
