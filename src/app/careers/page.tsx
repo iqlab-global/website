@@ -2,6 +2,7 @@ import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
 import { Join } from '@/app/careers/components/Join';
 import { Positions } from '@/app/careers/components/Positions';
+import { CompanyCulture } from '@/app/careers/components/CompanyCulture';
 
 export default function Careers() {
   return (
@@ -9,7 +10,7 @@ export default function Careers() {
       <Breadcrumb />
       <Join />
       <Positions />
-      {/*TODO: Company Culture Section*/}
+      <CompanyCulture />
       {/*TODO: Internship Program Section*/}
     </Page>
   );
