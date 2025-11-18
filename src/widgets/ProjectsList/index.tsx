@@ -2,17 +2,22 @@
 
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
-import { Project } from '@/lib/types';
+import { Project, Post } from '@/lib/types';
 import { ProjectBlock } from '@/widgets/ProjectBlock';
-import { useGetProjects } from '@/app/showcase/components/ProjectList/hooks';
+import { useGetProjects } from './hooks';
 
 type Props = {
-  projects: Project[];
+  projects: (Project | Post)[];
   total: number;
+  apiEndpoint?: string;
 };
 
-export const ProjectList = (props: Props) => {
-  const { projects, total, loading, onFetchMore } = useGetProjects(props);
+export const ProjectsList = (props: Props) => {
+  const { apiEndpoint = '/api/projects' } = props;
+  const { projects, total, loading, onFetchMore } = useGetProjects({
+    ...props,
+    apiEndpoint,
+  });
 
   return (
     <section className={s.section}>

@@ -1,0 +1,148 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(56px);
+  padding-bottom: rem(165px);
+  font-family: 'BDO Grotesk', sans-serif;
+}
+
+.body {
+  display: flex;
+  gap: rem(40px);
+  justify-content: space-between;
+  border-top: 1px solid $c-blue-a5;
+  padding-top: rem(28px);
+
+
+  @include isSmallDesktop {
+    column-gap: rem(10px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 145px;
+  color: $c-blue-a5;
+  min-width: 285px;
+
+  h3 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: 150%;
+    width: rem(320px);
+    color: $c-black-30;
+
+    @include isSmallDesktop {
+      width: rem(230px);
+    }
+
+    @include isTablet {
+      width: rem(230px);
+    }
+  }
+
+  @include isTablet {
+    max-width: 25%;
+    width: 25%;
+  }
+
+  @include isMobile {
+    width: 100%;
+    gap: 20px;
+  }
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: rem(20px);
+  row-gap: rem(120px);
+  width: 100%;
+
+  a {
+    width: 49%;
+
+    > div:first-child {
+      width: 100%;
+      height: rem(365px);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @include isSmallDesktop {
+        height: rem(285px);
+      }
+
+      @include isTablet {
+        height: rem(255px);
+      }
+
+      @include isMobile {
+        height: rem(255px);
+      }
+    }
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  @include isSmallDesktop {
+    column-gap: rem(20px);
+    max-width: 75%;
+    flex-wrap: initial;
+  }
+
+  @include isTablet {
+    row-gap: rem(60px);
+    column-gap: rem(20px);
+    flex-wrap: initial;
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    row-gap: 0;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: $c-blue-a5;
+  display: none;
+
+  @include isMobile {
+    display: block;
+  }
+}
+
+.back {
+  margin-top: 36px;
+
+  @include isMobile {
+    display: none !important;
+  }
+}
+
+.mobileBack {
+  text-align: center;
+  display: none !important;
+
+  @include isMobile {
+    display: block !important;
+  }
+}

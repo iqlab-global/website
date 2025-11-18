@@ -1,0 +1,121 @@
+.section {
+  padding-bottom: rem(120px);
+
+  @include isTablet {
+    padding-bottom: rem(80px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(130px);
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: rem(60px);
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: calc(20% - 30px);
+
+  @include isMobile {
+    display: none;
+  }
+}
+
+.sidebarSticky {
+  position: sticky;
+  top: calc(110px + rem(75px));
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menuItem {
+  color: $c-gray-b4;
+  font-family: 'BDO Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.active {
+  color: $c-blue-a5;
+}
+
+.contentSection {
+  scroll-margin-top: calc(110px + rem(75px));
+}
+
+.content {
+  width: calc(80% - 30px);
+  padding-top: rem(44px);
+  border-top: 1px solid $c-blue-a5;
+
+  @include isMobile {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: rem(24px);
+    line-height: 100%;
+    margin-top: rem(44px);
+    margin-bottom: rem(20px);
+    font-weight: 600;
+    color: $c-black-30;
+  }
+
+  p {
+    font-size: rem(20px);
+    line-height: rem(30px);
+    color: $c-gray-30;
+    margin-bottom: rem(20px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin: rem(40px) 0;
+
+    @include isMobile {
+      margin: rem(24px) 0;
+    }
+  }
+
+  .imageGroup {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20px);
+    margin: rem(40px) 0;
+
+    @include isMobile {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      height: rem(370px);
+      object-fit: cover;
+      margin: 0;
+
+      @include isTablet {
+        height: rem(260px);
+      }
+
+      @include isMobile {
+        height: rem(260px);
+        margin: rem(24px) 0;
+      }
+    }
+  }
+}

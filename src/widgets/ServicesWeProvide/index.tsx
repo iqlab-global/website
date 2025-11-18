@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import s from './style.module.scss';
 import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
@@ -32,22 +33,24 @@ export const ServicesWeProvide = ({ data }: ServicesWeProvideProps) => {
             </Button>
           </div>
           <div className={s.content}>
-            <div className={s.image}>
-              <img src={getHotspotImageUrl(image)} alt={'Services'} />
-              <DotsPattern />
-            </div>
+            {image && (
+              <div className={s.image}>
+                <img src={getHotspotImageUrl(image)} alt={'Services'} />
+                <DotsPattern />
+              </div>
+            )}
             <div className={s.list}>
               {services.map(
-                ({ _id, introSection: { icon, title, shortDescription } }) => (
-                  <div
-                    // href={`/services/${slug.current}`}
+                ({ _id, introSection: { icon, title, shortDescription, slug } }) => (
+                  <Link
+                    href={`/services/${slug.current}`}
                     className={s.block}
                     key={_id}
                   >
-                    <img src={icon} alt={title} />
+                    {icon && <img src={icon} alt={title} />}
                     <h6>{title}</h6>
                     <p>{shortDescription}</p>
-                  </div>
+                  </Link>
                 )
               )}
             </div>

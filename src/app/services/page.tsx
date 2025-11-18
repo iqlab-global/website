@@ -22,7 +22,9 @@ const query = `{
         _id,
         introSection {
           title,
-          slug,
+          slug {
+            current
+          },
           description,
           "icon": icon.asset->url
         }

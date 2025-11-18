@@ -1,0 +1,138 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: rem(56px);
+  color: white;
+  padding-bottom: rem(64px);
+  font-family: 'BDO Grotesk', sans-serif;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 0.75;
+  color: $c-blue-a5;
+
+  h1 {
+    font-size: rem(40px);
+    line-height: rem(50px);
+    letter-spacing: -0.02em;
+    padding-top: rem(30px);
+
+    width: 660px;
+
+    @include isMobile {
+      width: 100%;
+      font-size: rem(32px);
+      line-height: rem(40px);
+    }
+  }
+
+  .subtitle {
+    font-size: rem(20px);
+    line-height: rem(30px);
+    color: $c-gray-30;
+    width: 550px;
+    margin-top: rem(30px);
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  .detail {
+    display: flex;
+    margin-bottom: rem(30px);
+
+    .detailItem {
+      display: flex;
+      flex-direction: column;
+      font-size: rem(16px);
+      margin-top: rem(56px);
+
+      span {
+        color: $c-black-30;
+        font-size: rem(12px);
+      }
+
+      &:nth-child(n + 2) {
+        border-left: solid 1px $c-blue-a5;
+        margin-left: rem(28px);
+        padding-left: rem(28px);
+
+        @include isMobile {
+          border-left: none;
+          margin-left: 0px;
+          padding-left: 0px;
+          border-top: solid 1px $c-blue-a5;
+          margin-top: rem(16px);
+          padding-top: rem(16px);
+        }
+      }
+    }
+
+    @include isMobile {
+      flex-direction: column;
+    }
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: $c-black-30;
+    font-size: rem(20px);
+    line-height: 150%;
+
+    @include isMobile {
+      width: 100%;
+    }
+  }
+
+  @include isMobile {
+    gap: rem(24px);
+  }
+}
+
+.image {
+  position: relative;
+  margin-top: rem(30px);
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+
+  @include isMobile {
+    height: 305px;
+  }
+}
+
+.pattern {
+  position: absolute;
+  z-index: 1;
+  top: -268px;
+  right: -44px;
+  width: 530px;
+
+
+  @include isSmallDesktop {
+    top: -268px;
+    right: -223px;
+  }
+
+  @include isTablet {
+    top: -268px;
+      right: -223px;
+  }
+
+  @include isMobile {
+    display: none;
+  }
+}

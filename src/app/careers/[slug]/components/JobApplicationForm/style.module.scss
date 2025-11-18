@@ -1,0 +1,184 @@
+.section {
+  padding-bottom: rem(140px);
+
+  @include isTablet {
+    padding-bottom: rem(100px);
+  }
+
+  @include isMobile {
+    padding-bottom: rem(64px);
+  }
+}
+
+.wrapper {
+  position: relative;
+  max-width: rem(835px);
+}
+
+.header {
+  padding-bottom: rem(40px);
+
+  @include isMobile {
+    padding-bottom: rem(32px);
+  }
+}
+
+.title {
+  font-size: rem(28px);
+  line-height: rem(39.2px);
+  letter-spacing: -0.02em;
+  padding-bottom: rem(16px);
+
+  @include isMobile {
+    font-size: rem(24px);
+    line-height: rem(33.6px);
+    padding-bottom: rem(12px);
+  }
+}
+
+.subtitle {
+  font-size: rem(16px);
+  line-height: rem(22.4px);
+  color: $c-gray-30;
+
+  @include isMobile {
+    font-size: rem(14px);
+    line-height: rem(19.6px);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+
+  @include isMobile {
+    gap: rem(20px);
+  }
+}
+
+.row {
+  display: flex;
+  gap: rem(24px);
+
+  @include isMobile {
+    flex-direction: column;
+    gap: rem(20px);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8px);
+  flex: 1;
+
+  label {
+    font-size: rem(14px);
+    line-height: rem(19.6px);
+    font-weight: 500;
+
+    @include isMobile {
+      font-size: rem(13px);
+      line-height: rem(18.2px);
+    }
+  }
+
+  input {
+    padding: rem(12px) rem(16px);
+    font-size: rem(16px);
+    line-height: rem(22.4px);
+    border: 1px solid $c-gray-30;
+    border-radius: rem(4px);
+    transition: border-color 0.2s;
+    font-family: inherit;
+
+    @include isMobile {
+      font-size: rem(14px);
+      line-height: rem(19.6px);
+      padding: rem(10px) rem(14px);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $c-blue-a5;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: $c-gray-30;
+    }
+
+    &[type='file'] {
+      padding: rem(8px) rem(12px);
+      cursor: pointer;
+
+      &::file-selector-button {
+        padding: rem(6px) rem(12px);
+        margin-right: rem(12px);
+        border: 1px solid $c-gray-30;
+        border-radius: rem(4px);
+        background: transparent;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: rem(14px);
+
+        &:hover {
+          background: $c-blue-a5;
+          color: white;
+          border-color: $c-blue-a5;
+        }
+      }
+    }
+  }
+}
+
+.fileHint {
+  font-size: rem(12px);
+  line-height: rem(16.8px);
+  color: $c-gray-30;
+}
+
+.successMessage {
+  padding: rem(12px) rem(16px);
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: rem(4px);
+  color: #155724;
+  font-size: rem(14px);
+  line-height: rem(19.6px);
+}
+
+.errorMessage {
+  padding: rem(12px) rem(16px);
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: rem(4px);
+  color: #721c24;
+  font-size: rem(14px);
+  line-height: rem(19.6px);
+}
+
+.pattern {
+  position: absolute;
+  right: rem(-100px);
+  top: rem(50px);
+  width: rem(165px);
+  height: rem(110px);
+  opacity: 0.5;
+  pointer-events: none;
+
+  @include isTablet {
+    width: rem(130px);
+    height: rem(90px);
+    right: rem(-50px);
+  }
+
+  @include isMobile {
+    display: none;
+  }
+}

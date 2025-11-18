@@ -81,6 +81,18 @@
   }
 }
 
+.noJobs {
+  font-size: rem(18px);
+  line-height: rem(25.2px);
+  color: $c-gray-30;
+  padding: rem(40px) 0;
+
+  @include isMobile {
+    font-size: rem(16px);
+    line-height: rem(22.4px);
+  }
+}
+
 .mobileList {
   border-top: 1px solid $c-blue-a5;
 }

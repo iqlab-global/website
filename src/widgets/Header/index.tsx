@@ -41,18 +41,18 @@ const navItems: NavItem[] = [
     href: 'showcase',
     label: 'Showcase',
   },
-  // {
-  //   href: 'careers',
-  //   label: 'Careers',
-  // },
-  // {
-  //   href: 'open-source',
-  //   label: 'Open Source',
-  // },
-  // {
-  //   href: 'blogs',
-  //   label: 'Blogs',
-  // },
+  {
+    href: 'careers',
+    label: 'Careers',
+  },
+  {
+    href: 'open-source',
+    label: 'Open Source',
+  },
+  {
+    href: 'blogs',
+    label: 'Blogs',
+  },
 ];
 
 const navItemsMobile: NavItem[] = [

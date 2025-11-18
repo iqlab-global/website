@@ -13,6 +13,8 @@ type Props = {
 };
 
 export const ThirdSection = ({ title, body, image }: Props) => {
+  const imageUrl = image ? getHotspotImageUrl(image) : '';
+
   return (
     <section>
       <Container className={s.wrapper}>
@@ -26,7 +28,7 @@ export const ThirdSection = ({ title, body, image }: Props) => {
         </div>
         <div className={s.images}>
           <img className={s.pattern} src={Pattern.src} alt='Pattern' />
-          <img className={s.main} src={getHotspotImageUrl(image)} alt={title} />
+          {imageUrl && <img className={s.main} src={imageUrl} alt={title} />}
         </div>
       </Container>
     </section>
