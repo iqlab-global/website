@@ -4,18 +4,14 @@ import { useState, FormEvent, SyntheticEvent } from 'react';
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import { Button } from '@/components/Button';
-import Pattern from '@/assets/images/textures/pattern-8.svg';
+import Pattern from '@/assets/images/textures/pattern-9.svg';
 import Input from '@/components/Input';
 import { COUNTRIES } from '@/constants/countries';
 import { validateFile } from '@/utils/files';
 import { MESSAGES, BUTTON_TEXT } from '@/constants';
 import { FileUpload } from '@/components/FileUpload';
 
-type Props = {
-  jobId: string;
-};
-
-export const JobApplicationForm = ({ jobId }: Props) => {
+export const InternshipApplicationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
@@ -30,10 +26,11 @@ export const JobApplicationForm = ({ jobId }: Props) => {
     email: '',
     linkedin: '',
     address: '',
+    message: '',
   });
 
   const handleChange = (e: SyntheticEvent) => {
-    const target = e.target as HTMLInputElement | HTMLSelectElement;
+    const target = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
     setFormData({ ...formData, [target.name]: target.value });
   };
 
@@ -57,7 +54,7 @@ export const JobApplicationForm = ({ jobId }: Props) => {
       submitData.set('resume', uploadedFile);
     }
 
-    submitData.append('jobId', jobId);
+    submitData.append('applicationType', 'internship');
 
     try {
       const response = await fetch('/api/job-applications', {
@@ -77,6 +74,7 @@ export const JobApplicationForm = ({ jobId }: Props) => {
           email: '',
           linkedin: '',
           address: '',
+          message: '',
         });
       } else {
         const data = await response.json();
@@ -98,11 +96,11 @@ export const JobApplicationForm = ({ jobId }: Props) => {
         <div className={s.wrapper}>
           <div className={s.leftColumn}>
             <div className={s.header}>
-              <h2 className={s.title}>Apply for this job</h2>
+              <h2 className={s.title}>Apply for Internship</h2>
               <p className={s.subtitle}>
-                Launch your career with IQ Lab&apos;s innovative teams! Join us
-                to build impactful projects, expand your skills, and transform
-                ideas into reality.
+                Start your career journey with IQ Lab! Join our internship
+                program to gain hands-on experience, learn from industry
+                experts, and contribute to real-world projects.
               </p>
             </div>
             <img className={s.pattern} src={Pattern.src} alt='Pattern' />
@@ -168,6 +166,14 @@ export const JobApplicationForm = ({ jobId }: Props) => {
               id='address'
               heading='Address'
               value={formData.address}
+              onChange={handleChange}
+            />
+
+            <Input
+              id='message'
+              heading='Message'
+              isTextarea={true}
+              value={formData.message}
               onChange={handleChange}
             />
 

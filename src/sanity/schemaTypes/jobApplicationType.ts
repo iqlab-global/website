@@ -29,6 +29,14 @@ export const jobApplicationType = defineType({
       name: 'phone',
       type: 'string',
       title: 'Phone',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'location',
+      type: 'string',
+      title: 'Country',
+      description: 'Country of residence',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'linkedin',
@@ -36,23 +44,61 @@ export const jobApplicationType = defineType({
       title: 'LinkedIn Profile',
     }),
     defineField({
-      name: 'jobTitle',
+      name: 'address',
       type: 'string',
-      title: 'Job Position Applied For',
+      title: 'Address',
+      description: 'Full address',
+    }),
+    defineField({
+      name: 'applicationType',
+      type: 'string',
+      title: 'Application Type',
+      description:
+        'Type of application: job application or internship application',
+      options: {
+        list: [
+          { title: 'Job Application', value: 'job' },
+          { title: 'Internship Application', value: 'internship' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'job',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'message',
+      type: 'text',
+      title: 'Message',
+      description: 'Additional message from applicant (internships)',
+      rows: 6,
     }),
     defineField({
       name: 'job',
       type: 'reference',
       title: 'Job Posting',
       to: [{ type: 'job' }],
-      description: 'Link to the job posting (if available)',
+      description: 'Link to the job posting (required for job applications)',
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          const doc = context.document as
+            | { applicationType?: string }
+            | undefined;
+          const applicationType = doc?.applicationType;
+          if (applicationType === 'job' && !value) {
+            return 'Job posting is required for job applications';
+          }
+          return true;
+        }),
+      hidden: ({ document }) => document?.applicationType === 'internship',
     }),
     defineField({
-      name: 'resumeUrl',
-      type: 'url',
-      title: 'Resume URL',
-      description: 'URL to uploaded resume file',
+      name: 'resume',
+      type: 'file',
+      title: 'Resume',
+      description: 'Uploaded resume file (PDF, DOC, or DOCX)',
+      options: {
+        accept: '.pdf,.doc,.docx',
+      },
     }),
     defineField({
       name: 'submittedAt',
@@ -89,17 +135,30 @@ export const jobApplicationType = defineType({
     select: {
       firstName: 'firstName',
       lastName: 'lastName',
-      jobTitle: 'jobTitle',
+      jobTitle: 'job.introSection.title',
+      applicationType: 'applicationType',
       status: 'status',
       submittedAt: 'submittedAt',
     },
-    prepare({ firstName, lastName, jobTitle, status, submittedAt }) {
+    prepare({
+      firstName,
+      lastName,
+      jobTitle,
+      applicationType,
+      status,
+      submittedAt,
+    }) {
       const date = submittedAt
         ? new Date(submittedAt).toLocaleDateString()
         : 'Unknown date';
+      const type = applicationType === 'internship' ? 'Internship' : 'Job';
+      const position =
+        applicationType === 'internship'
+          ? 'Internship Application'
+          : jobTitle || 'No job specified';
       return {
         title: `${firstName} ${lastName}`,
-        subtitle: `${jobTitle} - ${status} (${date})`,
+        subtitle: `[${type}] ${position} - ${status} (${date})`,
       };
     },
   },

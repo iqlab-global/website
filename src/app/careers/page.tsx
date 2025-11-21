@@ -2,6 +2,8 @@ import { Page } from '@/components/Page';
 import { Breadcrumb } from '@/widgets/Breadcrumb';
 import { Join } from '@/app/careers/components/Join';
 import { Positions } from '@/app/careers/components/Positions';
+import { CompanyCulture } from '@/app/careers/components/CompanyCulture';
+import { InternshipApplicationForm } from '@/app/careers/components/InternshipApplicationForm';
 import { client } from '@/sanity/lib/client';
 
 const query = `{
@@ -10,7 +12,16 @@ const query = `{
       title,
       description,
       mapImage
-    }
+    },
+    companyCulture {
+      description,
+      cultureItems[] {
+        icon,
+        title,
+        description
+      }
+    },
+    showInternshipSection
   },
   "jobs": *[_type == "job" && status == "active"] | order(publishedDate desc) {
     _id,
@@ -28,7 +39,7 @@ const query = `{
 
 export default async function Careers() {
   const { careersPage, jobs } = await client.fetch(query);
-  const { heroSection } = careersPage ?? {};
+  const { heroSection, companyCulture, showInternshipSection } = careersPage ?? {};
 
   const pages = [{ label: 'Careers', href: '/careers' }];
 
@@ -37,8 +48,8 @@ export default async function Careers() {
       <Breadcrumb pages={pages} />
       <Join {...heroSection} />
       <Positions jobs={jobs} />
-      {/*TODO: Company Culture Section*/}
-      {/*TODO: Internship Program Section*/}
+      <CompanyCulture {...companyCulture} />
+      {showInternshipSection && <InternshipApplicationForm />}
     </Page>
   );
 }

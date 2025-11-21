@@ -79,9 +79,8 @@ export const jobType = defineType({
         }),
         defineField({
           name: 'description',
-          type: 'text',
+          type: 'blockContent',
           title: 'Job Description',
-          rows: 5,
         }),
       ],
     }),

@@ -1,4 +1,5 @@
 .section {
+  overflow-x: hidden;
   padding-bottom: rem(140px);
 
   @include isTablet {
@@ -7,6 +8,21 @@
 
   @include isMobile {
     padding-bottom: rem(64px);
+  }
+}
+
+.outerWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: rem(100px);
+
+  @include isTablet {
+    gap: rem(50px);
+  }
+
+  @include isMobile {
+    flex-direction: column;
+    gap: rem(35px);
   }
 }
 
@@ -34,13 +50,35 @@
 
 .details {
   display: flex;
-  gap: rem(28px);
+  gap: rem(38px);
   padding-bottom: rem(32px);
+
+  section {
+    &:not(:first-child) {
+      border-left: 1px solid $c-blue-a5;
+      padding-left: rem(38px);
+
+      @include isMobile {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+
+    &:last-of-type {
+      > div {
+        &:last-of-type {
+          @include isMobile {
+            border: none;
+          }
+        }
+      }
+    }
+  }
 
   @include isMobile {
     flex-direction: column;
     gap: rem(16px);
-    padding-bottom: rem(24px);
+    padding-bottom: 0;
   }
 }
 
@@ -50,13 +88,7 @@
   gap: rem(8px);
 
   &:not(:first-child) {
-    border-left: 1px solid $c-blue-a5;
-    padding-left: rem(28px);
-
-    @include isMobile {
-      border-left: none;
-      padding-left: 0;
-    }
+    margin-top: rem(30px);
   }
 
   span {
@@ -70,36 +102,59 @@
     line-height: rem(22.4px);
     font-weight: 500;
   }
+
+  @include isMobile {
+    border-bottom: 1px solid $c-blue-a5;
+    padding-bottom: rem(16px);
+
+    &:not(:first-child) {
+      margin-top: rem(16px);
+    }
+  }
 }
 
 .description {
-  font-size: rem(16px);
-  line-height: rem(22.4px);
-  max-width: rem(835px);
+  font-size: rem(20px);
+  line-height: rem(30px);
+  max-width: rem(665px);
+  margin-top: 6rem;
+  color: $c-gray-30;
+
+  @include isTablet {
+    max-width: rem(542px);
+  }
 
   @include isMobile {
-    font-size: rem(14px);
-    line-height: rem(19.6px);
+    margin-top: 0;
+    max-width: 100%;
   }
 }
 
 .pattern {
-  position: absolute;
-  right: 0;
-  top: rem(30px);
-  width: rem(165px);
-  height: rem(110px);
-  opacity: 0.5;
+  position: relative;
+  width: rem(532px);
+  margin-top: rem(70px);
   pointer-events: none;
 
   @include isTablet {
-    width: rem(130px);
-    height: rem(90px);
+    position: absolute;
+    right: rem(30px);
+    width: rem(532px);
   }
 
   @include isMobile {
-    width: rem(100px);
-    height: rem(70px);
-    top: rem(20px);
+    display: none;
+  }
+}
+
+.mobilePattern {
+  display: none;
+
+  @include isMobile {
+    display: block;
+    width: rem(532px);
+    margin-top: rem(20px);
+    margin-left: rem(-160px);
+    pointer-events: none;
   }
 }

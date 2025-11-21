@@ -19,7 +19,8 @@ const query = (slug: string) => `{
     keyResponsibilities,
     requiredSkills,
     qualifications,
-    preferredQualifications
+    preferredQualifications,
+    applicationDeadline
   }
 }`;
 
@@ -40,7 +41,14 @@ export default async function CareersSingle({ params }: CareersSingleProps) {
     notFound();
   }
 
-  const { introSection, keyResponsibilities, requiredSkills, qualifications, preferredQualifications } = job;
+  const {
+    introSection,
+    keyResponsibilities,
+    requiredSkills,
+    qualifications,
+    preferredQualifications,
+    applicationDeadline,
+  } = job;
 
   const pages = [
     { label: 'Careers', href: '/careers' },
@@ -50,12 +58,21 @@ export default async function CareersSingle({ params }: CareersSingleProps) {
   return (
     <Page whiteHeader>
       <Breadcrumb pages={pages} />
-      <JobIntroSection {...introSection} />
-      <JobDetailsSection title='Key Responsibilities:' items={keyResponsibilities} />
+      <JobIntroSection
+        {...introSection}
+        applicationDeadline={applicationDeadline}
+      />
+      <JobDetailsSection
+        title='Key Responsibilities:'
+        items={keyResponsibilities}
+      />
       <JobDetailsSection title='Required Skills:' items={requiredSkills} />
       <JobDetailsSection title='Qualifications:' items={qualifications} />
-      <JobDetailsSection title='Preferred Qualifications:' items={preferredQualifications} />
-      <JobApplicationForm jobTitle={introSection?.title || ''} />
+      <JobDetailsSection
+        title='Preferred Qualifications:'
+        items={preferredQualifications}
+      />
+      <JobApplicationForm jobId={job._id} />
     </Page>
   );
 }

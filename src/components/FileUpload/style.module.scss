@@ -1,0 +1,107 @@
+.fileUploadWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(12px);
+  margin-top: rem(24px);
+}
+
+.fileUploadLabel {
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  font-weight: 700;
+  padding: 0 rem(10px);
+  font-size: rem(12px);
+  background-color: $c-white-ff;
+  font-family: var(--font-disket-mono);
+  text-transform: uppercase;
+  color: $c-blue-a5;
+}
+
+.fileDropZone {
+  height: rem(88px);
+  border: 2px dashed $c-blue-a5;
+  background-color: $c-white-ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: $c-blue-a5;
+    background-color: rgba($c-blue-a5, 0.02);
+  }
+
+  &.dragging {
+    border-color: $c-blue-a5;
+    background-color: rgba($c-blue-a5, 0.05);
+  }
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileDropText {
+  font-size: rem(14px);
+  line-height: rem(19.6px);
+  color: $c-blue-a5;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--font-disket-mono);
+  letter-spacing: 0.05em;
+}
+
+.uploadedFileMinified {
+  display: flex;
+  align-items: center;
+}
+
+.fileIconMinified {
+  width: rem(48px);
+  height: rem(48px);
+  background-color: $c-blue-ff3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $c-blue-a5;
+}
+
+.fileInfoMinified {
+  display: flex;
+  flex-direction: column;
+  gap: rem(2px);
+  min-width: 0;
+  margin-left: rem(14px);
+}
+
+.fileNameMinified {
+  font-size: rem(16px);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $c-blue-a5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: rem(100px);
+}
+
+.fileSizeMinified {
+  font-size: rem(12px);
+  line-height: rem(16.8px);
+  font-weight: 700;
+  color: $c-gray-b4;
+  font-family: var(--font-disket-mono);
+}
+
+.removeFileBtnMinified {
+  width: rem(44px);
+  height: rem(44px);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

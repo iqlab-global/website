@@ -2,6 +2,11 @@ import s from './style.module.scss';
 import { clsx } from 'clsx';
 import { SyntheticEvent } from 'react';
 
+interface SelectOption {
+  value: string;
+  label: string;
+}
+
 interface InputProps {
   id: string;
   name?: string;
@@ -10,6 +15,8 @@ interface InputProps {
   heading: string;
   className?: string;
   isTextarea?: boolean;
+  isSelect?: boolean;
+  options?: SelectOption[];
   required?: boolean;
   value?: string;
   onChange?: (e: SyntheticEvent) => void;
@@ -24,11 +31,13 @@ export default function Input({
   className,
   required,
   isTextarea,
+  isSelect,
+  options,
   value,
   onChange,
 }: InputProps) {
   return (
-    <div className={clsx(s.inputWrapper, className || className)}>
+    <div className={clsx(isTextarea ? s.textareaWrapper : s.inputWrapper, className)}>
       <label htmlFor={id}>{heading}</label>
       <br />
       {isTextarea && (
@@ -41,7 +50,23 @@ export default function Input({
           onChange={onChange}
         />
       )}
-      {!isTextarea && (
+      {isSelect && (
+        <select
+          required={required}
+          id={id}
+          name={name || id}
+          value={value}
+          onChange={onChange}
+        >
+          <option value=''>Select {heading}</option>
+          {options?.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      )}
+      {!isTextarea && !isSelect && (
         <input
           required={required}
           placeholder={placeholder || ''}

@@ -39,6 +39,10 @@
   gap: rem(16px);
   width: 245px;
 
+  @include isMobile {
+    width: 100%;
+  }
+
   img {
     display: block;
     padding-bottom: rem(16px);
