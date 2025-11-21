@@ -1,0 +1,69 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding-top: rem(28px);
+  padding-bottom: rem(64px);
+  gap: rem(260px);
+  border-top: 1px solid $c-blue-a5;
+
+  @include isTablet {
+    gap: rem(150px);
+  }
+
+  @include isMobile {
+    padding-top: rem(16px);
+    padding-bottom: rem(50px);
+    gap: rem(30px);
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: rem(32px);
+  line-height: rem(38px);
+  letter-spacing: 0;
+  font-weight: 500;
+  width: 100%;
+  max-width: rem(370px);
+
+  @include isTablet {
+    max-width: rem(300px);
+  }
+
+  @include isMobile {
+    font-size: rem(28px);
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: rem(660px);
+
+  @include isMobile {
+    padding-left: rem(16px);
+  }
+
+  li {
+    position: relative;
+    padding-left: rem(24px);
+    font-size: rem(20px);
+    margin-bottom: rem(16px);
+    list-style-type: square;
+    color: $c-gray-30;
+
+    @include isMobile {
+      padding-left: rem(10px);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::marker {
+      color: $c-blue-a5;
+    }
+  }
+}

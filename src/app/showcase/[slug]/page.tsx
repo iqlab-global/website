@@ -32,7 +32,7 @@ const query = (slug: string) => `{
       image,
     }
   },
-  "projects": *[_type == "project" && primarySection.slug.current != "${slug}"] | order(_createdAt desc)[0..2] {
+  "projects": *[_type == "project" && primarySection.slug.current != "${slug}"] | order(_createdAt desc)[0..1] {
     _id,
     primarySection {
       title,
@@ -56,6 +56,11 @@ export default async function Service({ params }: ServiceProps) {
   if (!slug) notFound();
 
   const { project, projects } = await client.fetch(query(slug));
+
+  if (!project) {
+    notFound();
+  }
+
   const { primarySection, secondSection, thirdSection } = project;
 
   const pages = [
@@ -63,12 +68,21 @@ export default async function Service({ params }: ServiceProps) {
     { label: primarySection?.title, href: `/showcase/${slug}` },
   ];
 
+  const hasSecondSection =
+    secondSection &&
+    secondSection.title &&
+    secondSection.body &&
+    (secondSection.image1 || secondSection.image2);
+
+  const hasThirdSection =
+    thirdSection && thirdSection.title && thirdSection.body && thirdSection.image;
+
   return (
     <Page whiteHeader>
       <Breadcrumb pages={pages} />
       <PrimarySection {...primarySection} />
-      <SecondSection {...secondSection} />
-      <ThirdSection {...thirdSection} />
+      {hasSecondSection && <SecondSection {...secondSection} />}
+      {hasThirdSection && <ThirdSection {...thirdSection} />}
       <NextProjectsSection projects={projects} />
     </Page>
   );

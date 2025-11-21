@@ -35,7 +35,9 @@ const query = `{
         _id,
         introSection {
           title,
-          slug,
+          slug {
+            current
+          },
           shortDescription,
           "icon": icon.asset->url
         }

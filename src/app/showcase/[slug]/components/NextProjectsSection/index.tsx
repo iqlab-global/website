@@ -26,8 +26,8 @@ export const NextProjectsSection = ({ projects = [] }: Props) => {
             </div>
           </div>
           <div className={s.projects}>
-            {projects.map((p) => (
-              <ProjectBlock key={p._id} {...p} firstLarge />
+            {projects.map((p, index) => (
+              <ProjectBlock key={p._id} {...p} className={index === 1 ? s.secondLarge : ''} />
             ))}
           </div>
           <Button className={s.mobileBack} href='/showcase'>

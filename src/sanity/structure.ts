@@ -5,12 +5,14 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content Management')
     .items([
-      // S.documentTypeListItem('post').title('Posts'),
-      // S.documentTypeListItem('category').title('Categories'),
-      // S.documentTypeListItem('author').title('Authors'),
+      S.documentTypeListItem('post').title('Posts'),
+      S.documentTypeListItem('category').title('Categories'),
+      S.documentTypeListItem('author').title('Authors'),
       S.documentTypeListItem('contactForm').title('Contact Form'),
       S.documentTypeListItem('project').title('Projects'),
       S.documentTypeListItem('service').title('Services'),
+      S.documentTypeListItem('job').title('Jobs'),
+      S.documentTypeListItem('jobApplication').title('Job Applications'),
       S.divider(),
       S.documentTypeListItem('homePageSingleton')
         .title('Home Page')
@@ -43,6 +45,30 @@ export const structure: StructureResolver = (S) =>
             .id('showcasePageSingleton')
             .schemaType('showcasePageSingleton')
             .documentId('showcasePageSingleton')
+        ),
+      S.documentTypeListItem('openSourcePageSingleton')
+        .title('Open Source Page')
+        .child(
+          S.editor()
+            .id('openSourcePageSingleton')
+            .schemaType('openSourcePageSingleton')
+            .documentId('openSourcePageSingleton')
+        ),
+      S.documentTypeListItem('blogsPageSingleton')
+        .title('Blogs Page')
+        .child(
+          S.editor()
+            .id('blogsPageSingleton')
+            .schemaType('blogsPageSingleton')
+            .documentId('blogsPageSingleton')
+        ),
+      S.documentTypeListItem('careersPageSingleton')
+        .title('Careers Page')
+        .child(
+          S.editor()
+            .id('careersPageSingleton')
+            .schemaType('careersPageSingleton')
+            .documentId('careersPageSingleton')
         ),
       S.divider(),
       S.documentTypeListItem('techCapability').title('Tech Capability Widget'),

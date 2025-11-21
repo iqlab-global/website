@@ -39,8 +39,8 @@
   }
 
   h2 {
-    padding-left:rem(17px);
-    padding-bottom:rem(10px);
+    padding-left: rem(17px);
+    padding-bottom: rem(10px);
     font-size: rem(40px);
     line-height: rem(56px);
     letter-spacing: -0.03em;
@@ -53,14 +53,14 @@
       letter-spacing: 0;
       text-align: center;
       width: auto;
-      margin: auto
+      margin: auto;
     }
   }
 
   .showcaseWrapper {
-    margin-right:rem(20px);
-    padding-left:rem(10px);
-    padding-bottom:rem(10px);
+    margin-right: rem(20px);
+    padding-left: rem(10px);
+    padding-bottom: rem(10px);
 
     @include isMobile {
       display: none;
@@ -81,11 +81,6 @@
   row-gap: rem(120px);
   position: relative;
   z-index: 1000;
-
-  div {
-    padding: rem(10px);
-    padding-left: rem(20px);
-  }
 
   @include isTablet {
     row-gap: rem(60px);

@@ -6,6 +6,7 @@
   }
 
   @include isMobile {
+    margin-top: rem(50px);
     padding-bottom: rem(30px);
   }
 }

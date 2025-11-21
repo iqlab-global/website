@@ -14,6 +14,9 @@ type Props = {
 };
 
 export const SecondSection = ({ title, body, image1, image2 }: Props) => {
+  const image1Url = image1 ? getHotspotImageUrl(image1) : '';
+  const image2Url = image2 ? getHotspotImageUrl(image2) : '';
+
   return (
     <section>
       <Container className={s.wrapper}>
@@ -27,8 +30,8 @@ export const SecondSection = ({ title, body, image1, image2 }: Props) => {
           </div>
         </div>
         <div className={s.images}>
-          <img src={getHotspotImageUrl(image1)} alt={title} />
-          <img src={getHotspotImageUrl(image2)} alt={title} />
+          {image1Url && <img src={image1Url} alt={title} />}
+          {image2Url && <img src={image2Url} alt={title} />}
         </div>
       </Container>
     </section>

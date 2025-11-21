@@ -1,10 +1,39 @@
 'use client';
+import Link from 'next/link';
 import s from './style.module.scss';
 import { Container } from '@/components/Container';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
-export const Positions = () => {
+type Job = {
+  _id: string;
+  introSection: {
+    title: string;
+    slug: { current: string };
+    location?: string;
+    employmentType?: string;
+    experienceLevel?: string;
+  };
+};
+
+type Props = {
+  jobs?: Job[];
+};
+
+export const Positions = ({ jobs = [] }: Props) => {
   const { isMobile } = useWindowSize();
+
+  if (jobs.length === 0) {
+    return (
+      <section>
+        <Container>
+          <div className={s.wrapper}>
+            <h2>All open positions</h2>
+            <p className={s.noJobs}>No open positions at the moment. Please check back later!</p>
+          </div>
+        </Container>
+      </section>
+    );
+  }
   return (
     <section>
       <Container>
@@ -19,124 +48,58 @@ export const Positions = () => {
                     <th>Location</th>
                     <th>Type</th>
                     <th>Experience</th>
-                    <th>Application</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <a href='#' className={s.highlighted}>
-                        Full-Stack Developer
-                      </a>
-                    </td>
-                    <td>
-                      <a href='#'>Remote/On-site</a>
-                    </td>
-                    <td>
-                      <a href='#'>Full-time</a>
-                    </td>
-                    <td>
-                      <a href='#'>Mid-Senior Level</a>
-                    </td>
-                    <td>
-                      <a href='#'>November 30, 2024</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href='#' className={s.highlighted}>
-                        Full-Stack Developer
-                      </a>
-                    </td>
-                    <td>
-                      <a href='#'>Remote/On-site</a>
-                    </td>
-                    <td>
-                      <a href='#'>Full-time</a>
-                    </td>
-                    <td>
-                      <a href='#'>Mid-Senior Level</a>
-                    </td>
-                    <td>
-                      <a href='#'>November 30, 2024</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href='#' className={s.highlighted}>
-                        Full-Stack Developer
-                      </a>
-                    </td>
-                    <td>
-                      <a href='#'>Remote/On-site</a>
-                    </td>
-                    <td>
-                      <a href='#'>Full-time</a>
-                    </td>
-                    <td>
-                      <a href='#'>Mid-Senior Level</a>
-                    </td>
-                    <td>
-                      <a href='#'>November 30, 2024</a>
-                    </td>
-                  </tr>
+                  {jobs.map((job) => {
+                    const { title, slug, location, employmentType, experienceLevel } = job.introSection;
+                    return (
+                      <tr key={job._id}>
+                        <td>
+                          <Link href={`/careers/${slug.current}`} className={s.highlighted}>
+                            {title}
+                          </Link>
+                        </td>
+                        <td>
+                          <Link href={`/careers/${slug.current}`}>
+                            {location || '-'}
+                          </Link>
+                        </td>
+                        <td>
+                          <Link href={`/careers/${slug.current}`}>
+                            {employmentType || '-'}
+                          </Link>
+                        </td>
+                        <td>
+                          <Link href={`/careers/${slug.current}`}>
+                            {experienceLevel || '-'}
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             )}
             {isMobile && (
               <div className={s.mobileList}>
-                <a href='#' className={s.block}>
-                  <h5>Full-Stack Developer</h5>
-                  <div className={s.content}>
-                    <div>
-                      <span>Remote/On-site</span>
-                      <span>Mid-Senior Level</span>
-                    </div>
-                    <div>
-                      <span>Full-time</span>
-                      <span>Nov 25, 2024</span>
-                    </div>
-                  </div>
-                </a>
-                <a href='#' className={s.block}>
-                  <h5>Full-Stack Developer</h5>
-                  <div className={s.content}>
-                    <div>
-                      <span>Remote/On-site</span>
-                      <span>Mid-Senior Level</span>
-                    </div>
-                    <div>
-                      <span>Full-time</span>
-                      <span>Nov 25, 2024</span>
-                    </div>
-                  </div>
-                </a>
-                <a href='#' className={s.block}>
-                  <h5>Full-Stack Developer</h5>
-                  <div className={s.content}>
-                    <div>
-                      <span>Remote/On-site</span>
-                      <span>Mid-Senior Level</span>
-                    </div>
-                    <div>
-                      <span>Full-time</span>
-                      <span>Nov 25, 2024</span>
-                    </div>
-                  </div>
-                </a>
-                <a href='#' className={s.block}>
-                  <h5>Full-Stack Developer</h5>
-                  <div className={s.content}>
-                    <div>
-                      <span>Remote/On-site</span>
-                      <span>Mid-Senior Level</span>
-                    </div>
-                    <div>
-                      <span>Full-time</span>
-                      <span>Nov 25, 2024</span>
-                    </div>
-                  </div>
-                </a>
+                {jobs.map((job) => {
+                  const { title, slug, location, employmentType, experienceLevel } = job.introSection;
+                  return (
+                    <Link href={`/careers/${slug.current}`} className={s.block} key={job._id}>
+                      <h5>{title}</h5>
+                      <div className={s.content}>
+                        <div>
+                          <span>{location || '-'}</span>
+                          <span>{experienceLevel || '-'}</span>
+                        </div>
+                        <div>
+                          <span>{employmentType || '-'}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>

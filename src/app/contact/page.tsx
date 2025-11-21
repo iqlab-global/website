@@ -15,6 +15,7 @@ import { SyntheticEvent, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { emailRegex } from '@/lib/utils';
 import { AddressInfo, ContactInfo } from '@/widgets/Contact';
+import { MESSAGES, VALIDATION_MESSAGES, BUTTON_TEXT } from '@/constants';
 
 const initialValue = {
   firstName: '',
@@ -43,19 +44,19 @@ export default function ContactUs() {
     setSuccess(null);
 
     if (!captchaValue) {
-      setError('CAPTCHA is invalid. Please try again.');
+      setError(MESSAGES.CAPTCHA_INVALID);
       return;
     }
 
     const { firstName, lastName, email, company, message } = formData;
 
     if (!firstName || !lastName || !email || !company || !message) {
-      setError('All fields are required');
+      setError(VALIDATION_MESSAGES.ALL_FIELDS_REQUIRED);
       return;
     }
 
     if (!emailRegex.test(email)) {
-      setError('Email address invalid');
+      setError(VALIDATION_MESSAGES.EMAIL_INVALID);
       return;
     }
 
@@ -71,7 +72,7 @@ export default function ContactUs() {
       const result = await response.json();
 
       if (response.ok) {
-        setSuccess('Message sent successfully!');
+        setSuccess(MESSAGES.MESSAGE_SENT_SUCCESS);
         setFormData(initialValue);
       } else {
         setError(`Error: ${result.error}`);
@@ -164,7 +165,7 @@ export default function ContactUs() {
                       disabled={loading}
                       type='submit'
                     >
-                      {loading ? 'Sending...' : 'Send message'}
+                      {loading ? BUTTON_TEXT.SENDING : BUTTON_TEXT.SEND_MESSAGE}
                     </Button>
                   </div>
                 </form>

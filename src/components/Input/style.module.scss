@@ -13,7 +13,7 @@
     font-family: var(--font-disket-mono);
   }
   input,
-  textarea {
+  select {
     border: 2px solid $c-blue-a5;
     padding-left: rem(20px);
     width: 100%;
@@ -24,7 +24,44 @@
       outline: none;
     }
   }
+  select {
+    padding-right: rem(20px);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23000' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right rem(20px) center;
+    background-size: rem(12px);
+  }
+}
+
+.textareaWrapper {
+  position: relative;
+  height: rem(260px);
+
+  label {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    font-weight: 700;
+    padding: 0 rem(10px);
+    font-size: rem(12px);
+    background-color: $c-white-ff;
+    font-family: var(--font-disket-mono);
+    z-index: 1;
+  }
+
   textarea {
+    border: 2px solid $c-blue-a5;
+    padding-left: rem(20px);
     padding-top: rem(20px);
+    width: 100%;
+    background-color: $c-white-ff;
+    height: 100%;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 }

@@ -24,15 +24,17 @@ export const WhySection = ({ image, icon, body, areas }: Props) => {
     <section className={s.section}>
       <Container>
         <div className={s.wrapper}>
-          <div className={s.image}>
-            <img className={s.icon} src={icon} alt='Icon' />
-            <img className={s.pattern} src={Pattern.src} alt='Pattern' />
-            <img
-              className={s.mainImage}
-              src={getHotspotImageUrl(image)}
-              alt='Services'
-            />
-          </div>
+          {image && (
+            <div className={s.image}>
+              {icon && <img className={s.icon} src={icon} alt='Icon' />}
+              <img className={s.pattern} src={Pattern.src} alt='Pattern' />
+              <img
+                className={s.mainImage}
+                src={getHotspotImageUrl(image)}
+                alt='Services'
+              />
+            </div>
+          )}
           <div className={s.info}>
             <BlockContent content={body} />
           </div>
@@ -41,7 +43,7 @@ export const WhySection = ({ image, icon, body, areas }: Props) => {
           {areas?.map((area) => (
             <div key={area.title} className={s.area}>
               <div>
-                <img src={area.icon} alt={area.title} />
+                {area.icon && <img src={area.icon} alt={area.title} />}
                 <h5>
                   <TwoLineText string={area.title} />
                 </h5>

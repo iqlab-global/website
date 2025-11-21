@@ -8,19 +8,6 @@
   img {
     display: block;
     width: 100%;
-    height: 304px;
     object-fit: cover;
-
-    @include isSmallDesktop {
-      height: 250px;
-    }
-
-    @include isTablet {
-      height: 206px;
-    }
-
-    @include isMobile {
-      height: 120px;
-    }
   }
 }

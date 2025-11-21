@@ -58,34 +58,46 @@
   column-gap: rem(77px);
   row-gap: rem(120px);
 
+  a {
+    @include isSmallDesktop {
+      width: 50%;
+      max-width: 50%;
+
+      > div:first-child {
+        height: auto;
+      }
+    }
+
+    @include isTablet {
+      width: 50%;
+      max-width: 50%;
+
+      > div:first-child {
+        height: auto;
+      }
+    }
+
+    &.secondLarge {
+      @include isDesktop {
+        width: 552px;
+
+        > div:first-child {
+          height: 552px;
+        }
+      }
+    }
+  }
+
   @include isSmallDesktop {
     column-gap: rem(30px);
     max-width: 75%;
     flex-wrap: initial;
-
-    a {
-      width: 50% !important;
-      max-width: 50%;
-
-      :first-child {
-        height: auto !important;
-      }
-    }
   }
 
   @include isTablet {
     row-gap: rem(60px);
     column-gap: rem(25px);
     flex-wrap: initial;
-
-    a {
-      width: 50% !important;
-      max-width: 50%;
-
-      :first-child {
-        height: auto !important;
-      }
-    }
   }
 
   @include isMobile {

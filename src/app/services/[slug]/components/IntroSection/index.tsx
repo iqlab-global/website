@@ -36,14 +36,16 @@ export const IntroSection = ({
               </Link>
             </div>
           </div>
-          <div className={s.image}>
-            <img className={s.pattern} src={Pattern.src} alt='Services' />
-            <img
-              className={s.mainImage}
-              src={getHotspotImageUrl(mainImage)}
-              alt='Services'
-            />
-          </div>
+          {mainImage && (
+            <div className={s.image}>
+              <img className={s.pattern} src={Pattern.src} alt='Services' />
+              <img
+                className={s.mainImage}
+                src={getHotspotImageUrl(mainImage)}
+                alt='Services'
+              />
+            </div>
+          )}
         </div>
       </Container>
     </section>

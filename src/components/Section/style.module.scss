@@ -14,6 +14,12 @@
     align-items: center;
     gap: 10px;
 
+    @include isMobile {
+      flex-direction: column;
+      align-items: start;
+      gap: 0px;
+    }
+
     h2 {
       padding-bottom: rem(60px);
       line-height: rem(56px);
@@ -37,10 +43,7 @@
       flex: 0 0 30%;
       color: black;
       padding-bottom: rem(60px);
-
-      @include isMobile {
-        display: none;
-      }
+      font-size: rem(20px);
     }
   }
 }

@@ -23,6 +23,8 @@ export const PrimarySection = ({
   body,
   mainImage,
 }: Props) => {
+  const mainImageUrl = mainImage ? getHotspotImageUrl(mainImage) : '';
+
   return (
     <section>
       <Container className={s.wrapper}>
@@ -47,11 +49,13 @@ export const PrimarySection = ({
           <h1>{subTitle}</h1>
           <BlockContent content={body} />
         </div>
-        <img
-          className={s.mainImage}
-          src={getHotspotImageUrl(mainImage)}
-          alt={title}
-        />
+        {mainImageUrl && (
+          <img
+            className={s.mainImage}
+            src={mainImageUrl}
+            alt={title}
+          />
+        )}
       </Container>
     </section>
   );

@@ -19,7 +19,7 @@ export const TechSection = async ({ data }: Props) => {
           <div className={s.tech}>
             {data.slice(0, 6).map(({ url, icon, alt }) => (
               <a key={alt} href={url} target='_blank'>
-                <img src={icon} alt={alt} />
+                {icon && <img src={icon} alt={alt} />}
               </a>
             ))}
           </div>

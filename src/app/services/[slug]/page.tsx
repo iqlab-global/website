@@ -76,16 +76,26 @@ export default async function Service({ params }: ServiceProps) {
     { label: introSection?.title, href: `/services/${slug}` },
   ];
 
+  const hasWhySection = whySection?.body || whySection?.areas?.length > 0;
+  const hasHowSection = howSection?.length > 0;
+  const hasCaseStudiesSection =
+    caseStudySection?.title ||
+    caseStudySection?.description ||
+    caseStudySection?.projects?.length > 0;
+  const hasTechSection = techCapabilities?.length > 0;
+
   return (
     <Page whiteHeader>
       <div className={s.blueBackground}>
         <Breadcrumb pages={pages} blueBg />
         <IntroSection {...introSection} />
       </div>
-      <WhySection {...whySection} icon={introSection.icon} />
-      <HowSection data={howSection} />
-      <CaseStudiesSection {...caseStudySection} />
-      <TechSection data={techCapabilities} />
+      {hasWhySection && (
+        <WhySection {...whySection} icon={introSection.icon} />
+      )}
+      {hasHowSection && <HowSection data={howSection} />}
+      {hasCaseStudiesSection && <CaseStudiesSection {...caseStudySection} />}
+      {hasTechSection && <TechSection data={techCapabilities} />}
     </Page>
   );
 }
